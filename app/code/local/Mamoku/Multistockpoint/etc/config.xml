@@ -133,12 +133,7 @@
 	  <multistockpoint module="multistockpoint">
 		<title>Multistockpoint</title>
 		<sort_order>100</sort_order>
-		<children>
-		  <multistockpointbackend module="multistockpoint">
-			<title>Multi Stock Point</title>
-			<sort_order>0</sort_order>
-			<action>admin_multistockpoint/adminhtml_multistockpointbackend</action>
-		  </multistockpointbackend>
+		<children>		  
 		  <stockpoint module="multistockpoint">
 		    <title>Manage Stockpoint</title>
 			<sort_order>0</sort_order>
