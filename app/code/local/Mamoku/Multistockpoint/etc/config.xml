@@ -48,12 +48,6 @@
 			  <stockpoint>
 				<table>stockpoint</table>
 			  </stockpoint>		  
-			  <kelurahan>
-				<table>kelurahan</table>
-			  </kelurahan>		  
-			  <kecamatan>
-				<table>kecamatan</table>
-			  </kecamatan>
         </entities>
 	  </multistockpoint_mysql4>
 			<cataloginventory>
@@ -124,6 +118,16 @@
                     </Mamoku_save_product_data>
                 </observers>
             </catalog_product_save_after>
+           <catalog_product_new_action>
+                <observers>
+                    <Mamoku_save_product_data>
+                        <type>singleton</type>
+                        <class>multistockpoint/observer</class>
+                        <method>initProductTabData</method>
+                    </Mamoku_save_product_data>
+                </observers>
+            </catalog_product_new_action>
+
         </events>  	
 	<menu>
 	  <multistockpoint module="multistockpoint">
@@ -140,16 +144,7 @@
 			<sort_order>0</sort_order>
 			<action>admin_multistockpoint/adminhtml_stockpoint</action>
 		  </stockpoint>
-		  <kelurahan module="multistockpoint">
-		    <title>Manage Kelurahan</title>
-			<sort_order>20</sort_order>
-			<action>admin_multistockpoint/adminhtml_kelurahan</action>
-		  </kelurahan>
-		  <kecamatan module="multistockpoint">
-		    <title>Manage Kecamatan</title>
-			<sort_order>30</sort_order>
-			<action>admin_multistockpoint/adminhtml_kecamatan</action>
-		  </kecamatan>
+
 		</children>
 	  </multistockpoint>
 	</menu>
@@ -171,14 +166,7 @@
 			<title>Manage Stockpoint</title>
 			<sort_order>0</sort_order>
 		  </stockpoint>
-		  <kelurahan translate="title">
-			<title>Manage Kelurahan</title>
-			<sort_order>20</sort_order>
-		  </kelurahan>
-		  <kecamatan translate="title">
-			<title>Manage Kecamatan</title>
-			<sort_order>30</sort_order>
-		  </kecamatan>
+
 			  </children>
 			</multistockpoint>
 		  </children>

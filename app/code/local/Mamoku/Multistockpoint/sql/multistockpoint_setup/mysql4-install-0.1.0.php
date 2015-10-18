@@ -3,22 +3,7 @@ $installer = $this;
 $installer->startSetup();
 $sql=<<<SQLTEXT
 
-
- CREATE TABLE IF NOT EXISTS `kecamatan` (
- `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
- `name` varchar(100) NOT NULL,
- `postal_code` int(5) DEFAULT NULL,
- `kabupaten_kota` varchar(100) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-
-CREATE TABLE IF NOT EXISTS `kelurahan` (
- `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
- `name` varchar(100) NOT NULL,
- `postal_code` int(5) DEFAULT NULL,
- `kecamatan` varchar(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8; 
-
+DROP TABLE IF EXISTS kelurahan,kecamatan;
 
 CREATE TABLE IF NOT EXISTS `stockpoint` (
  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,

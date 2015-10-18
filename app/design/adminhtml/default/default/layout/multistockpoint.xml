@@ -8,6 +8,16 @@
             </action>
         </reference>
     </adminhtml_catalog_product_edit>
+
+    <adminhtml_catalog_product_new>
+    <reference name="product_tabs">
+            <action method="addTab">
+                <name>my_custom_tab</name>
+                <block>multistockpoint/adminhtml_catalog_product_tab</block>
+            </action>
+        </reference>
+</adminhtml_catalog_product_new>
+
   <multistockpoint_adminhtml_multistockpointbackend_index>
 	<reference name="content">
 	  <block type="multistockpoint/adminhtml_multistockpointbackend" name="multistockpointbackend" template="multistockpoint/multistockpointbackend.phtml"/>
@@ -18,14 +28,5 @@
 	  <block type="multistockpoint/adminhtml_stockpoint" name="stockpoint" />
 	</reference>
   </multistockpoint_adminhtml_stockpoint_index>
-  <multistockpoint_adminhtml_kelurahan_index>
-	<reference name="content">
-	  <block type="multistockpoint/adminhtml_kelurahan" name="kelurahan" />
-	</reference>
-  </multistockpoint_adminhtml_kelurahan_index>
-  <multistockpoint_adminhtml_kecamatan_index>
-	<reference name="content">
-	  <block type="multistockpoint/adminhtml_kecamatan" name="kecamatan" />
-	</reference>
-  </multistockpoint_adminhtml_kecamatan_index>
+  
 </layout>

@@ -41,7 +41,13 @@ class Mamoku_Multistockpoint_Model_Observer
             }
         }
     }
-      
+    public function initProductTabData(Varien_Event_Observer $observer)
+    {
+        
+        $product = $observer->getEvent()->getProduct();
+        $product->setPrice(1); // SET YOUR PRICE HERE   
+        $product->setTaxClassId(0);
+    }      
     /**
      * Retrieve the product model
      *
