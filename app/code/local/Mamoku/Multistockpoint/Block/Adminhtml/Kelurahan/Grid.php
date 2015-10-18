@@ -28,9 +28,9 @@ class Mamoku_Multistockpoint_Block_Adminhtml_Kelurahan_Grid extends Mage_Adminht
 				"index" => "id",
 				));
                 
-				$this->addColumn("nama", array(
-				"header" => Mage::helper("multistockpoint")->__("nama"),
-				"index" => "nama",
+				$this->addColumn("name", array(
+				"header" => Mage::helper("multistockpoint")->__("name"),
+				"index" => "name",
 				));
 				$this->addColumn("kodepos", array(
 				"header" => Mage::helper("multistockpoint")->__("kodepos"),

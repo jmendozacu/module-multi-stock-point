@@ -9,11 +9,11 @@ class Mamoku_Multistockpoint_Block_Adminhtml_Kelurahan_Edit_Tab_Form extends Mag
 				$fieldset = $form->addFieldset("multistockpoint_form", array("legend"=>Mage::helper("multistockpoint")->__("Item information")));
 
 				
-						$fieldset->addField("nama", "text", array(
-						"label" => Mage::helper("multistockpoint")->__("nama"),					
+						$fieldset->addField("name", "text", array(
+						"label" => Mage::helper("multistockpoint")->__("name"),					
 						"class" => "required-entry",
 						"required" => true,
-						"name" => "nama",
+						"name" => "name",
 						));
 					
 						$fieldset->addField("kodepos", "text", array(

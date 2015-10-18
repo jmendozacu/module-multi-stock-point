@@ -26,6 +26,7 @@
       </multistockpoint>
     </helpers>
 	<blocks>
+		
 	  <multistockpoint>
 		<class>Mamoku_Multistockpoint_Block</class>
 	  </multistockpoint>
@@ -36,6 +37,7 @@
 			</catalog>
 	</blocks>
 	<models>
+
 	  <multistockpoint>
 		<class>Mamoku_Multistockpoint_Model</class>
 		<resourceModel>multistockpoint_mysql4</resourceModel>
@@ -112,6 +114,17 @@
 	</routers>
   </admin>
   <adminhtml>
+ <events>
+            <catalog_product_save_after>
+                <observers>
+                    <Mamoku_save_product_data>
+                        <type>singleton</type>
+                        <class>multistockpoint/observer</class>
+                        <method>saveProductTabData</method>
+                    </Mamoku_save_product_data>
+                </observers>
+            </catalog_product_save_after>
+        </events>  	
 	<menu>
 	  <multistockpoint module="multistockpoint">
 		<title>Multistockpoint</title>
@@ -174,6 +187,7 @@
 	</acl>
 	<layout>
 	  <updates>
+ 			
 		<multistockpoint>
 		  <file>multistockpoint.xml</file>
 		</multistockpoint>
