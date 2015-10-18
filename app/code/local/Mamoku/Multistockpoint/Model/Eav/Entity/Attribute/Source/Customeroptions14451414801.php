@@ -8,20 +8,17 @@ class Mamoku_Multistockpoint_Model_Eav_Entity_Attribute_Source_Customeroptions14
      */
     public function getAllOptions()
     {
+        // untuk dapetin id dan name kecamatan
+        $_options = array();
+        $connection = Mage::getSingleton('core/resource')->getConnection('core_read');
+        $sql        = "Select * from districts order by name asc";
+        $rows       = $connection->fetchAll($sql); //fetchRow($sql), fetchOne($sql),...        
         if (is_null($this->_options)) {
-            $this->_options = array(
-			
-                array(
-                    "label" => Mage::helper("eav")->__("kecamatan1"),
-                    "value" =>  1
-                ),
-	
-                array(
-                    "label" => Mage::helper("eav")->__("kecamatan2"),
-                    "value" =>  2
-                ),
-	
-            );
+           foreach ($rows as $row) {
+            $o['value']=$row['id'];    
+            $o['label']=$row['name'];
+            $this->_options[]=$o;         
+            }
         }
         return $this->_options;
     }
