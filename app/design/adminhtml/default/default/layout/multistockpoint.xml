@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <multistockpoint_adminhtml_multistockpointbackend_index>
+	<reference name="content">
+	  <block type="multistockpoint/adminhtml_multistockpointbackend" name="multistockpointbackend" template="multistockpoint/multistockpointbackend.phtml"/>
+	</reference>
+  </multistockpoint_adminhtml_multistockpointbackend_index>
+  <multistockpoint_adminhtml_stockpoint_index>
+	<reference name="content">
+	  <block type="multistockpoint/adminhtml_stockpoint" name="stockpoint" />
+	</reference>
+  </multistockpoint_adminhtml_stockpoint_index>
+  <multistockpoint_adminhtml_kelurahan_index>
+	<reference name="content">
+	  <block type="multistockpoint/adminhtml_kelurahan" name="kelurahan" />
+	</reference>
+  </multistockpoint_adminhtml_kelurahan_index>
+  <multistockpoint_adminhtml_kecamatan_index>
+	<reference name="content">
+	  <block type="multistockpoint/adminhtml_kecamatan" name="kecamatan" />
+	</reference>
+  </multistockpoint_adminhtml_kecamatan_index>
+</layout>
