@@ -36,36 +36,27 @@ $used_in_forms[]="adminhtml_checkout";
 		->setData("sort_order", 100)
 		;
         $attribute->save();
-	
-$installer->addAttribute("customer", "priceQty",  array(
-    "type"     => "varchar",
-    "backend"  => "",
-    "label"    => "priceQty",
-    "input"    => "textarea",
-    "source"   => "",
-    "visible"  => false,
-    "required" => false,
-    "default" => "",
-    "frontend" => "",
-    "unique"     => false,
-    "note"       => ""
 
-    ));
-
-        $attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "priceQty");
-
-        
-$used_in_forms=array();
-
-$used_in_forms[]="adminhtml_customer";
-        $attribute->setData("used_in_forms", $used_in_forms)
-        ->setData("is_used_for_customer_segment", true)
-        ->setData("is_system", 0)
-        ->setData("is_user_defined", 1)
-        ->setData("is_visible", 0)
-        ->setData("sort_order", 100)
-        ;
-        $attribute->save();
+$installer->addAttribute('catalog_product', 'price_qty', array(
+  'type'              => 'varchar',
+  'backend'           => '',
+  'frontend'          => '',
+  'label'             => 'price_qty',
+  'input'             => 'select',
+  'class'             => '',
+  'source'            => 'catalog/product_attribute_source_layout',
+  'global'            => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
+  'visible'           => true,
+  'required'          => false,
+  'user_defined'      => false,
+  'default'           => '',
+  'searchable'        => false,
+  'filterable'        => false,
+  'comparable'        => false,
+  'visible_on_front'  => false,
+  'unique'            => false,
+  'group'             => 'Design'
+));
 	
 	
 

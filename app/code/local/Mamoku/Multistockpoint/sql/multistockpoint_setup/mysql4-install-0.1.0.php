@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `kelurahan` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8; 
 
 
-CREATE TABLE IF NOT EXISTS `stock_point` (
+CREATE TABLE IF NOT EXISTS `stockpoint` (
  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
  `code` varchar(25) NOT NULL,
  `name` varchar(100) NOT NULL,
