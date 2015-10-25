@@ -22,19 +22,23 @@ class Mamoku_Multistockpoint_Model_Observer
             self::$_singletonFlag = true;
              
             $product = $observer->getEvent()->getProduct();
+            
+
+            
          
             try {
                 /**
                  * Perform any actions you want here
                  *
                  */
-                $customFieldValue =  $this->_getRequest()->getPost('priceQty');
-
+                $price_qty =  $this->_getRequest()->getPost('price_qty');
+                
+                $product->setPrice_qty($price_qty);
                 /**
                  * Uncomment the line below to save the product
                  *
                  */
-                //$product->save();
+                $product->save();
             }
             catch (Exception $e) {
                 Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
@@ -45,9 +49,19 @@ class Mamoku_Multistockpoint_Model_Observer
     {
         
         $product = $observer->getEvent()->getProduct();
+        Mage::getSingleton("adminhtml/session")->setProductPriceqty($product->getPrice_qty());
         $product->setPrice(1); // SET YOUR PRICE HERE   
         $product->setTaxClassId(0);
-    }      
+    }     
+    public function editProductTabData(Varien_Event_Observer $observer)
+    {
+        
+        $product = $observer->getEvent()->getProduct();
+        Mage::getSingleton("adminhtml/session")->setProductPriceqty($product->getPrice_qty());
+        
+        $product->setPrice(1); // SET YOUR PRICE HERE   
+        $product->setTaxClassId(0);
+    }          
     /**
      * Retrieve the product model
      *

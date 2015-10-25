@@ -6,6 +6,7 @@
     </Mamoku_Multistockpoint>
   </modules>
   <global>
+
   <sales>
 	<order>
 	  <statuses>
@@ -109,6 +110,15 @@
   </admin>
   <adminhtml>
  <events>
+ 	<catalog_product_edit_action>
+                <observers>
+                    <Mamoku_save_product_data>
+                        <type>singleton</type>
+                        <class>multistockpoint/observer</class>
+                        <method>editProductTabData</method>
+                    </Mamoku_save_product_data>
+                </observers>
+            </catalog_product_edit_action>
             <catalog_product_save_after>
                 <observers>
                     <Mamoku_save_product_data>

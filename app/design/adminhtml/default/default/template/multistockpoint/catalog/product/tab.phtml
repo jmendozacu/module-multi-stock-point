@@ -2,8 +2,16 @@
 /**
  * Custom tab template
  */
+$url=$this->helper('core/url')->getCurrentUrl();
+$i=explode('/id/', $url);
+if(count($i)>0){
+	$i=explode('/',$i[1]);
+	$id=$i[0];
+	echo $id;
+	echo Mage::getSingleton("adminhtml/session")->getProductInfo();
+}
 ?>
 <div class="input-field">
- <label for="custom_field">Custom Field</label>
- <input type="text" class="input-text" name="priceQty" id="priceQty" />
+ <label for="custom_field">price_qty</label>
+ <input type="text" class="input-text" name="price_qty" id="price_qty" value="<?php echo Mage::getSingleton("adminhtml/session")->getProductPriceqty(); ?>" />
 </div>
