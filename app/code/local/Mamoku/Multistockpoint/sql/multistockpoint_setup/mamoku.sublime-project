@@ -6,6 +6,9 @@
 		},
 		{
 			"path": "/var/www/html/go-lirik"
+		},
+		{
+			"path": "/home/ali/magento/apps/magento/htdocs"
 		}
 	]
 }
