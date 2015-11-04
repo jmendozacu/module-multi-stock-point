@@ -40,10 +40,6 @@ class Mamoku_Multistockpoint_Block_Adminhtml_Stockpoint_Grid extends Mage_Adminh
 				"header" => Mage::helper("multistockpoint")->__("location"),
 				"index" => "location",
 				));
-				$this->addColumn("area_kecamatan", array(
-				"header" => Mage::helper("multistockpoint")->__("area_kecamatan"),
-				"index" => "area_kecamatan",
-				));
 				$this->addColumn("kodepos", array(
 				"header" => Mage::helper("multistockpoint")->__("kodepos"),
 				"index" => "kodepos",

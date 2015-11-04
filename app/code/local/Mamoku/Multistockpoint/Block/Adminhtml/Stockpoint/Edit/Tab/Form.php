@@ -28,10 +28,6 @@ class Mamoku_Multistockpoint_Block_Adminhtml_Stockpoint_Edit_Tab_Form extends Ma
 						"name" => "location",
 						));
 					
-						$fieldset->addField("area_kecamatan", "text", array(
-						"label" => Mage::helper("multistockpoint")->__("area_kecamatan"),
-						"name" => "area_kecamatan",
-						));
 					
 						$fieldset->addField("address", "textarea", array(
 						"label" => Mage::helper("multistockpoint")->__("address"),

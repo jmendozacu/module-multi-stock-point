@@ -7,11 +7,121 @@ $i=explode('/id/', $url);
 if(count($i)>0){
 	$i=explode('/',$i[1]);
 	$id=$i[0];
-	echo $id;
-	echo Mage::getSingleton("adminhtml/session")->getProductInfo();
+	
+	
 }
+$stockpoints=mage::getModel('multistockpoint/stockpoint')->getCollection();
+$spoints=[];
+foreach ($stockpoints as $stockpoint){
+            //write the collection array as a CSV.
+            $spoint = (object)$stockpoint->toArray();
+            $spoints[]=$spoint;
+            
+         }
+
 ?>
-<div class="input-field">
- <label for="custom_field">price_qty</label>
- <input type="text" class="input-text" name="price_qty" id="price_qty" value="<?php echo Mage::getSingleton("adminhtml/session")->getProductPriceqty(); ?>" />
+
+ <div id="gridpriceqty">
+ </div>
+ <input style="display:none" type="text" class="input-text" name="price_qty" id="priceqty" value="<?php echo Mage::getSingleton("adminhtml/session")->getProductPriceqty(); ?>" />
+<script id="entry-template" type="text/x-handlebars-template">
+<div class="grid">
+    <div class="hor-scroll">
+    <table class="data" id="stockpointGrid_table" cellspacing="0">
+                <colgroup><col class="a-center" width="20">
+                <col width="50">
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                            </colgroup><thead>
+                                    <tr class="headings">
+                                            
+                                            <th><span class="nobr"><a href="#" name="code" title="asc" class="not-sort"><span class="sort-title">code stockpoint</span></a></span></th>
+                                            <th><span class="nobr"><a href="#" name="name" title="asc" class="not-sort"><span class="sort-title">name stockpoint</span></a></span></th>
+                                            <th><span class="nobr"><a href="#" name="pricestock" title="asc" class="not-sort"><span class="sort-title">price</span></a></span></th>
+                                            <th><span class="nobr"><a href="#" name="qtystock" title="asc" class="not-sort"><span class="sort-title">qty</span></a></span></th>                                            
+                                        </tr>
+                                                    
+                            </thead>
+                
+        <tbody>
+        {{#each stockpoints}}
+                            <tr class="even pointer" title="">
+            
+                                                       
+                                    
+            
+                                                        <td class="a-right a-right ">
+                        {{code}}                    </td>
+                                    
+            
+                                                        <td class=" ">
+                        {{name}}                    </td>
+                                    
+            
+                                                        <td class=" ">
+                        <input class="stockprice" style="width:100%" stockid="{{id}}"/>                    </td>
+                                    
+            
+                                                        <td class=" ">
+                        <input class="stockqty" style="width:100%" stockid="{{id}}"/>                    </td>
+                                    
+            
+                                                        
+                                    
+                        </tr>
+                        {{/each}}
+            
+                                    </tbody>
+
+    </table>
+    </div>
 </div>
+</script>
+<script>
+var stockpoints=JSON.parse('<?php echo json_encode($spoints); ?>');
+var source   = foo("#entry-template").html();
+var template = Handlebars.compile(source);
+var html    = template({
+	stockpoints:stockpoints
+});
+
+var data='<?php echo Mage::getSingleton("adminhtml/session")->getProductPriceqty(); ?>'
+if (/^[\],:{}\s]*$/.test(data.replace(/\\["\\\/bfnrtu]/g, '@').
+replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
+replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+
+  //the json is ok
+var obj=JSON.parse(data)
+}else{
+var obj={}
+  //the json is not ok
+
+}
+var newobj={}
+newobj.price={}
+newobj.qty={}
+foo('#gridpriceqty').html(html)
+if(obj.price){
+	for(var itemstock in obj.price){
+		foo('input[stockid='+itemstock+'].stockprice').val(obj.price[itemstock])
+	}
+}
+if(obj.qty){
+	for(var itemstock in obj.qty){
+		foo('input[stockid='+itemstock+'].stockqty').val(obj.qty[itemstock])
+	}
+}
+
+foo('.stockprice').blur(function(){
+	newobj.price[foo(this).attr('stockid')]=foo(this).val()		
+	foo('#priceqty').val(JSON.stringify(newobj))
+})
+foo('.stockqty').blur(function(){
+	newobj.qty[foo(this).attr('stockid')]=foo(this).val()		
+	foo('#priceqty').val(JSON.stringify(newobj))
+})
+
+</script>

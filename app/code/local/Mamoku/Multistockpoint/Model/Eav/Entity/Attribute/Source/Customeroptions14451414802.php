@@ -10,17 +10,7 @@ class Mamoku_Multistockpoint_Model_Eav_Entity_Attribute_Source_Customeroptions14
     {
         // untuk dapetin id dan name kelurahan
         $_options = array();
-        $connection = Mage::getSingleton('core/resource')->getConnection('core_read');
-        $sql        = "Select * from villages order by name asc";
-        $rows       = $connection->fetchAll($sql); //fetchRow($sql), fetchOne($sql),...        
-        if (is_null($this->_options)) {
-           foreach ($rows as $row) {
-            $o['value']=$row['id'];    
-            $o['label']=$row['name'];
-            $this->_options[]=$o;         
-            }
-        }
-        return $this->_options;
+        return $_options;
     }
 
     /**
@@ -31,9 +21,6 @@ class Mamoku_Multistockpoint_Model_Eav_Entity_Attribute_Source_Customeroptions14
     public function getOptionArray()
     {
         $_options = array();
-        foreach ($this->getAllOptions() as $option) {
-            $_options[$option["value"]] = $option["label"];
-        }
         return $_options;
     }
 
@@ -46,11 +33,7 @@ class Mamoku_Multistockpoint_Model_Eav_Entity_Attribute_Source_Customeroptions14
     public function getOptionText($value)
     {
         $options = $this->getAllOptions();
-        foreach ($options as $option) {
-            if ($option["value"] == $value) {
-                return $option["label"];
-            }
-        }
+        
         return false;
     }
 
