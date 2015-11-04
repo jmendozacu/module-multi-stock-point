@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"use",
+				"used_in_forms"
+			],
+			[
 				"fun",
 				"function"
 			],
@@ -31,6 +35,22 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
+			"settings":
+			{
+				"buffer_size": 38020,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ali/magento/apps/magento/htdocs/app/etc/local.xml",
+			"settings":
+			{
+				"buffer_size": 2369,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -64,14 +84,45 @@
 	},
 	"expanded_folders":
 	[
+		"/home/ali/module-multi-stock-point/app",
+		"/home/ali/module-multi-stock-point/app/code",
+		"/home/ali/module-multi-stock-point/app/code/local",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup",
+		"/home/ali/module-multi-stock-point/app/etc/modules",
+		"/var/www/html/go-lirik/vendor",
+		"/home/ali/magento/apps/magento/htdocs",
+		"/home/ali/magento/apps/magento/htdocs/app",
+		"/home/ali/magento/apps/magento/htdocs/app/code",
+		"/home/ali/magento/apps/magento/htdocs/app/code/local",
+		"/home/ali/magento/apps/magento/htdocs/app/code/local/Mamoku",
+		"/home/ali/magento/apps/magento/htdocs/app/code/local/Mamoku/Multistockpoint",
+		"/home/ali/magento/apps/magento/htdocs/app/code/local/Mamoku/Multistockpoint/sql",
+		"/home/ali/magento/apps/magento/htdocs/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup"
 	],
 	"file_history":
 	[
+		"/home/ali/magento/apps/magento/htdocs/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
+		"/home/ali/magento/apps/magento/htdocs/app/etc/local.xml",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
+		"/home/ali/magento/apps/magento/htdocs/app/code/local/Mamoku/Multistockpoint/sql/multistockpoint_setup/mysql4-install-0.1.0.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/etc/config.xml",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-upgrade-0.1.0-0.1.1.php",
 		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/multistockpoint_setup/mysql4-install-0.1.0.php",
+		"/var/www/html/go-lirik/app/Http/routes.php",
+		"/var/www/html/go-lirik/config/database.php",
+		"/var/www/html/go-lirik/config/filesystems.php",
+		"/var/www/html/go-lirik/config/app.php",
+		"/var/www/html/go-lirik/.env",
+		"/var/www/html/go-lirik/public/.htaccess",
+		"/var/www/html/go-lirik/config/session.php",
+		"/var/www/html/go-lirik/config/cache.php",
+		"/var/www/html/go-lirik/public/index.php",
 		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/Customeroptions14451414801.php",
 		"/home/ali/magento/apps/magento/htdocs/sandbox.php",
 		"/home/ali/module-multi-stock-point/js/mamoku.js",
-		"/home/ali/magento/apps/magento/htdocs/app/etc/local.xml",
 		"/home/ali/module-multi-stock-point/app/design/frontend/default/default/layout/local.xml",
 		"/home/ali/module-multi-stock-point/app/design/adminhtml/default/default/layout/local.xml",
 		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/Customeroptions14451414802.php",
@@ -80,10 +131,7 @@
 		"/home/ali/magento/apps/magento/htdocs/app/design/adminhtml/default/default/layout/main.xml",
 		"/home/ali/module-multi-stock-point/app/design/adminhtml/default/default/layout/multistockpoint.xml",
 		"/home/ali/magento/apps/magento/htdocs/app/design/adminhtml/default/default/layout/admin.xml",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/etc/config.xml",
-		"/home/ali/magento/apps/magento/htdocs/app/code/local/Mamoku/Multistockpoint/sql/multistockpoint_setup/mysql4-install-0.1.0.php",
 		"/home/ali/module-multi-stock-point/app/etc/modules/Mamoku_Multistockpoint.xml",
-		"/home/ali/magento/apps/magento/htdocs/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
 		"/home/ali/Downloads/pilpres.sql",
 		"/var/www/html/go-lirik/index.php",
 		"/home/ali/magento/apps/magento/htdocs/app/etc/modules/Mamoku_Multistockpoint.xml",
@@ -93,13 +141,14 @@
 	],
 	"find":
 	{
-		"height": 25.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -107,6 +156,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"textarea",
+			"stock",
+			"$environtment",
+			"environt",
+			"envir",
 			"aler",
 			"alert",
 			"calend",
@@ -160,8 +214,69 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 38020,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								37210,
+								37210
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 18530.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/ali/magento/apps/magento/htdocs/app/etc/local.xml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2369,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1621,
+								1621
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 249.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -242,7 +357,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 383.0,
+	"side_bar_width": 368.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
