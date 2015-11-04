@@ -61,7 +61,7 @@ $installer->addAttribute('catalog_product', 'price_qty', array(
 
 
 $installer->addAttribute("customer", "kecamatan",  array(
-    "type"     => "int",
+    "type"     => "varchar",
     "backend"  => "",
     "label"    => "kecamatan",
     "input"    => "text",
@@ -98,7 +98,7 @@ $used_in_forms[]="adminhtml_checkout";
 
 
 $installer->addAttribute("customer", "kelurahan",  array(
-    "type"     => "int",
+    "type"     => "varchar",
     "backend"  => "",
     "label"    => "kelurahan",
     "input"    => "text",
@@ -168,7 +168,8 @@ $installer->addAttribute("customer", "stockpoint_id",  array(
     "type"     => "int",
     "backend"  => "",
     "label"    => "stockpoint_id",
-    "input"    => "text",
+    "input"    => "select",
+    "source"   => "multistockpoint/eav_entity_attribute_source_customeroptions14451414802",
     "visible"  => true,
     "required" => false,
     "default" => "",
@@ -509,7 +510,7 @@ $used_in_forms[]="adminhtml_checkout";
     ;
 $attribute->save();
 $installer->addAttribute("customer", "verification_pull_date_time",  array(
-    "type"     => "date",
+    "type"     => "varchar",
     "backend"  => "",
     "label"    => "verification_pull_date_time",
     "input"    => "date",
@@ -561,7 +562,7 @@ $used_in_forms[]="adminhtml_checkout";
     ;
 $attribute->save();
 $installer->addAttribute("customer", "imo_update_date_time",  array(
-    "type"     => "date",
+    "type"     => "varchar",
     "backend"  => "",
     "label"    => "imo_update_date_time",
     "input"    => "date",    
@@ -1081,7 +1082,7 @@ $installer->addAttribute('catalog_product', 'tipe_proses', array(
   'unique'            => false
 ));
 $installer->addAttribute('catalog_product', 'last_synchronize_time', array(
-  'type'              => 'date',
+  'type'              => 'varchar',
   'backend'           => '',
   'frontend'          => '',
   'label'             => 'Last Sinchronize Time',
