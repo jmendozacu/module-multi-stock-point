@@ -1,5 +1,5 @@
 <?php
-  
+
 class Mamoku_Multistockpoint_Model_Observer
 {
     /**
@@ -11,7 +11,7 @@ class Mamoku_Multistockpoint_Model_Observer
 
     /**
      * This method will run when the product is saved from the Magento Admin
-     * Use this function to update the product model, process the 
+     * Use this function to update the product model, process the
      * data or anything you like
      *
      * @param Varien_Event_Observer $observer
@@ -20,19 +20,19 @@ class Mamoku_Multistockpoint_Model_Observer
     {
         if (!self::$_singletonFlag) {
             self::$_singletonFlag = true;
-             
-            $product = $observer->getEvent()->getProduct();
-            
 
-            
-         
+            $product = $observer->getEvent()->getProduct();
+
+
+
+
             try {
                 /**
                  * Perform any actions you want here
                  *
                  */
                 $price_qty =  $this->_getRequest()->getPost('price_qty');
-                
+
                 $product->setPrice_qty($price_qty);
                 /**
                  * Uncomment the line below to save the product
@@ -47,21 +47,21 @@ class Mamoku_Multistockpoint_Model_Observer
     }
     public function initProductTabData(Varien_Event_Observer $observer)
     {
-        
+
         $product = $observer->getEvent()->getProduct();
         Mage::getSingleton("adminhtml/session")->setProductPriceqty($product->getPrice_qty());
-        $product->setPrice(1); // SET YOUR PRICE HERE   
+        $product->setPrice(1); // SET YOUR PRICE HERE
         $product->setTaxClassId(0);
-    }     
+    }
     public function editProductTabData(Varien_Event_Observer $observer)
     {
-        
+
         $product = $observer->getEvent()->getProduct();
         Mage::getSingleton("adminhtml/session")->setProductPriceqty($product->getPrice_qty());
-        
-        $product->setPrice(1); // SET YOUR PRICE HERE   
+
+        $product->setPrice(1); // SET YOUR PRICE HERE
         $product->setTaxClassId(0);
-    }          
+    }
     /**
      * Retrieve the product model
      *
@@ -71,7 +71,7 @@ class Mamoku_Multistockpoint_Model_Observer
     {
         return Mage::registry('product');
     }
-     
+
     /**
      * Shortcut to getRequest
      *
