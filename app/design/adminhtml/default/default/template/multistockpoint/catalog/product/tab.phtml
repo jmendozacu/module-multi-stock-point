@@ -7,8 +7,8 @@ $i=explode('/id/', $url);
 if(count($i)>0){
 	$i=explode('/',$i[1]);
 	$id=$i[0];
-	
-	
+
+
 }
 $stockpoints=mage::getModel('multistockpoint/stockpoint')->getCollection();
 $spoints=[];
@@ -16,7 +16,7 @@ foreach ($stockpoints as $stockpoint){
             //write the collection array as a CSV.
             $spoint = (object)$stockpoint->toArray();
             $spoints[]=$spoint;
-            
+
          }
 
 ?>
@@ -37,43 +37,43 @@ foreach ($stockpoints as $stockpoint){
                 <col>
                             </colgroup><thead>
                                     <tr class="headings">
-                                            
+
                                             <th><span class="nobr"><a href="#" name="code" title="asc" class="not-sort"><span class="sort-title">code stockpoint</span></a></span></th>
                                             <th><span class="nobr"><a href="#" name="name" title="asc" class="not-sort"><span class="sort-title">name stockpoint</span></a></span></th>
                                             <th><span class="nobr"><a href="#" name="pricestock" title="asc" class="not-sort"><span class="sort-title">price</span></a></span></th>
-                                            <th><span class="nobr"><a href="#" name="qtystock" title="asc" class="not-sort"><span class="sort-title">qty</span></a></span></th>                                            
+                                            <th><span class="nobr"><a href="#" name="qtystock" title="asc" class="not-sort"><span class="sort-title">qty</span></a></span></th>
                                         </tr>
-                                                    
+
                             </thead>
-                
+
         <tbody>
         {{#each stockpoints}}
                             <tr class="even pointer" title="">
-            
-                                                       
-                                    
-            
+
+
+
+
                                                         <td class="a-right a-right ">
                         {{code}}                    </td>
-                                    
-            
+
+
                                                         <td class=" ">
                         {{name}}                    </td>
-                                    
-            
+
+
                                                         <td class=" ">
                         <input class="stockprice" style="width:100%" stockid="{{id}}"/>                    </td>
-                                    
-            
+
+
                                                         <td class=" ">
                         <input class="stockqty" style="width:100%" stockid="{{id}}"/>                    </td>
-                                    
-            
-                                                        
-                                    
+
+
+
+
                         </tr>
                         {{/each}}
-            
+
                                     </tbody>
 
     </table>
@@ -89,7 +89,7 @@ var html    = template({
 });
 
 var data='<?php echo Mage::getSingleton("adminhtml/session")->getProductPriceqty(); ?>'
-if (/^[\],:{}\s]*$/.test(data.replace(/\\["\\\/bfnrtu]/g, '@').
+if (data!='' &&  /^[\],:{}\s]*$/.test(data.replace(/\\["\\\/bfnrtu]/g, '@').
 replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
 replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
 
@@ -116,11 +116,11 @@ if(obj.qty){
 }
 
 foo('.stockprice').blur(function(){
-	newobj.price[foo(this).attr('stockid')]=foo(this).val()		
+	newobj.price[foo(this).attr('stockid')]=foo(this).val()
 	foo('#priceqty').val(JSON.stringify(newobj))
 })
 foo('.stockqty').blur(function(){
-	newobj.qty[foo(this).attr('stockid')]=foo(this).val()		
+	newobj.qty[foo(this).attr('stockid')]=foo(this).val()
 	foo('#priceqty').val(JSON.stringify(newobj))
 })
 

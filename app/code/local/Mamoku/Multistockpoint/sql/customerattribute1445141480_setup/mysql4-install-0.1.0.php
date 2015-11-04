@@ -20,7 +20,7 @@ $installer->addAttribute("customer", "photo",  array(
 
         $attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "photo");
 
-        
+
 $used_in_forms=array();
 
 $used_in_forms[]="adminhtml_customer";
@@ -57,15 +57,15 @@ $installer->addAttribute('catalog_product', 'price_qty', array(
   'unique'            => false,
   'group'             => 'Design'
 ));
-	
-	
+
+
 
 $installer->addAttribute("customer", "kecamatan",  array(
     "type"     => "int",
     "backend"  => "",
     "label"    => "kecamatan",
     "input"    => "text",
-    
+
     "visible"  => true,
     "required" => true,
     "default" => "",
@@ -77,7 +77,7 @@ $installer->addAttribute("customer", "kecamatan",  array(
 
         $attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "kecamatan");
 
-        
+
 $used_in_forms=array();
 
 $used_in_forms[]="adminhtml_customer";
@@ -93,15 +93,15 @@ $used_in_forms[]="adminhtml_checkout";
 		->setData("sort_order", 100)
 		;
         $attribute->save();
-	
-	
-	
+
+
+
 
 $installer->addAttribute("customer", "kelurahan",  array(
     "type"     => "int",
     "backend"  => "",
     "label"    => "kelurahan",
-    "input"    => "text",    
+    "input"    => "text",
     "visible"  => true,
     "required" => true,
     "default" => "",
@@ -113,7 +113,7 @@ $installer->addAttribute("customer", "kelurahan",  array(
 
         $attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "kelurahan");
 
-        
+
 $used_in_forms=array();
 
 $used_in_forms[]="adminhtml_customer";
@@ -129,9 +129,9 @@ $used_in_forms[]="adminhtml_checkout";
 		->setData("sort_order", 100)
 		;
         $attribute->save();
-	
-	
-	
+
+
+
 
 $installer->addAttribute("customer", "is_verified",  array(
     "type"     => "int",
@@ -150,7 +150,7 @@ $installer->addAttribute("customer", "is_verified",  array(
 
         $attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "is_verified");
 
-        
+
 $used_in_forms=array();
 
 $used_in_forms[]="adminhtml_customer";
@@ -162,14 +162,13 @@ $used_in_forms[]="adminhtml_checkout";
 		->setData("is_visible", 1)
 		->setData("sort_order", 100)
 		;
-        $attribute->save();	
+        $attribute->save();
 
 $installer->addAttribute("customer", "stockpoint_id",  array(
     "type"     => "int",
     "backend"  => "",
     "label"    => "stockpoint_id",
     "input"    => "text",
-    "source"   => "multistockpoint/eav_entity_attribute_source_customeroptions14451414802",
     "visible"  => true,
     "required" => false,
     "default" => "",
@@ -177,8 +176,8 @@ $installer->addAttribute("customer", "stockpoint_id",  array(
     "unique"     => false,
     "note"       => ""
 
-  )); 
-$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "stockpoint_id"); 
+  ));
+$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "stockpoint_id");
 $used_in_forms = array();
 $used_in_forms[]="adminhtml_customer";
 $used_in_forms[]="adminhtml_checkout";
@@ -195,7 +194,8 @@ $installer->addAttribute("customer", "outlet_type",  array(
     "backend"  => "",
     "label"    => "outlet_type",
     "input"    => "select",
-    "source"   => "multistockpoint/eav_entity_attribute_source_customeroptions14451414802",
+    "source"   => "",
+    'option' => array ( 'value' => array('optionone' => array('First Option'), 'optiontwo' => array('Second Option'), 'optionthree' => array('Third Option'), ) ),
     "visible"  => true,
     "required" => false,
     "default" => "",
@@ -203,15 +203,15 @@ $installer->addAttribute("customer", "outlet_type",  array(
     "unique"     => false,
     "note"       => ""
 
-  )); 
-$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "outlet_type"); 
+  ));
+$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "outlet_type");
 $attribute->save();
 $installer->addAttribute("customer", "outlet_owner",  array(
     "type"     => "varchar",
     "backend"  => "",
     "label"    => "outlet_owner",
     "input"    => "text",
-    "source"   => "multistockpoint/eav_entity_attribute_source_customeroptions14451414802",
+    "source"   => "",
     "visible"  => true,
     "required" => false,
     "default" => "",
@@ -219,8 +219,8 @@ $installer->addAttribute("customer", "outlet_owner",  array(
     "unique"     => false,
     "note"       => ""
 
-  )); 
-$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "outlet_owner"); 
+  ));
+$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "outlet_owner");
 $used_in_forms = array();
 $used_in_forms[]="adminhtml_customer";
 $used_in_forms[]="adminhtml_checkout";
@@ -237,7 +237,6 @@ $installer->addAttribute("customer", "outlet_name",  array(
     "backend"  => "",
     "label"    => "outlet_name",
     "input"    => "text",
-    "source"   => "multistockpoint/eav_entity_attribute_source_customeroptions14451414802",
     "visible"  => true,
     "required" => false,
     "default" => "",
@@ -245,8 +244,8 @@ $installer->addAttribute("customer", "outlet_name",  array(
     "unique"     => false,
     "note"       => ""
 
-  )); 
-$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "outlet_name"); 
+  ));
+$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "outlet_name");
 $used_in_forms = array();
 $used_in_forms[]="adminhtml_customer";
 $used_in_forms[]="adminhtml_checkout";
@@ -263,7 +262,6 @@ $installer->addAttribute("customer", "ktp_number",  array(
     "backend"  => "",
     "label"    => "ktp_number",
     "input"    => "text",
-    "source"   => "multistockpoint/eav_entity_attribute_source_customeroptions14451414802",
     "visible"  => true,
     "required" => false,
     "default" => "",
@@ -271,8 +269,8 @@ $installer->addAttribute("customer", "ktp_number",  array(
     "unique"     => false,
     "note"       => ""
 
-  )); 
-$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "ktp_number"); 
+  ));
+$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "ktp_number");
 $used_in_forms = array();
 $used_in_forms[]="adminhtml_customer";
 $used_in_forms[]="adminhtml_checkout";
@@ -288,8 +286,8 @@ $installer->addAttribute("customer", "npwp_type",  array(
     "type"     => "varchar",
     "backend"  => "",
     "label"    => "npwp_type",
-    "input"    => "text",
-    "source"   => "multistockpoint/eav_entity_attribute_source_customeroptions14451414802",
+    "input"    => "select",
+    'option' => array ( 'value' => array('Perseorangan' => array('Perseorangan'), 'Perusahaan' => array('Perusahaan') ) ),
     "visible"  => true,
     "required" => false,
     "default" => "",
@@ -297,8 +295,8 @@ $installer->addAttribute("customer", "npwp_type",  array(
     "unique"     => false,
     "note"       => ""
 
-  )); 
-$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "npwp_type"); 
+  ));
+$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "npwp_type");
 $used_in_forms = array();
 $used_in_forms[]="adminhtml_customer";
 $used_in_forms[]="adminhtml_checkout";
@@ -315,7 +313,6 @@ $installer->addAttribute("customer", "npwp_number",  array(
     "backend"  => "",
     "label"    => "npwp_number",
     "input"    => "text",
-    "source"   => "multistockpoint/eav_entity_attribute_source_customeroptions14451414802",
     "visible"  => true,
     "required" => false,
     "default" => "",
@@ -323,8 +320,8 @@ $installer->addAttribute("customer", "npwp_number",  array(
     "unique"     => false,
     "note"       => ""
 
-  )); 
-$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "npwp_number"); 
+  ));
+$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "npwp_number");
 $used_in_forms = array();
 $used_in_forms[]="adminhtml_customer";
 $used_in_forms[]="adminhtml_checkout";
@@ -341,7 +338,6 @@ $installer->addAttribute("customer", "npwp_name",  array(
     "backend"  => "",
     "label"    => "npwp_name",
     "input"    => "text",
-    "source"   => "multistockpoint/eav_entity_attribute_source_customeroptions14451414802",
     "visible"  => true,
     "required" => false,
     "default" => "",
@@ -349,8 +345,8 @@ $installer->addAttribute("customer", "npwp_name",  array(
     "unique"     => false,
     "note"       => ""
 
-  )); 
-$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "npwp_name"); 
+  ));
+$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "npwp_name");
 $used_in_forms = array();
 $used_in_forms[]="adminhtml_customer";
 $used_in_forms[]="adminhtml_checkout";
@@ -367,7 +363,6 @@ $installer->addAttribute("customer", "npwp_address",  array(
     "backend"  => "",
     "label"    => "npwp_address",
     "input"    => "text",
-    "source"   => "multistockpoint/eav_entity_attribute_source_customeroptions14451414802",
     "visible"  => true,
     "required" => false,
     "default" => "",
@@ -375,8 +370,8 @@ $installer->addAttribute("customer", "npwp_address",  array(
     "unique"     => false,
     "note"       => ""
 
-  )); 
-$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "npwp_address"); 
+  ));
+$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "npwp_address");
 $used_in_forms = array();
 $used_in_forms[]="adminhtml_customer";
 $used_in_forms[]="adminhtml_checkout";
@@ -393,7 +388,6 @@ $installer->addAttribute("customer", "mobile_number",  array(
     "backend"  => "",
     "label"    => "mobile_number",
     "input"    => "text",
-    "source"   => "multistockpoint/eav_entity_attribute_source_customeroptions14451414802",
     "visible"  => true,
     "required" => false,
     "default" => "",
@@ -401,8 +395,8 @@ $installer->addAttribute("customer", "mobile_number",  array(
     "unique"     => false,
     "note"       => ""
 
-  )); 
-$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "mobile_number"); 
+  ));
+$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "mobile_number");
 $used_in_forms = array();
 $used_in_forms[]="adminhtml_customer";
 $used_in_forms[]="adminhtml_checkout";
@@ -419,7 +413,6 @@ $installer->addAttribute("customer", "email_cc",  array(
     "backend"  => "",
     "label"    => "email_cc",
     "input"    => "text",
-    "source"   => "multistockpoint/eav_entity_attribute_source_customeroptions14451414802",
     "visible"  => true,
     "required" => false,
     "default" => "",
@@ -427,8 +420,8 @@ $installer->addAttribute("customer", "email_cc",  array(
     "unique"     => false,
     "note"       => ""
 
-  )); 
-$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "email_cc"); 
+  ));
+$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "email_cc");
 $used_in_forms = array();
 $used_in_forms[]="adminhtml_customer";
 $used_in_forms[]="adminhtml_checkout";
@@ -445,7 +438,6 @@ $installer->addAttribute("customer", "latitude",  array(
     "backend"  => "",
     "label"    => "latitude",
     "input"    => "text",
-    "source"   => "multistockpoint/eav_entity_attribute_source_customeroptions14451414802",
     "visible"  => true,
     "required" => false,
     "default" => "",
@@ -453,8 +445,8 @@ $installer->addAttribute("customer", "latitude",  array(
     "unique"     => false,
     "note"       => ""
 
-  )); 
-$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "latitude"); 
+  ));
+$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "latitude");
 $used_in_forms = array();
 $used_in_forms[]="adminhtml_customer";
 $used_in_forms[]="adminhtml_checkout";
@@ -471,7 +463,6 @@ $installer->addAttribute("customer", "longitude",  array(
     "backend"  => "",
     "label"    => "longitude",
     "input"    => "text",
-    "source"   => "multistockpoint/eav_entity_attribute_source_customeroptions14451414802",
     "visible"  => true,
     "required" => false,
     "default" => "",
@@ -479,8 +470,8 @@ $installer->addAttribute("customer", "longitude",  array(
     "unique"     => false,
     "note"       => ""
 
-  )); 
-$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "longitude"); 
+  ));
+$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "longitude");
 $used_in_forms = array();
 $used_in_forms[]="adminhtml_customer";
 $used_in_forms[]="adminhtml_checkout";
@@ -497,7 +488,6 @@ $installer->addAttribute("customer", "note_verification_pull_flag",  array(
     "backend"  => "",
     "label"    => "note_verification_pull_flag",
     "input"    => "text",
-    "source"   => "multistockpoint/eav_entity_attribute_source_customeroptions14451414802",
     "visible"  => true,
     "required" => false,
     "default" => "",
@@ -505,8 +495,8 @@ $installer->addAttribute("customer", "note_verification_pull_flag",  array(
     "unique"     => false,
     "note"       => ""
 
-  )); 
-$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "note_verification_pull_flag"); 
+  ));
+$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "note_verification_pull_flag");
 $used_in_forms = array();
 $used_in_forms[]="adminhtml_customer";
 $used_in_forms[]="adminhtml_checkout";
@@ -523,7 +513,6 @@ $installer->addAttribute("customer", "verification_pull_date_time",  array(
     "backend"  => "",
     "label"    => "verification_pull_date_time",
     "input"    => "date",
-    "source"   => "multistockpoint/eav_entity_attribute_source_customeroptions14451414802",
     "visible"  => true,
     "required" => false,
     "default" => "",
@@ -531,8 +520,8 @@ $installer->addAttribute("customer", "verification_pull_date_time",  array(
     "unique"     => false,
     "note"       => ""
 
-  )); 
-$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "verification_pull_date_time"); 
+  ));
+$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "verification_pull_date_time");
 $used_in_forms = array();
 $used_in_forms[]="adminhtml_customer";
 $used_in_forms[]="adminhtml_checkout";
@@ -549,7 +538,8 @@ $installer->addAttribute("customer", "imo_status",  array(
     "backend"  => "",
     "label"    => "imo_status",
     "input"    => "select",
-    "source"   => "multistockpoint/eav_entity_attribute_source_customeroptions14451414802",
+    "source"   => "",
+    'option' => array ( 'value' => array('option1' => array('option2'), 'option2' => array('option2') ) ),
     "visible"  => true,
     "required" => false,
     "default" => "",
@@ -557,8 +547,8 @@ $installer->addAttribute("customer", "imo_status",  array(
     "unique"     => false,
     "note"       => ""
 
-  )); 
-$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "imo_status"); 
+  ));
+$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "imo_status");
 $used_in_forms = array();
 $used_in_forms[]="adminhtml_customer";
 $used_in_forms[]="adminhtml_checkout";
@@ -574,8 +564,7 @@ $installer->addAttribute("customer", "imo_update_date_time",  array(
     "type"     => "date",
     "backend"  => "",
     "label"    => "imo_update_date_time",
-    "input"    => "date",
-    "source"   => "multistockpoint/eav_entity_attribute_source_customeroptions14451414802",
+    "input"    => "date",    
     "visible"  => true,
     "required" => false,
     "default" => "",
@@ -583,8 +572,8 @@ $installer->addAttribute("customer", "imo_update_date_time",  array(
     "unique"     => false,
     "note"       => ""
 
-  )); 
-$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "imo_update_date_time"); 
+  ));
+$attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "imo_update_date_time");
 $used_in_forms = array();
 $used_in_forms[]="adminhtml_customer";
 $used_in_forms[]="adminhtml_checkout";
@@ -1112,4 +1101,3 @@ $installer->addAttribute('catalog_product', 'last_synchronize_time', array(
 ));
 
 $installer->endSetup();
-	 

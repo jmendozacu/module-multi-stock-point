@@ -1,5 +1,5 @@
 <?php
-class Mamoku_Multistockpoint_Model_Eav_Entity_Attribute_Source_Customeroptions14451414802 extends Mage_Eav_Model_Entity_Attribute_Source_Abstract
+class Mamoku_Multistockpoint_Model_Eav_Entity_Attribute_Source_Customeroptions14451414801 extends Mage_Eav_Model_Entity_Attribute_Source_Abstract
 {
     /**
      * Retrieve all options array
@@ -8,9 +8,19 @@ class Mamoku_Multistockpoint_Model_Eav_Entity_Attribute_Source_Customeroptions14
      */
     public function getAllOptions()
     {
-        // untuk dapetin id dan name kelurahan
+        // untuk dapetin id dan name kecamatan
         $_options = array();
-        return $_options;
+        $connection = Mage::getSingleton('core/resource')->getConnection('core_read');
+        $sql        = "Select * from stockpoint order by code asc";
+        $rows       = $connection->fetchAll($sql); //fetchRow($sql), fetchOne($sql),...
+        if (is_null($this->_options)) {
+           foreach ($rows as $row) {
+            $o['value']=$row['id'];
+            $o['label']=$row['name'];
+            $this->_options[]=$o;
+            }
+        }
+        return $this->_options;
     }
 
     /**
@@ -21,6 +31,9 @@ class Mamoku_Multistockpoint_Model_Eav_Entity_Attribute_Source_Customeroptions14
     public function getOptionArray()
     {
         $_options = array();
+        foreach ($this->getAllOptions() as $option) {
+            $_options[$option["value"]] = $option["label"];
+        }
         return $_options;
     }
 
@@ -33,7 +46,11 @@ class Mamoku_Multistockpoint_Model_Eav_Entity_Attribute_Source_Customeroptions14
     public function getOptionText($value)
     {
         $options = $this->getAllOptions();
-        
+        foreach ($options as $option) {
+            if ($option["value"] == $value) {
+                return $option["label"];
+            }
+        }
         return false;
     }
 
@@ -86,5 +103,3 @@ class Mamoku_Multistockpoint_Model_Eav_Entity_Attribute_Source_Customeroptions14
             ->getFlatUpdateSelect($this->getAttribute(), $store);
     }
 }
-
-			 
