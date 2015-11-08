@@ -50,15 +50,29 @@ if(window.location.href.indexOf('catalog_product')>0){
 	// foo('#product_info_tabs a[title=Inventory]').hide()
 	foo('#product_info_tabs').prepend(foo('#product_info_tabs_my_custom_tab').parents('li'))
 }
-
-var str='<li><label for="#key" class="required"><em>*</em>#key</label><div class="input-box"><input name="#key" id="#key" value="" title="#key" class="input-text required-entry" type="text"></div></li>'
-var xfields=['outlet_name','address','country_id','region_id','city','kecamatan','kelurahan','postcode','stockpoint_id','outlet_type','outlet_owner','ktp_number','company_name','npwp_type','npwp_number','npwp_name','npwp_address','mobile_number','telephone','fax','email','email_cc']
-var addElement=[]
-xfields.forEach(function(field){
-	addElement.push(str.replaceAll('#key',field))
-})
-foo(addElement.join('')).insertAfter('#email_address')
-console.log(foo('#email_address'))
-
+	if(window.location.href.indexOf('customer/account/create')>0){
+		var input='<li><label for="#key" class="required"><em>*</em>#key</label><div class="input-box"><input name="#key" id="#key" value="" title="#key" class="input-text required-entry" type="text"></div></li>'
+		var select='<li><label for="#id" class="required"><em>*</em>#label</label><div class="input-box"><select name="#id" id="#id" value="" title="#label" class="required-entry" ></select></div></li>'
+		var xfields=[{id:'stockpoint_id',label:'stockpoint'}]
+		var addElement=[]
+		xfields.forEach(function(field){
+			addElement.push(select.replaceAll('#label',field.label).replaceAll('#id',field.id))
+		})
+		foo(addElement.join('')).insertAfter('#email_address')
+		
+		foo.getJSON('/stockpoint.php',function(res){
+			res.forEach(function(option){
+				foo('#stockpoint_id').append('<option value="'+option.value+'">'+option.label+'</option>')			
+			})
+		})
+		
+		var xfields=['kecamatan','kelurahan']
+		var addElement=[]
+		xfields.forEach(function(field){
+			addElement.push(input.replaceAll('#key',field))
+		})
+		foo(addElement.join('')).insertAfter('#email_address')
+		console.log(foo('#email_address'))
+	}
 })
 },500)
