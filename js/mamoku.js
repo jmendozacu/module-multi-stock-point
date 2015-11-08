@@ -65,8 +65,8 @@ if(window.location.href.indexOf('catalog_product')>0){
 				foo('#stockpoint_id').append('<option value="'+option.value+'">'+option.label+'</option>')			
 			})
 		})
-		
-		var xfields=['kecamatan','kelurahan']
+		var xfields=['outlet_name','address','country_id','region_id','city','kecamatan','kelurahan','postcode','stockpoint_id','outlet_type','outlet_owner','ktp_number','company_name','npwp_type','npwp_number','npwp_name','npwp_address','mobile_number','telephone','fax','email','email_cc']
+		//var xfields=['kecamatan','kelurahan']
 		var addElement=[]
 		xfields.forEach(function(field){
 			addElement.push(input.replaceAll('#key',field))
