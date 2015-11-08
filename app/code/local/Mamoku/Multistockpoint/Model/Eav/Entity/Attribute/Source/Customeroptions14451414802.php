@@ -1,5 +1,5 @@
 <?php
-class Mamoku_Multistockpoint_Model_Eav_Entity_Attribute_Source_Customeroptions14451414801 extends Mage_Eav_Model_Entity_Attribute_Source_Abstract
+class Mamoku_Multistockpoint_Model_Eav_Entity_Attribute_Source_customeroptions14451414802 extends Mage_Eav_Model_Entity_Attribute_Source_Abstract
 {
     /**
      * Retrieve all options array
