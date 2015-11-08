@@ -3,9 +3,11 @@ class Mamoku_Multistockpoint_Model_Product extends Mage_Catalog_Model_Product
 {
     public function getPrice()
     {
+        echo "sss";
          if(Mage::getSingleton('customer/session')->isLoggedIn()){
              $customer=Mage::getSingleton('customer/session')->getCustomer();
              //print             
+             print_r($customer);
              $obj=json_decode(parent::getPrice_qty(),true);             
              if($obj['price']){
              	if(intval($obj['price'][$customer->getStockpoint_id()])>0){
