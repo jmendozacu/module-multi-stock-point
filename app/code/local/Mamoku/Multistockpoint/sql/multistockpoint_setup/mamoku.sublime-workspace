@@ -36,34 +36,10 @@
 	"buffers":
 	[
 		{
-			"file": "/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
+			"file": "/var/www/html/magento/var/session/sess_5ckm3ipmfd5hebr4o4bg4d8h54",
 			"settings":
 			{
-				"buffer_size": 36768,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/ali/module-multi-stock-point/js/mamoku.js",
-			"settings":
-			{
-				"buffer_size": 157933,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/ali/magento/apps/magento/htdocs/js/mamoku.js",
-			"settings":
-			{
-				"buffer_size": 157933,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/ali/magento/apps/magento/htdocs/app/etc/local.xml",
-			"settings":
-			{
-				"buffer_size": 2369,
+				"buffer_size": 1104,
 				"line_ending": "Unix"
 			}
 		}
@@ -100,23 +76,22 @@
 	},
 	"expanded_folders":
 	[
-		"/home/ali/module-multi-stock-point",
-		"/home/ali/module-multi-stock-point/js",
-		"/home/ali/magento/apps/magento/htdocs",
-		"/home/ali/magento/apps/magento/htdocs/app",
-		"/home/ali/magento/apps/magento/htdocs/app/code",
-		"/home/ali/magento/apps/magento/htdocs/app/code/local/Mamoku",
-		"/home/ali/magento/apps/magento/htdocs/app/code/local/Mamoku/Multistockpoint",
-		"/home/ali/magento/apps/magento/htdocs/app/code/local/Mamoku/Multistockpoint/sql",
-		"/home/ali/magento/apps/magento/htdocs/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup",
-		"/home/ali/magento/apps/magento/htdocs/js"
+		"/var/www/html/magento",
+		"/var/www/html/magento/var",
+		"/var/www/html/magento/var/session"
 	],
 	"file_history":
 	[
-		"/home/ali/magento/apps/magento/htdocs/js/mamoku.js",
-		"/home/ali/magento/apps/magento/htdocs/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
+		"/var/www/html/magento/php.ini",
+		"/var/www/html/magento/errors/report.php",
+		"/var/www/html/magento/php.ini.sample",
+		"/var/www/html/magento/app/code/core/Mage/Install/etc/config.xml",
+		"/var/www/html/magento/app/code/core/Mage/Core/etc/config.xml",
 		"/home/ali/magento/apps/magento/htdocs/app/etc/local.xml",
+		"/home/ali/magento/apps/magento/htdocs/js/mamoku.js",
+		"/home/ali/module-multi-stock-point/js/mamoku.js",
 		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
+		"/home/ali/magento/apps/magento/htdocs/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
 		"/home/ali/magento/apps/magento/htdocs/app/code/local/Mamoku/Multistockpoint/sql/multistockpoint_setup/mysql4-install-0.1.0.php",
 		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/etc/config.xml",
 		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-upgrade-0.1.0-0.1.1.php",
@@ -132,7 +107,6 @@
 		"/var/www/html/go-lirik/public/index.php",
 		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/Customeroptions14451414801.php",
 		"/home/ali/magento/apps/magento/htdocs/sandbox.php",
-		"/home/ali/module-multi-stock-point/js/mamoku.js",
 		"/home/ali/module-multi-stock-point/app/design/frontend/default/default/layout/local.xml",
 		"/home/ali/module-multi-stock-point/app/design/adminhtml/default/default/layout/local.xml",
 		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/Customeroptions14451414802.php",
@@ -166,6 +140,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"databases",
 			"pemilik",
 			"type",
 			"date",
@@ -229,123 +204,35 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
+					"file": "/var/www/html/magento/var/session/sess_5ckm3ipmfd5hebr4o4bg4d8h54",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 36768,
+						"buffer_size": 1104,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9206,
-								9206
+								1058,
+								1058
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 4688.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/home/ali/module-multi-stock-point/js/mamoku.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 157933,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								157727,
-								157727
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 734.0,
-						"translation.y": 634.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/home/ali/magento/apps/magento/htdocs/js/mamoku.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 157933,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								157933
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 634.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/home/ali/magento/apps/magento/htdocs/app/etc/local.xml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2369,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1621,
-								1621
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 249.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -428,7 +315,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 220.0,
+	"side_bar_width": 519.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
