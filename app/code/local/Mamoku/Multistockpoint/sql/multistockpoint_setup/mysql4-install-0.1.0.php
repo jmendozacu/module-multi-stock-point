@@ -58,5 +58,5 @@ $installer->run($sql);
 //demo
 //Mage::getModel('core/url_rewrite')->setId(null);
 //demo
-echo "multi stock point installed')";
+echo "<h1>congrats! Momoku installed</h1>";
 $installer->endSetup();

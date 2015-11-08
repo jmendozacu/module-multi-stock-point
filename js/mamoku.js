@@ -38,11 +38,19 @@ String.prototype.replaceAll = function (find, replace) {
     var str = this;
     return str.replace(new RegExp(find, 'g'), replace);
 };
+
+
 setTimeout(function(){
 foo(document).ready(function(){
-foo('#product_info_tabs a[title=Prices]').hide()
-foo('#product_info_tabs a[title=Inventory]').hide()
-	
+if(window.location.href.indexOf('catalog_product/new/key')>0){	
+	foo('#product_info_tabs_my_custom_tab').parents('li').hide()
+}else
+if(window.location.href.indexOf('catalog_product')>0){	
+	// foo('#product_info_tabs a[title=Prices]').hide()
+	// foo('#product_info_tabs a[title=Inventory]').hide()
+	foo('#product_info_tabs').prepend(foo('#product_info_tabs_my_custom_tab').parents('li'))
+}
+
 var str='<li><label for="#key" class="required"><em>*</em>#key</label><div class="input-box"><input name="#key" id="#key" value="" title="#key" class="input-text required-entry" type="text"></div></li>'
 var xfields=['kecamatan','kelurahan']
 var addElement=[]
@@ -53,4 +61,4 @@ foo(addElement.join('')).insertAfter('#email_address')
 console.log(foo('#email_address'))
 
 })
-},1000)
+},500)

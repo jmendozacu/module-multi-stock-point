@@ -41,6 +41,8 @@ foreach ($stockpoints as $stockpoint){
                                             <th><span class="nobr"><a href="#" name="code" title="asc" class="not-sort"><span class="sort-title">code stockpoint</span></a></span></th>
                                             <th><span class="nobr"><a href="#" name="name" title="asc" class="not-sort"><span class="sort-title">name stockpoint</span></a></span></th>
                                             <th><span class="nobr"><a href="#" name="pricestock" title="asc" class="not-sort"><span class="sort-title">price</span></a></span></th>
+                                            <th><span class="nobr"><a href="#" name="pricewholesalestock" title="asc" class="not-sort"><span class="sort-title">wholesale price</span></a></span></th>
+                                            <th><span class="nobr"><a href="#" name="priceretailstock" title="asc" class="not-sort"><span class="sort-title">retail price</span></a></span></th>                                            
                                             <th><span class="nobr"><a href="#" name="qtystock" title="asc" class="not-sort"><span class="sort-title">qty</span></a></span></th>
                                         </tr>
 
@@ -62,11 +64,14 @@ foreach ($stockpoints as $stockpoint){
 
 
                                                         <td class=" ">
-                        <input class="stockprice" style="width:100%" stockid="{{id}}"/>                    </td>
+                        <input class="stockprice" type="number" style="width:100%" stockid="{{id}}"/>                    </td>
+                        <td class=" ">
+                        <input class="stockpricewholesale" type="number" style="width:100%" stockid="{{id}}"/>                    </td>
 
-
+                        <td class=" ">
+                        <input class="stockpriceretail" type="number" style="width:100%" stockid="{{id}}"/>                    </td>
                                                         <td class=" ">
-                        <input class="stockqty" style="width:100%" stockid="{{id}}"/>                    </td>
+                        <input class="stockqty" type="number" style="width:100%" stockid="{{id}}"/>                    </td>
 
 
 
@@ -89,6 +94,7 @@ var html    = template({
 });
 
 var data='<?php echo Mage::getSingleton("adminhtml/session")->getProductPriceqty(); ?>'
+data=data.replace("'","")
 if (data!='' &&  /^[\],:{}\s]*$/.test(data.replace(/\\["\\\/bfnrtu]/g, '@').
 replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
 replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
@@ -102,12 +108,24 @@ var obj={}
 }
 var newobj={}
 newobj.price={}
+newobj.pricewholesale={}
+newobj.priceretail={}
 newobj.qty={}
 foo('#gridpriceqty').html(html)
 if(obj.price){
 	for(var itemstock in obj.price){
 		foo('input[stockid='+itemstock+'].stockprice').val(obj.price[itemstock])
 	}
+}
+if(obj.pricewholesale){
+    for(var itemstock in obj.pricewholesale){
+        foo('input[stockid='+itemstock+'].stockpricewholesale').val(obj.pricewholesale[itemstock])
+    }
+}
+if(obj.priceretail){
+    for(var itemstock in obj.priceretail){
+        foo('input[stockid='+itemstock+'].stockpriceretail').val(obj.priceretail[itemstock])
+    }
 }
 if(obj.qty){
 	for(var itemstock in obj.qty){
@@ -119,6 +137,15 @@ foo('.stockprice').blur(function(){
 	newobj.price[foo(this).attr('stockid')]=foo(this).val()
 	foo('#priceqty').val(JSON.stringify(newobj))
 })
+foo('.stockpricewholesale').blur(function(){    
+    newobj.pricewholesale[foo(this).attr('stockid')]=foo(this).val()
+    foo('#priceqty').val(JSON.stringify(newobj))
+})
+foo('.stockpriceretail').blur(function(){    
+    newobj.priceretail[foo(this).attr('stockid')]=foo(this).val()
+    foo('#priceqty').val(JSON.stringify(newobj))
+})
+
 foo('.stockqty').blur(function(){
 	newobj.qty[foo(this).attr('stockid')]=foo(this).val()
 	foo('#priceqty').val(JSON.stringify(newobj))

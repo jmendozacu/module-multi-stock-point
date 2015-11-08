@@ -43,6 +43,13 @@
 		<class>Mamoku_Multistockpoint_Model</class>
 		<resourceModel>multistockpoint_mysql4</resourceModel>
 	  </multistockpoint>
+	  <catalog>
+                <rewrite>
+                    <product>Mamoku_Multistockpoint_Model_Product</product>
+                </rewrite>
+            </catalog>
+
+
 	  <multistockpoint_mysql4>
 		<class>Mamoku_Multistockpoint_Model_Mysql4</class>
 		<entities>		  
