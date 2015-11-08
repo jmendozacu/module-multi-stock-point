@@ -42,11 +42,12 @@ DROP TABLE IF EXISTS `villages`;
 -- Dump completed on 2015-08-17 23:25:03
 
 
-DROP TABLE IF EXISTS kelurahan,kecamatan;
+DROP TABLE IF EXISTS kelurahan,kecamatan,stockpoint;
 
 CREATE TABLE IF NOT EXISTS `stockpoint` (
  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
- `code` int(5) NOT NULL,
+ `code` varchar(20) NOT NULL,
+ `name` varchar(50) NOT NULL,
  `address` text NOT NULL,
  `email` varchar(50) NOT NULL,
  `telephone` varchar(15) NOT NULL,

@@ -3,12 +3,6 @@
 	[
 		{
 			"path": "/home/ali/module-multi-stock-point"
-		},
-		{
-			"path": "/var/www/html/go-lirik"
-		},
-		{
-			"path": "/var/www/html/magento"
 		}
 	]
 }
