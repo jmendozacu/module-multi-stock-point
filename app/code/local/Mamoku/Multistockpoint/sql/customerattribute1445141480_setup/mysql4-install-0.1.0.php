@@ -205,6 +205,21 @@ $installer->addAttribute("customer", "outlet_type",  array(
 
   ));
 $attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "outlet_type");
+$used_in_forms=array();
+
+$used_in_forms[]="adminhtml_customer";
+$used_in_forms[]="checkout_register";
+$used_in_forms[]="customer_account_create";
+$used_in_forms[]="customer_account_edit";
+$used_in_forms[]="adminhtml_checkout";
+        $attribute->setData("used_in_forms", $used_in_forms)
+        ->setData("is_used_for_customer_segment", true)
+        ->setData("is_system", 0)
+        ->setData("is_user_defined", 1)
+        ->setData("is_visible", 1)
+        ->setData("sort_order", 100)
+        ;
+
 $attribute->save();
 $installer->addAttribute("customer", "outlet_owner",  array(
     "type"     => "varchar",
@@ -246,16 +261,20 @@ $installer->addAttribute("customer", "outlet_name",  array(
 
   ));
 $attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "outlet_name");
-$used_in_forms = array();
+$used_in_forms=array();
+
 $used_in_forms[]="adminhtml_customer";
+$used_in_forms[]="checkout_register";
+$used_in_forms[]="customer_account_create";
+$used_in_forms[]="customer_account_edit";
 $used_in_forms[]="adminhtml_checkout";
         $attribute->setData("used_in_forms", $used_in_forms)
-    ->setData("is_used_for_customer_segment", true)
-    ->setData("is_system", 0)
-    ->setData("is_user_defined", 1)
-    ->setData("is_visible", 1)
-    ->setData("sort_order", 100)
-    ;
+        ->setData("is_used_for_customer_segment", true)
+        ->setData("is_system", 0)
+        ->setData("is_user_defined", 1)
+        ->setData("is_visible", 1)
+        ->setData("sort_order", 100)
+        ;
 $attribute->save();
 $installer->addAttribute("customer", "ktp_number",  array(
     "type"     => "varchar",
@@ -271,16 +290,21 @@ $installer->addAttribute("customer", "ktp_number",  array(
 
   ));
 $attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "ktp_number");
-$used_in_forms = array();
+$used_in_forms=array();
+
 $used_in_forms[]="adminhtml_customer";
+$used_in_forms[]="checkout_register";
+$used_in_forms[]="customer_account_create";
+$used_in_forms[]="customer_account_edit";
 $used_in_forms[]="adminhtml_checkout";
         $attribute->setData("used_in_forms", $used_in_forms)
-    ->setData("is_used_for_customer_segment", true)
-    ->setData("is_system", 0)
-    ->setData("is_user_defined", 1)
-    ->setData("is_visible", 1)
-    ->setData("sort_order", 100)
-    ;
+        ->setData("is_used_for_customer_segment", true)
+        ->setData("is_system", 0)
+        ->setData("is_user_defined", 1)
+        ->setData("is_visible", 1)
+        ->setData("sort_order", 100)
+        ;
+
 $attribute->save();
 $installer->addAttribute("customer", "npwp_type",  array(
     "type"     => "varchar",
@@ -296,16 +320,21 @@ $installer->addAttribute("customer", "npwp_type",  array(
 
   ));
 $attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "npwp_type");
-$used_in_forms = array();
+$used_in_forms=array();
+
 $used_in_forms[]="adminhtml_customer";
+$used_in_forms[]="checkout_register";
+$used_in_forms[]="customer_account_create";
+$used_in_forms[]="customer_account_edit";
 $used_in_forms[]="adminhtml_checkout";
         $attribute->setData("used_in_forms", $used_in_forms)
-    ->setData("is_used_for_customer_segment", true)
-    ->setData("is_system", 0)
-    ->setData("is_user_defined", 1)
-    ->setData("is_visible", 1)
-    ->setData("sort_order", 100)
-    ;
+        ->setData("is_used_for_customer_segment", true)
+        ->setData("is_system", 0)
+        ->setData("is_user_defined", 1)
+        ->setData("is_visible", 1)
+        ->setData("sort_order", 100)
+        ;
+
 $attribute->save();
 $installer->addAttribute("customer", "npwp_number",  array(
     "type"     => "varchar",
@@ -321,16 +350,21 @@ $installer->addAttribute("customer", "npwp_number",  array(
 
   ));
 $attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "npwp_number");
-$used_in_forms = array();
+$used_in_forms=array();
+
 $used_in_forms[]="adminhtml_customer";
+$used_in_forms[]="checkout_register";
+$used_in_forms[]="customer_account_create";
+$used_in_forms[]="customer_account_edit";
 $used_in_forms[]="adminhtml_checkout";
         $attribute->setData("used_in_forms", $used_in_forms)
-    ->setData("is_used_for_customer_segment", true)
-    ->setData("is_system", 0)
-    ->setData("is_user_defined", 1)
-    ->setData("is_visible", 1)
-    ->setData("sort_order", 100)
-    ;
+        ->setData("is_used_for_customer_segment", true)
+        ->setData("is_system", 0)
+        ->setData("is_user_defined", 1)
+        ->setData("is_visible", 1)
+        ->setData("sort_order", 100)
+        ;
+
 $attribute->save();
 $installer->addAttribute("customer", "npwp_name",  array(
     "type"     => "varchar",
@@ -346,16 +380,21 @@ $installer->addAttribute("customer", "npwp_name",  array(
 
   ));
 $attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "npwp_name");
-$used_in_forms = array();
+$used_in_forms=array();
+
 $used_in_forms[]="adminhtml_customer";
+$used_in_forms[]="checkout_register";
+$used_in_forms[]="customer_account_create";
+$used_in_forms[]="customer_account_edit";
 $used_in_forms[]="adminhtml_checkout";
         $attribute->setData("used_in_forms", $used_in_forms)
-    ->setData("is_used_for_customer_segment", true)
-    ->setData("is_system", 0)
-    ->setData("is_user_defined", 1)
-    ->setData("is_visible", 1)
-    ->setData("sort_order", 100)
-    ;
+        ->setData("is_used_for_customer_segment", true)
+        ->setData("is_system", 0)
+        ->setData("is_user_defined", 1)
+        ->setData("is_visible", 1)
+        ->setData("sort_order", 100)
+        ;
+
 $attribute->save();
 $installer->addAttribute("customer", "npwp_address",  array(
     "type"     => "varchar",
@@ -371,16 +410,21 @@ $installer->addAttribute("customer", "npwp_address",  array(
 
   ));
 $attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "npwp_address");
-$used_in_forms = array();
+$used_in_forms=array();
+
 $used_in_forms[]="adminhtml_customer";
+$used_in_forms[]="checkout_register";
+$used_in_forms[]="customer_account_create";
+$used_in_forms[]="customer_account_edit";
 $used_in_forms[]="adminhtml_checkout";
         $attribute->setData("used_in_forms", $used_in_forms)
-    ->setData("is_used_for_customer_segment", true)
-    ->setData("is_system", 0)
-    ->setData("is_user_defined", 1)
-    ->setData("is_visible", 1)
-    ->setData("sort_order", 100)
-    ;
+        ->setData("is_used_for_customer_segment", true)
+        ->setData("is_system", 0)
+        ->setData("is_user_defined", 1)
+        ->setData("is_visible", 1)
+        ->setData("sort_order", 100)
+        ;
+
 $attribute->save();
 $installer->addAttribute("customer", "mobile_number",  array(
     "type"     => "varchar",
@@ -396,16 +440,20 @@ $installer->addAttribute("customer", "mobile_number",  array(
 
   ));
 $attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "mobile_number");
-$used_in_forms = array();
+$used_in_forms=array();
+
 $used_in_forms[]="adminhtml_customer";
+$used_in_forms[]="checkout_register";
+$used_in_forms[]="customer_account_create";
+$used_in_forms[]="customer_account_edit";
 $used_in_forms[]="adminhtml_checkout";
         $attribute->setData("used_in_forms", $used_in_forms)
-    ->setData("is_used_for_customer_segment", true)
-    ->setData("is_system", 0)
-    ->setData("is_user_defined", 1)
-    ->setData("is_visible", 1)
-    ->setData("sort_order", 100)
-    ;
+        ->setData("is_used_for_customer_segment", true)
+        ->setData("is_system", 0)
+        ->setData("is_user_defined", 1)
+        ->setData("is_visible", 1)
+        ->setData("sort_order", 100)
+        ;
 $attribute->save();
 $installer->addAttribute("customer", "email_cc",  array(
     "type"     => "varchar",
@@ -421,16 +469,20 @@ $installer->addAttribute("customer", "email_cc",  array(
 
   ));
 $attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "email_cc");
-$used_in_forms = array();
+$used_in_forms=array();
+
 $used_in_forms[]="adminhtml_customer";
+$used_in_forms[]="checkout_register";
+$used_in_forms[]="customer_account_create";
+$used_in_forms[]="customer_account_edit";
 $used_in_forms[]="adminhtml_checkout";
         $attribute->setData("used_in_forms", $used_in_forms)
-    ->setData("is_used_for_customer_segment", true)
-    ->setData("is_system", 0)
-    ->setData("is_user_defined", 1)
-    ->setData("is_visible", 1)
-    ->setData("sort_order", 100)
-    ;
+        ->setData("is_used_for_customer_segment", true)
+        ->setData("is_system", 0)
+        ->setData("is_user_defined", 1)
+        ->setData("is_visible", 1)
+        ->setData("sort_order", 100)
+        ;
 $attribute->save();
 $installer->addAttribute("customer", "latitude",  array(
     "type"     => "varchar",
@@ -446,16 +498,20 @@ $installer->addAttribute("customer", "latitude",  array(
 
   ));
 $attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "latitude");
-$used_in_forms = array();
+$used_in_forms=array();
+
 $used_in_forms[]="adminhtml_customer";
+$used_in_forms[]="checkout_register";
+$used_in_forms[]="customer_account_create";
+$used_in_forms[]="customer_account_edit";
 $used_in_forms[]="adminhtml_checkout";
         $attribute->setData("used_in_forms", $used_in_forms)
-    ->setData("is_used_for_customer_segment", true)
-    ->setData("is_system", 0)
-    ->setData("is_user_defined", 1)
-    ->setData("is_visible", 1)
-    ->setData("sort_order", 100)
-    ;
+        ->setData("is_used_for_customer_segment", true)
+        ->setData("is_system", 0)
+        ->setData("is_user_defined", 1)
+        ->setData("is_visible", 1)
+        ->setData("sort_order", 100)
+        ;
 $attribute->save();
 $installer->addAttribute("customer", "longitude",  array(
     "type"     => "varchar",
@@ -471,16 +527,20 @@ $installer->addAttribute("customer", "longitude",  array(
 
   ));
 $attribute   = Mage::getSingleton("eav/config")->getAttribute("customer", "longitude");
-$used_in_forms = array();
+$used_in_forms=array();
+
 $used_in_forms[]="adminhtml_customer";
+$used_in_forms[]="checkout_register";
+$used_in_forms[]="customer_account_create";
+$used_in_forms[]="customer_account_edit";
 $used_in_forms[]="adminhtml_checkout";
         $attribute->setData("used_in_forms", $used_in_forms)
-    ->setData("is_used_for_customer_segment", true)
-    ->setData("is_system", 0)
-    ->setData("is_user_defined", 1)
-    ->setData("is_visible", 1)
-    ->setData("sort_order", 100)
-    ;
+        ->setData("is_used_for_customer_segment", true)
+        ->setData("is_system", 0)
+        ->setData("is_user_defined", 1)
+        ->setData("is_visible", 1)
+        ->setData("sort_order", 100)
+        ;
 $attribute->save();
 $installer->addAttribute("customer", "note_verification_pull_flag",  array(
     "type"     => "varchar",

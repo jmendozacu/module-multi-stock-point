@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"telep",
+				"time_sleep_until"
+			],
+			[
 				"use",
 				"used_in_forms"
 			],
@@ -35,14 +39,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/var/www/html/magento/var/session/sess_5ckm3ipmfd5hebr4o4bg4d8h54",
-			"settings":
-			{
-				"buffer_size": 1104,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -51,12 +47,12 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 0.0,
+		"height": 392.0,
 		"last_filter": "",
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 392.0
 	},
 	"console":
 	{
@@ -76,12 +72,61 @@
 	},
 	"expanded_folders":
 	[
-		"/var/www/html/magento",
-		"/var/www/html/magento/var",
-		"/var/www/html/magento/var/session"
+		"/home/ali/module-multi-stock-point",
+		"/home/ali/module-multi-stock-point/app",
+		"/home/ali/module-multi-stock-point/app/code",
+		"/home/ali/module-multi-stock-point/app/code/local",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/multistockpoint_setup"
 	],
 	"file_history":
 	[
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/etc/config.xml",
+		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
+		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/sql/multistockpoint_setup/mysql4-install-0.1.0.php",
+		"/var/www/html/magento/app/etc/modules/Mamoku_Multistockpoint.xml",
+		"/var/www/html/magento/app/code/core/Mage/Sales/Model/Entity/Quote/Address/Attribute/Frontend.php",
+		"/home/ali/module-multi-stock-point/app/etc/modules/Mamoku_Multistockpoint.xml",
+		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/reg-form.phtml",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Stockpoint/Edit/Tab/Form.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/multistockpoint_setup/mysql4-install-0.1.0.php",
+		"/home/ali/module-multi-stock-point/app/design/frontend/rwd/default/layout/local.xml",
+		"/home/ali/module-multi-stock-point/app/design/frontend/rwd/default/template/persistent/customer/form/register.phtml",
+		"/home/ali/module-multi-stock-point/app/design/frontend/rwd/default/layout/multistockpoint.xml",
+		"/var/www/html/magento/app/design/frontend/rwd/default/layout/customer.xml",
+		"/var/www/html/magento/app/design/frontend/rwd/default/layout/persistent.xml",
+		"/home/ali/module-multi-stock-point/js/mamoku.js",
+		"/home/ali/module-multi-stock-point/alamat.sql",
+		"/home/ali/module-multi-stock-point/stockpoint.php",
+		"/home/ali/module-multi-stock-point/app/design/adminhtml/default/default/template/multistockpoint/multistockpointbackend.phtml",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/Customeroptionsnpwp.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/Customeroptionsoutletype.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/customeroptionsnpwp.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/Customeroptions14451414801.php",
+		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/customeroptionsnpwp.php",
+		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/Customeroptions14451414802.php",
+		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/customeroptionsimostatus.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Stockpoint/Grid.php",
+		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Stockpoint/Grid.php",
+		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Stockpoint/Edit/Tab/Form.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Stockpoint/Edit/Form.php",
+		"/var/www/html/magento/app/design/adminhtml/default/default/layout/multistockpoint.xml",
+		"/home/ali/module-multi-stock-point/app/design/adminhtml/default/default/template/multistockpoint/catalog/product/tab.phtml",
+		"/home/ali/module-multi-stock-point/app/design/adminhtml/default/default/layout/multistockpoint.xml",
+		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Model/Stockpoint.php",
+		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Stockpoint.php",
+		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Multistockpointbackend.php",
+		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Stockpoint/Edit/Tabs.php",
+		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Stockpoint/Edit/Form.php",
+		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Stockpoint/Edit.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Stockpoint.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Multistockpointbackend.php",
+		"/var/www/html/magento/enc-key.txt",
+		"/var/www/html/magento/var/session/sess_5ckm3ipmfd5hebr4o4bg4d8h54",
 		"/var/www/html/magento/php.ini",
 		"/var/www/html/magento/errors/report.php",
 		"/var/www/html/magento/php.ini.sample",
@@ -89,13 +134,9 @@
 		"/var/www/html/magento/app/code/core/Mage/Core/etc/config.xml",
 		"/home/ali/magento/apps/magento/htdocs/app/etc/local.xml",
 		"/home/ali/magento/apps/magento/htdocs/js/mamoku.js",
-		"/home/ali/module-multi-stock-point/js/mamoku.js",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
 		"/home/ali/magento/apps/magento/htdocs/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
 		"/home/ali/magento/apps/magento/htdocs/app/code/local/Mamoku/Multistockpoint/sql/multistockpoint_setup/mysql4-install-0.1.0.php",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/etc/config.xml",
 		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-upgrade-0.1.0-0.1.1.php",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/multistockpoint_setup/mysql4-install-0.1.0.php",
 		"/var/www/html/go-lirik/app/Http/routes.php",
 		"/var/www/html/go-lirik/config/database.php",
 		"/var/www/html/go-lirik/config/filesystems.php",
@@ -105,7 +146,6 @@
 		"/var/www/html/go-lirik/config/session.php",
 		"/var/www/html/go-lirik/config/cache.php",
 		"/var/www/html/go-lirik/public/index.php",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/Customeroptions14451414801.php",
 		"/home/ali/magento/apps/magento/htdocs/sandbox.php",
 		"/home/ali/module-multi-stock-point/app/design/frontend/default/default/layout/local.xml",
 		"/home/ali/module-multi-stock-point/app/design/adminhtml/default/default/layout/local.xml",
@@ -113,9 +153,7 @@
 		"/home/ali/magento/apps/magento/htdocs/app/design/adminhtml/default/default/layout/local.xml",
 		"/home/ali/magento/apps/magento/htdocs/js/calendar/calendar-setup.js",
 		"/home/ali/magento/apps/magento/htdocs/app/design/adminhtml/default/default/layout/main.xml",
-		"/home/ali/module-multi-stock-point/app/design/adminhtml/default/default/layout/multistockpoint.xml",
 		"/home/ali/magento/apps/magento/htdocs/app/design/adminhtml/default/default/layout/admin.xml",
-		"/home/ali/module-multi-stock-point/app/etc/modules/Mamoku_Multistockpoint.xml",
 		"/home/ali/Downloads/pilpres.sql",
 		"/var/www/html/go-lirik/index.php",
 		"/home/ali/magento/apps/magento/htdocs/app/etc/modules/Mamoku_Multistockpoint.xml",
@@ -132,6 +170,8 @@
 		"height": 93.0,
 		"where_history":
 		[
+			"",
+			"fuuuuuck",
 			""
 		]
 	},
@@ -140,6 +180,45 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"front",
+			"officer",
+			"last_s",
+			"officer",
+			")\n",
+			"officer",
+			"stockpoint_name",
+			"officer",
+			"scrip",
+			"run",
+			"lastna",
+			"outlet",
+			"type",
+			"fa",
+			"fax",
+			"count",
+			"emai",
+			"first",
+			"persistent",
+			"persis",
+			"create",
+			"stock",
+			"stock_id",
+			"\\r",
+			"villages",
+			"village",
+			"create",
+			"congrat",
+			"ource",
+			"eav",
+			"telephone",
+			"stockpoint_name",
+			"handphone",
+			"table",
+			"code",
+			"post",
+			"kodepos",
+			"kode",
+			"stock",
 			"databases",
 			"pemilik",
 			"type",
@@ -194,6 +273,12 @@
 		"regex": false,
 		"replace_history":
 		[
+			"multistockpoint",
+			"",
+			"\\t",
+			"",
+			"fuuck",
+			""
 		],
 		"reverse": false,
 		"show_context": true,
@@ -204,37 +289,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/var/www/html/magento/var/session/sess_5ckm3ipmfd5hebr4o4bg4d8h54",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1104,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1058,
-								1058
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -277,7 +333,7 @@
 	"project": "mamoku.sublime-project",
 	"replace":
 	{
-		"height": 46.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -286,6 +342,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"front",
+				"magento/app/code/core/Mage/Sales/Model/Entity/Quote/Address/Attribute/Frontend.php"
+			],
+			[
+				"npwp",
+				"app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/customeroptionsnpwp.php"
+			]
 		],
 		"width": 0.0
 	},
@@ -315,7 +379,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 519.0,
+	"side_bar_width": 367.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

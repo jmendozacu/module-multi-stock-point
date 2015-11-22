@@ -1,5 +1,5 @@
 <?php
-class Mamoku_Multistockpoint_Model_Eav_Entity_Attribute_Source_customeroptionsoutletype extends Mage_Eav_Model_Entity_Attribute_Source_Abstract
+class Mamoku_Multistockpoint_Model_Eav_Entity_Attribute_Source_Customeroptionsnpwp extends Mage_Eav_Model_Entity_Attribute_Source_Abstract
 {
   protected $_options = null;
 
