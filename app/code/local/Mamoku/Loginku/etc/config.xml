@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Mamoku_Loginku>
+			<version>0.1.0</version>
+		</Mamoku_Loginku>
+	</modules>
+	<global>
+		  <events>
+            <customer_login>
+                <observers>
+                    <mamoku_loginku>
+                        <!-- The model to be instantiated -->
+                        <class>Mamoku_Loginku_Model_observer</class>
+                        <!-- The method of the class to be called -->
+                        <method>saveCustomerID</method>
+                        <!-- The type of class to instantiate -->
+                       
+                    </mamoku_loginku>
+                </observers>
+            </customer_login>
+        </events>
+	</global>
+	<frontend>
+        <routers>
+            <customer>
+                <args>
+                    <modules>
+                    <mamoku_loginku before="Mage_Customer">Mamoku_Loginku</mamoku_loginku>
+                    </modules>
+                </args>
+            </customer>
+        </routers>        
+    </frontend>
+</config>

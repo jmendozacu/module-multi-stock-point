@@ -58,8 +58,6 @@ $installer->addAttribute('catalog_product', 'price_qty', array(
   'group'             => 'Design'
 ));
 
-
-
 $installer->addAttribute("customer", "kecamatan",  array(
     "type"     => "varchar",
     "backend"  => "",
@@ -82,8 +80,6 @@ $used_in_forms=array();
 
 $used_in_forms[]="adminhtml_customer";
 $used_in_forms[]="checkout_register";
-$used_in_forms[]="customer_account_create";
-$used_in_forms[]="customer_account_edit";
 $used_in_forms[]="adminhtml_checkout";
         $attribute->setData("used_in_forms", $used_in_forms)
 		->setData("is_used_for_customer_segment", true)
@@ -103,7 +99,7 @@ $installer->addAttribute("customer", "kelurahan",  array(
     "label"    => "kelurahan",
     "input"    => "text",
     "visible"  => true,
-    "required" => true,
+    "required" => false,
     "default" => "",
     "frontend" => "",
     "unique"     => false,
@@ -120,6 +116,8 @@ $used_in_forms[]="adminhtml_customer";
 $used_in_forms[]="checkout_register";
 $used_in_forms[]="customer_account_create";
 $used_in_forms[]="customer_account_edit";
+$used_in_forms[]="customer_address_new";
+$used_in_forms[]="customer_address_edit";
 $used_in_forms[]="adminhtml_checkout";
         $attribute->setData("used_in_forms", $used_in_forms)
 		->setData("is_used_for_customer_segment", true)
@@ -129,8 +127,6 @@ $used_in_forms[]="adminhtml_checkout";
 		->setData("sort_order", 100)
 		;
         $attribute->save();
-
-
 
 
 $installer->addAttribute("customer", "is_verified",  array(
@@ -450,6 +446,8 @@ $used_in_forms[]="adminhtml_customer";
 $used_in_forms[]="checkout_register";
 $used_in_forms[]="customer_account_create";
 $used_in_forms[]="customer_account_edit";
+$used_in_forms[]="customer_address_new";
+$used_in_forms[]="customer_address_edit";
 $used_in_forms[]="adminhtml_checkout";
         $attribute->setData("used_in_forms", $used_in_forms)
         ->setData("is_used_for_customer_segment", true)
