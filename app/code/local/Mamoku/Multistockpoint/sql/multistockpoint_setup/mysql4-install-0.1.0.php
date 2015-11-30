@@ -42,15 +42,22 @@ DROP TABLE IF EXISTS `villages`;
 -- Dump completed on 2015-08-17 23:25:03
 
 
-DROP TABLE IF EXISTS kelurahan,kecamatan;
+DROP TABLE IF EXISTS kelurahan,kecamatan,stockpoint;
 
 CREATE TABLE IF NOT EXISTS `stockpoint` (
  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
- `code` varchar(25) NOT NULL,
- `name` varchar(100) NOT NULL,
- `location` varchar(200) DEFAULT NULL,
+ `code` varchar(20) NOT NULL,
+ `name` varchar(50) NOT NULL,
  `address` text NOT NULL,
- `postal_code` int(5) DEFAULT NULL
+ `email` varchar(50) NOT NULL,
+ `telephone` varchar(15) NOT NULL,
+ `officer` varchar(50) NOT NULL,
+ `handphone` varchar(12) NOT NULL,
+ `distribution_center` varchar(50) NOT NULL,
+ `branch` varchar(50) NOT NULL,
+ `description` varchar(100) DEFAULT NULL,
+ `catatan` text,
+ `last_sync_time` datetime
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 SQLTEXT;
 

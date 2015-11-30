@@ -33,16 +33,48 @@ class Mamoku_Multistockpoint_Block_Adminhtml_Stockpoint_Grid extends Mage_Adminh
 				"index" => "code",
 				));
 				$this->addColumn("name", array(
-				"header" => Mage::helper("multistockpoint")->__("name"),
+				"header" => Mage::helper("multistockpoint")->__("stockpoint name"),
 				"index" => "name",
 				));
-				$this->addColumn("location", array(
-				"header" => Mage::helper("multistockpoint")->__("location"),
-				"index" => "location",
+				$this->addColumn("address", array(
+				"header" => Mage::helper("multistockpoint")->__("address"),
+				"index" => "address",
 				));
-				$this->addColumn("kodepos", array(
-				"header" => Mage::helper("multistockpoint")->__("kodepos"),
-				"index" => "kodepos",
+				$this->addColumn("email", array(
+				"header" => Mage::helper("multistockpoint")->__("email"),
+				"index" => "email",
+				));
+				$this->addColumn("telephone", array(
+				"header" => Mage::helper("multistockpoint")->__("telephone"),
+				"index" => "telephone",
+				));
+				$this->addColumn("officer", array(
+				"header" => Mage::helper("multistockpoint")->__("officer"),
+				"index" => "officer",
+				));
+				$this->addColumn("handphone", array(
+				"header" => Mage::helper("multistockpoint")->__("handphone"),
+				"index" => "handphone",
+				));
+				$this->addColumn("distribution_center", array(
+				"header" => Mage::helper("multistockpoint")->__("distribution center"),
+				"index" => "distribution_center",
+				));
+				$this->addColumn("branch", array(
+				"header" => Mage::helper("multistockpoint")->__("branch"),
+				"index" => "branch",
+				));
+				$this->addColumn("description", array(
+				"header" => Mage::helper("multistockpoint")->__("description"),
+				"index" => "description",
+				));
+				$this->addColumn("catatan", array(
+				"header" => Mage::helper("multistockpoint")->__("catatan"),
+				"index" => "catatan",
+				));
+				$this->addColumn("last_sync_time", array(
+				"header" => Mage::helper("multistockpoint")->__("last syncronize"),
+				"index" => "last_sync_time",
 				));
 			$this->addExportType('*/*/exportCsv', Mage::helper('sales')->__('CSV')); 
 			$this->addExportType('*/*/exportExcel', Mage::helper('sales')->__('Excel'));
