@@ -7,9 +7,10 @@ class Mamoku_Multistockpoint_Model_Eav_Entity_Attribute_Source_Customeroptionsnp
         if (is_null($this->_options)){
             $this->_options = array();
 
-            $this->_options[] = array('label'=> 'Option 1', value=>1);
-            $this->_options[] = array('label'=> 'Option 2', value=>3);
-            $this->_options[] = array('label'=> 'Option 3', value=>3);
+            $this->_options[] = array('label'=> 'Please Select', 'value'=>0);
+            $this->_options[] = array('label'=> 'Option 1', 'value'=>1);
+            $this->_options[] = array('label'=> 'Option 2', 'value'=>2);
+            $this->_options[] = array('label'=> 'Option 3', 'value'=>3);
         }
         $options = $this->_options;
         if ($withEmpty) {

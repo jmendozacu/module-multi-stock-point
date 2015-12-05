@@ -4,6 +4,62 @@
 		"selected_items":
 		[
 			[
+				"incom",
+				"incomeArray"
+			],
+			[
+				"pr",
+				"printer_abort"
+			],
+			[
+				"tax",
+				"taxArray"
+			],
+			[
+				"s",
+				"sisa"
+			],
+			[
+				"ta",
+				"taxArray"
+			],
+			[
+				"final",
+				"finalTax"
+			],
+			[
+				"in",
+				"income"
+			],
+			[
+				"inc",
+				"incomeArray"
+			],
+			[
+				"inco",
+				"incomeArray"
+			],
+			[
+				"cl",
+				"clausa"
+			],
+			[
+				"str_s",
+				"str_split"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"is_i",
+				"is_integer"
+			],
+			[
+				"c",
+				"customer"
+			],
+			[
 				"th",
 				"this"
 			],
@@ -84,10 +140,13 @@
 	"buffers":
 	[
 		{
-			"file": "/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/etc/config.xml",
+			"contents": "<?php\n/**\n * Extended registration form\n * \n * @author     Design:Slider GbR <magento@design-slider.de>\n * @copyright  (C)Design:Slider GbR <www.design-slider.de>\n * @license    OSL <http://opensource.org/licenses/osl-3.0.php>\n * @link       http://www.design-slider.de/magento_onlineshop/magento-extensions/registration-address/\n * @package    DS_RegAddress\n * @version    CE 1.7\n */\n\n$requiredClass = $this->getAddressForced() ? 'required' : '';\n$requiredCharacter = $this->getAddressForced() ? '*' : '';\n?>\n<div class=\"account-create\">\n    <div class=\"page-title\">\n        <h1><?php echo $this->__('Create an Account') ?></h1>\n    </div>\n    <?php echo $this->getChildHtml('form_fields_before')?>\n    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>\n    <?php /* Extensions placeholder */ ?>\n    <?php echo $this->getChildHtml('customer.form.register.extra')?>\n    <form action=\"<?php echo $this->getPostActionUrl() ?>\" method=\"post\" id=\"form-validate\">\n        <div class=\"fieldset\">\n            <input type=\"hidden\" name=\"success_url\" value=\"<?php echo $this->getSuccessUrl() ?>\" />\n            <input type=\"hidden\" name=\"error_url\" value=\"<?php echo $this->getErrorUrl() ?>\" />\n            <h2 class=\"legend\"><?php echo $this->__('Personal Information') ?></h2>\n            <ul class=\"form-list\">\n                <li class=\"fields\">\n                    <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getFormData())->setForceUseCustomerAttributes(true)->toHtml() ?>\n                </li>\n                <li>\n                    <label for=\"email_address\" class=\"required\"><em>*</em><?php echo $this->__('Email Address') ?></label>\n                    <div class=\"input-box\">\n                        <input type=\"text\" name=\"email\" id=\"email_address\" value=\"<?php echo $this->escapeHtml($this->getFormData()->getEmail()) ?>\" title=\"<?php echo $this->__('Email Address') ?>\" class=\"input-text validate-email required-entry\" />\n                    </div>\n                </li>\n                <li>\n                    <label for=\"email_address_cc\"><?php echo $this->__('Email Address CC') ?></label>\n                    <div class=\"input-box\">\n                        <input type=\"text\" name=\"email_cc\" id=\"email_cc\" value=\"<?php echo $this->escapeHtml($this->getFormData()->getEmailCc()) ?>\" title=\"<?php echo $this->__('Email CC') ?>\" class=\"input-text validate-email\" />\n                    </div>\n                </li>\n                <?php if ($this->isNewsletterEnabled()): ?>\n                <li class=\"control\">\n                    <div class=\"input-box\">\n                        <input type=\"checkbox\" name=\"is_subscribed\" title=\"<?php echo $this->__('Sign Up for Newsletter') ?>\" value=\"1\" id=\"is_subscribed\"<?php if($this->getFormData()->getIsSubscribed()): ?> checked=\"checked\"<?php endif; ?> class=\"checkbox\" />\n                    </div>\n                    <label for=\"is_subscribed\"><?php echo $this->__('Sign Up for Newsletter') ?></label>\n                    <?php /* Extensions placeholder */ ?>\n                    <?php echo $this->getChildHtml('customer.form.register.newsletter')?>\n                </li>\n                <?php endif ?>\n            <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>\n            <?php if ($_dob->isEnabled()): ?>\n                <li><?php echo $_dob->setDate($this->getFormData()->getDob())->toHtml() ?></li>\n            <?php endif ?>\n            <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>\n            <?php if ($_taxvat->isEnabled()): ?>\n                <li><?php echo $_taxvat->setTaxvat($this->getFormData()->getTaxvat())->toHtml() ?></li>\n            <?php endif ?>\n            <?php $_gender = $this->getLayout()->createBlock('customer/widget_gender') ?>\n            <?php if ($_gender->isEnabled()): ?>\n                <li><?php echo $_gender->setGender($this->getFormData()->getGender())->toHtml() ?></li>\n            <?php endif ?>\n            </ul>\n        </div>\n    <?php if($this->getShowAddressFields()): ?>\n        <div class=\"fieldset\">\n            <input id=\"create_address\" type=\"hidden\" name=\"create_address\" value=\"1\" />\n            <h2 class=\"legend\"><?php echo $this->__('Address Information') ?></h2>\n            <ul class=\"form-list\">\n                <li class=\"fields\">\n                    <div class=\"field\">\n                        <label for=\"country\" class=\"<?php echo $requiredClass ?>\"><em><?php echo $requiredCharacter ?></em><?php echo $this->__('Country') ?></label>\n                        <div class=\"input-box\">\n                            <?php echo $this->getCountryHtmlSelect() ?>\n                        </div>\n                    </div>\n                    <div class=\"field\">\n                        <label for=\"region_id\" class=\"<?php echo $requiredClass ?>\"><em><?php echo $requiredCharacter ?></em><?php echo $this->__('State/Province') ?></label>\n                        <div class=\"input-box\">\n                            <select id=\"region_id\" name=\"region_id\" title=\"<?php echo $this->__('State/Province') ?>\" class=\"validate-select\" style=\"display:none;\">\n                                <option value=\"\"><?php echo $this->__('Please select region, state or province') ?></option>\n                            </select>\n                            <script type=\"text/javascript\">\n                            //<![CDATA[\n                                $('region_id').setAttribute('defaultValue', \"<?php echo $this->getFormData()->getRegionId() ?>\");\n                            //]]>\n                            </script>\n                            <input type=\"text\" id=\"region\" name=\"region\" value=\"<?php echo $this->escapeHtml($this->getRegion()) ?>\" title=\"<?php echo $this->__('State/Province') ?>\" class=\"input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('region') ?>\" style=\"display:none;\" />\n                        </div>\n                    </div>\n                    <div class=\"field\">\n                        <label for=\"city\" class=\"<?php echo $requiredClass ?>\"><em><?php echo $requiredCharacter ?></em><?php echo $this->__('City') ?></label>\n                        <div class=\"input-box\">\n                            <input type=\"text\" id=\"city\" name=\"city\" value=\"<?php echo $this->escapeHtml($this->getFormData()->getCity()) ?>\" title=\"<?php echo $this->__('City') ?>\" class=\"input-text create-address-indicator <?php echo $this->getAddressForced() ? $this->helper('customer/address')->getAttributeValidationClass('city') : '' ?>\" id=\"city\" />\n                        </div>\n                    </div>\n                    <div class=\"field\">\n                        <label for=\"kecamatan\" class=\"<?php echo $requiredClass ?>\"><em><?php echo $requiredCharacter ?></em><?php echo $this->__('Kecamatan') ?></label>\n                        <div class=\"input-box\">\n                            <input type=\"text\" id=\"kecamatan\" name=\"kecamatan\" value=\"<?php echo $this->escapeHtml($this->getFormData()->getKecamatan()) ?>\" title=\"<?php echo $this->__('Kecamatan') ?>\" class=\"input-text create-address-indicator <?php echo $this->getAddressForced() ? $this->helper('customer/address')->getAttributeValidationClass('kecamatan') : '' ?>\" id=\"kecamatan\" />\n                        </div>\n                    </div>\n                    <div class=\"field\">\n                        <label for=\"kelurahan\" class=\"<?php echo $requiredClass ?>\"><em><?php echo $requiredCharacter ?></em><?php echo $this->__('Kelurahan') ?></label>\n                        <div class=\"input-box\">\n                            <input type=\"text\" id=\"kelurahan\" name=\"kelurahan\" value=\"<?php echo $this->escapeHtml($this->getFormData()->getKelurahan()) ?>\" title=\"<?php echo $this->__('Kelurahan') ?>\" class=\"input-text create-address-indicator <?php echo $this->getAddressForced() ? $this->helper('customer/address')->getAttributeValidationClass('kelurahan') : '' ?>\" id=\"kelurahan\" />\n                        </div>\n                    </div>                    \n                </li>\n                <?php $_streetValidationClass = $this->helper('customer/address')->getAttributeValidationClass('street'); ?>\n                <li class=\"wide\">\n                    <label for=\"street_1\" class=\"<?php echo $requiredClass ?>\"><em><?php echo $requiredCharacter ?></em><?php echo $this->__('Street Address') ?></label>\n                    <div class=\"input-box\">\n                        <input type=\"text\" name=\"street[]\" value=\"<?php echo $this->escapeHtml($this->getFormData()->getStreet(1)) ?>\" title=\"<?php echo $this->__('Street Address') ?>\" id=\"street_1\" class=\"input-text create-address-indicator <?php echo $this->getAddressForced() ? $_streetValidationClass : ''?>\" />\n                    </div>\n                </li>\n            <?php $_streetValidationClass = trim(str_replace('required-entry', '', $_streetValidationClass)); ?>\n            <?php for ($_i = 2, $_n = $this->helper('customer/address')->getStreetLines(); $_i <= $_n; $_i++): ?>\n                <li class=\"wide\">\n                    <div class=\"input-box\">\n                        <input type=\"text\" name=\"street[]\" value=\"<?php echo $this->escapeHtml($this->getFormData()->getStreet($_i)) ?>\" title=\"<?php echo $this->__('Street Address %s', $_i) ?>\" id=\"street_<?php echo $_i ?>\" class=\"input-text <?php echo $this->getAddressForced() ? $_streetValidationClass : '' ?>\" />\n                    </div>\n                </li>\n            <?php endfor; ?>\n                \n                <li class=\"fields\">\n                    \n                    <?php if (!$this->getAddressForced()): ?>\n                    <div class=\"field\">\n                        <label for=\"zip\" class=\"<?php echo $requiredClass ?>\"><em><?php echo $requiredCharacter ?></em><?php echo $this->__('Zip/Postal Code') ?></label>\n                        <div class=\"input-box\">\n                            <input type=\"text\" id=\"postcode\" name=\"postcode\" value=\"<?php echo $this->escapeHtml($this->getFormData()->getPostcode()) ?>\" title=\"<?php echo $this->__('Zip/Postal Code') ?>\" id=\"zip\" class=\"input-text validate-zip-international create-address-indicator <?php echo $this->getAddressForced() ? $this->helper('customer/address')->getAttributeValidationClass('postcode') : ''?>\" />\n                        </div>\n                    </div>\n                    <?php else: ?>\n                    <div class=\"field\">\n                        <label for=\"zip\" class=\"required\"><em>*</em><?php echo $this->__('Zip/Postal Code') ?></label>\n                        <div class=\"input-box\">\n                            <input type=\"text\" name=\"postcode\" value=\"<?php echo $this->escapeHtml($this->getFormData()->getPostcode()) ?>\" title=\"<?php echo $this->__('Zip/Postal Code') ?>\" id=\"zip\" class=\"input-text validate-zip-international <?php echo $this->helper('customer/address')->getAttributeValidationClass('postcode') ?>\" />\n                        </div>\n                    </div>\n                    <?php endif; ?>                    \n                </li>\n                <li class=\"fields\">\n                    <div class=\"field\">\n                        <label for=\"company\"><?php echo $this->__('Outlet Name') ?></label>\n                        <div class=\"input-box\">\n                            <input type=\"text\" name=\"company\" id=\"company\" value=\"<?php echo $this->escapeHtml($this->getFormData()->getCompany()) ?>\" title=\"<?php echo $this->__('Company') ?>\" class=\"input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('company') ?>\" />\n                        </div>\n                    </div>\n                    <div class=\"field\">\n                        <label for=\"outlet_type\"><?php echo $this->__('Outlet Type') ?></label>\n                        <div class=\"input-box\">\n                            <?php\n                            <select name=\"outlet_type\" id=\"outlet_type\">\n                                \n                            </select>\n                            <input type=\"text\" name=\"outlet_type\" id=\"outlet_type\" value=\"<?php echo $this->escapeHtml($this->getFormData()->getOutletType()) ?>\" title=\"<?php echo $this->__('Outlet Type') ?>\" class=\"input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('outlet_type') ?>\" />\n                        </div>\n                    </div>\n                    <div class=\"field\">\n                        <label for=\"outlet_owner\"><?php echo $this->__('Outlet Owner') ?></label>\n                        <div class=\"input-box\">\n                            <input type=\"text\" name=\"outlet_owner\" id=\"outlet_owner\" value=\"<?php echo $this->escapeHtml($this->getFormData()->getOutletOwner()) ?>\" title=\"<?php echo $this->__('Outlet Owner') ?>\" class=\"input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('outlet_owner') ?>\" />\n                        </div>\n                    </div>\n                    <div class=\"field\">\n                        <label for=\"ktp_number\"><?php echo $this->__('ID Number') ?></label>\n                        <div class=\"input-box\">\n                            <input type=\"text\" name=\"ktp_number\" id=\"ktp_number\" value=\"<?php echo $this->escapeHtml($this->getFormData()->getKtpNumber()) ?>\" title=\"<?php echo $this->__('ID Card') ?>\" class=\"input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('ktp_number') ?>\" />\n                        </div>\n                    </div>\n                    <div class=\"field\">\n                        <label for=\"npwp_type\"><?php echo $this->__('NPWP Type') ?></label>\n                        <div class=\"input-box\">\n                            <input type=\"text\" name=\"npwp_type\" id=\"npwp_type\" value=\"<?php echo $this->escapeHtml($this->getFormData()->getNpwpType()) ?>\" title=\"<?php echo $this->__('NPWP Type') ?>\" class=\"input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('npwp_type') ?>\" />\n                        </div>\n                    </div>\n                    <div class=\"field\">\n                        <label for=\"npwp_number\"><?php echo $this->__('NPWP Number') ?></label>\n                        <div class=\"input-box\">\n                            <input type=\"text\" name=\"npwp_number\" id=\"npwp_number\" value=\"<?php echo $this->escapeHtml($this->getFormData()->getNpwpNumber()) ?>\" title=\"<?php echo $this->__('NPWP Number') ?>\" class=\"input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('npwp_number') ?>\" />\n                        </div>\n                    </div>\n                    <div class=\"field\">\n                        <label for=\"npwp_name\"><?php echo $this->__('NPWP Name') ?></label>\n                        <div class=\"input-box\">\n                            <input type=\"text\" name=\"npwp_name\" id=\"npwp_name\" value=\"<?php echo $this->escapeHtml($this->getFormData()->getNpwpName()) ?>\" title=\"<?php echo $this->__('NPWP Name') ?>\" class=\"input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('npwp_name') ?>\" />\n                        </div>\n                    </div>\n                    <div class=\"field\">\n                        <label for=\"npwp_address\"><?php echo $this->__('NPWP Address') ?></label>\n                        <div class=\"input-box\">\n                            <input type=\"text\" name=\"npwp_address\" id=\"npwp_address\" value=\"<?php echo $this->escapeHtml($this->getFormData()->getNpwpAddress()) ?>\" title=\"<?php echo $this->__('NPWP Address') ?>\" class=\"input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('npwp_address') ?>\" />\n                        </div>\n                    </div>\n                    <div class=\"field\">\n                        <label for=\"telephone\" class=\"<?php echo $requiredClass ?>\"><em><?php echo $requiredCharacter ?></em><?php echo $this->__('Telephone') ?></label>\n                        <div class=\"input-box\">\n                            <input type=\"text\" name=\"telephone\" id=\"telephone\" value=\"<?php echo $this->escapeHtml($this->getFormData()->getTelephone()) ?>\" title=\"<?php echo $this->__('Telephone') ?>\" class=\"input-text <?php echo $this->getAddressForced() ? $this->helper('customer/address')->getAttributeValidationClass('telephone') : ''?>\" />\n                        </div>\n                    </div>\n                    <div class=\"field\">\n                        <label for=\"mobile_number\" class=\"<?php echo $requiredClass ?>\"><em><?php echo $requiredCharacter ?></em><?php echo $this->__('Mobile Number') ?></label>\n                        <div class=\"input-box\">\n                            <input type=\"text\" name=\"mobile_number\" id=\"mobile_number\" value=\"<?php echo $this->escapeHtml($this->getFormData()->getMobileNumber()) ?>\" title=\"<?php echo $this->__('Mobile Number') ?>\" class=\"input-text <?php echo $this->getAddressForced() ? $this->helper('customer/address')->getAttributeValidationClass('mobile_number') : ''?>\" />\n                        </div>\n                    </div>\n                    <div class=\"field\">\n                        <label for=\"fax\" class=\"<?php echo $requiredClass ?>\"><em><?php echo $requiredCharacter ?></em><?php echo $this->__('Fax') ?></label>\n                        <div class=\"input-box\">\n                            <input type=\"text\" name=\"fax\" id=\"fax\" value=\"<?php echo $this->escapeHtml($this->getFormData()->getFax()) ?>\" title=\"<?php echo $this->__('Fax') ?>\" class=\"input-text <?php echo $this->getAddressForced() ? $this->helper('customer/address')->getAttributeValidationClass('fax') : ''?>\" />\n                        </div>\n                    </div>\n                </li>\n            \n            </ul>\n            <input type=\"hidden\" name=\"default_billing\" value=\"1\" />\n            <input type=\"hidden\" name=\"default_shipping\" value=\"1\" />\n        </div>\n    <?php endif; ?>\n        <div class=\"fieldset\">\n            <h2 class=\"legend\"><?php echo $this->__('Login Information') ?></h2>\n            <ul class=\"form-list\">\n                <li class=\"fields\">\n                    <div class=\"field\">\n                        <label for=\"password\" class=\"required\"><em>*</em><?php echo $this->__('Password') ?></label>\n                        <div class=\"input-box\">\n                            <input type=\"password\" name=\"password\" id=\"password\" title=\"<?php echo $this->__('Password') ?>\" class=\"input-text required-entry validate-password\" />\n                        </div>\n                    </div>\n                    <div class=\"field\">\n                        <label for=\"confirmation\" class=\"required\"><em>*</em><?php echo $this->__('Confirm Password') ?></label>\n                        <div class=\"input-box\">\n                            <input type=\"password\" name=\"confirmation\" title=\"<?php echo $this->__('Confirm Password') ?>\" id=\"confirmation\" class=\"input-text required-entry validate-cpassword\" />\n                        </div>\n                    </div>\n                </li>\n                <?php echo $this->getChildHtml('form.additional.info'); ?>\n            </ul>\n        </div>\n        <div class=\"buttons-set\">\n            <p class=\"required\"><?php echo $this->__('* Required Fields') ?></p>\n            <p class=\"back-link\"><a href=\"<?php echo $this->escapeUrl($this->getBackUrl()) ?>\" class=\"back-link\"><small>&laquo; </small><?php echo $this->__('Back') ?></a></p>\n            <button type=\"submit\" title=\"<?php echo $this->__('Submit') ?>\" class=\"button\"><span><span><?php echo $this->__('Submit') ?></span></span></button>\n        </div>\n    </form>\n    <script type=\"text/javascript\">\n    //<![CDATA[\n        var dataForm = new VarienForm('form-validate', true);\n        <?php if($this->getShowAddressFields()): ?>\n        var _regionConfig = <?php echo $this->helper('directory')->getRegionJson(); ?>;\n\n            <?php if (!$this->getAddressForced()): ?>\n                _regionConfig.config.regions_required = [];\n            <?php endif; ?>\n        \n        var ru = new RegionUpdater('country', 'region', 'region_id', _regionConfig, undefined, 'zip');\n        <?php endif; ?>\n\n        <?php if($this->getShowAddressFields() && !$this->getAddressForced()): ?>\n        Event.observe(window, 'load', function() {\n            initMamokuRegAddress();\n        });\n\n        function initMamokuRegAddress() {\n            updateCreateAddress();\n            $$('.create-address-indicator').each(function(e) {\n                $(e.id).on('change', function() {\n                    updateCreateAddress();\n                });\n            });\n        }\n\n        function updateCreateAddress(){\n            if ($('postcode').value == '' && $('street_1').value == '' && $('city').value == '') {\n                $('create_address').value = 0;\n            } else {\n                $('create_address').value = 1;\n            }\n        }\n        <?php endif; //eof getShowAddressFields && !$this->getAddressForced() ?>\n        \n    //]]>\n    </script>\n</div>",
+			"file": "/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/mamoku/regaddress/register.phtml",
+			"file_size": 20937,
+			"file_write_time": 130936864499006967,
 			"settings":
 			{
-				"buffer_size": 2644,
+				"buffer_size": 21115,
 				"line_ending": "Unix"
 			}
 		},
@@ -95,81 +154,40 @@
 			"file": "/home/ali/module-multi-stock-point/app/design/frontend/base/default/layout/mamoku_regaddress.xml",
 			"settings":
 			{
-				"buffer_size": 311,
+				"buffer_size": 1049,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/profile/customer/account/edit.phtml",
+			"file": "/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/mamoku/regaddress/edit.phtml",
 			"settings":
 			{
-				"buffer_size": 1538,
+				"buffer_size": 10560,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/etc/system.xml",
+			"file": "/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/mamoku/regaddress/book-edit.phtml",
 			"settings":
 			{
-				"buffer_size": 1781,
+				"buffer_size": 11641,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/Model/System/Config/Source/Extendedregistration/Values.php",
+			"file": "/home/ali/module-multi-stock-point/app/etc/modules/Mamoku_Profile.xml",
 			"settings":
 			{
-				"buffer_size": 1036,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/Helper/Data.php",
-			"settings":
-			{
-				"buffer_size": 430,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/Block/Form/Register.php",
-			"settings":
-			{
-				"buffer_size": 1462,
-				"line_ending": "Unix"
+				"buffer_size": 194,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
 			"settings":
 			{
-				"buffer_size": 38789,
+				"buffer_size": 37837,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/ali/module-multi-stock-point/defaddress.php",
-			"settings":
-			{
-				"buffer_size": 581,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/ali/module-multi-stock-point/app/code/local/Mamoku/Loginku/etc/config.xml",
-			"settings":
-			{
-				"buffer_size": 1046,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/ali/module-multi-stock-point/app/code/local/Mamoku/Loginku/Model/Observer.php",
-			"settings":
-			{
-				"buffer_size": 1053,
-				"line_ending": "Unix",
-				"name": "<?php"
 			}
 		}
 	],
@@ -205,80 +223,127 @@
 	},
 	"expanded_folders":
 	[
+		"/home/ali/module-multi-stock-point",
 		"/home/ali/module-multi-stock-point/app",
 		"/home/ali/module-multi-stock-point/app/code",
 		"/home/ali/module-multi-stock-point/app/code/local",
 		"/home/ali/module-multi-stock-point/app/code/local/Mamoku",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Loginku/Model",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/controllers",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/etc",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Profile/Block",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Profile/Block/Adminhtml/Customer/Attribute",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Profile/Block/Customer/Account",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Profile/Model/Mysql4/Customer/Attribute",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Profile/etc",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Profile/sql/profile_setup",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/Block",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/Block/Form",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/Model/System",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/Model/System/Config",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/Model/System/Config/Source",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/Model/System/Config/Source/Extendedregistration",
-		"/home/ali/module-multi-stock-point/app/design/frontend",
-		"/home/ali/module-multi-stock-point/app/design/frontend/base",
-		"/home/ali/module-multi-stock-point/app/design/frontend/base/default",
-		"/home/ali/module-multi-stock-point/app/design/frontend/base/default/template",
-		"/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/mamoku/regaddress",
-		"/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/profile",
-		"/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/profile/customer",
-		"/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/profile/customer/account",
-		"/home/ali/module-multi-stock-point/app/design/frontend/default/default",
-		"/home/ali/module-multi-stock-point/app/design/frontend/default/default/layout",
-		"/home/ali/module-multi-stock-point/app/etc",
-		"/home/ali/module-multi-stock-point/app/etc/modules",
-		"/var/www/html/idmarco/app",
-		"/var/www/html/idmarco/app/code/core/Mage",
-		"/var/www/html/idmarco/app/code/core/Mage/CurrencySymbol",
-		"/var/www/html/idmarco/app/code/core/Mage/Customer",
-		"/var/www/html/idmarco/app/code/core/Mage/Customer/controllers",
-		"/var/www/html/idmarco/app/code/local/Mamoku",
-		"/var/www/html/idmarco/app/code/local/Mamoku/Multistockpoint",
-		"/var/www/html/idmarco/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup",
-		"/var/www/html/idmarco/app/code/local/Mamoku/Profile/sql/profile_setup",
-		"/var/www/html/idmarco/app/design/adminhtml/default",
-		"/var/www/html/idmarco/app/design/adminhtml/default/default",
-		"/var/www/html/idmarco/app/design/adminhtml/default/default/template",
-		"/var/www/html/idmarco/app/design/frontend",
-		"/var/www/html/idmarco/app/design/frontend/base",
-		"/var/www/html/idmarco/app/design/frontend/base/default",
-		"/var/www/html/idmarco/app/design/frontend/rwd/default",
-		"/var/www/html/idmarco/lib",
-		"/var/www/html/idmarco/var",
-		"/var/www/html/idmarco/var/log"
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model/Eav",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source",
+		"/home/ali/module-multi-stock-point/app/etc/modules"
 	],
 	"file_history":
 	[
-		"/var/www/html/idmarco/var/log/system.log",
-		"/var/www/html/idmarco/var/log/namespace_modulename.log",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Loginku/controllers/AccountController.php",
-		"/home/ali/module-multi-stock-point/app/etc/modules/Mamoku_Loginku.xml",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Loginku/etc/config.xml",
-		"/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/mamoku/regaddress/register.phtml",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/Customeroptionsimostatus.php",
+		"/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/mamoku/regaddress/book.phtml",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
+		"/home/ali/module-multi-stock-point/app/etc/modules/Mamoku_Profile.xml",
+		"/home/ali/module-multi-stock-point/app/design/frontend/rwd/default/layout/local.xml",
+		"/home/ali/module-multi-stock-point/app/etc/modules/Mamoku_Multistockpoint.xml",
 		"/home/ali/module-multi-stock-point/app/etc/modules/Mamoku_RegAddress.xml",
+		"/var/www/html/idmarco/app/etc/modules/Mamoku_Profile.xml",
+		"/var/www/html/kmk/tarifPajak.php",
+		"/home/ali/module-multi-stock-point/app/etc/modules/Mamoku_PaymentConfirmation.xml",
+		"/home/ali/module-multi-stock-point/app/design/frontend/rwd/default/template/sales/order/history.phtml",
+		"/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/sales/order/history.phtml",
+		"/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/sales/order/order_history.phtml",
+		"/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/payment/form/banktransfer.phtml",
+		"/var/www/html/idmarco/app/design/frontend/base/default/template/payment/form/banktransfer.phtml",
+		"/var/www/html/myspecs/app/etc/modules/KS_BankTransferAccount.xml",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model/Product.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Block/Catalog/Product/View.php",
+		"/var/www/html/myspecs/app/etc/local.xml",
+		"/home/ali/Downloads/20151105_DB_backup.sql",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/BankTransferAccount/etc/system.xml",
+		"/var/www/html/kmk/triangle.php",
+		"/home/ali/module-multi-stock-point/app/etc/modules/Mamoku_BankTransferAccount.xml",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/etc/system.xml",
+		"/home/ali/module-multi-stock-point/app/etc/modules/Mamoku_Loginku.xml",
+		"/var/www/html/idmarco/var/report/278168444308",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Block/Adminhtml/Confirmation/Edit/Tab/Confirmation.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Block/Adminhtml/Confirmation/Edit/Form.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Block/Adminhtml/Confirmation/Edit/Tabs.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Block/Adminhtml/Confirmation/Grid/Column/Customer/Name.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Block/Adminhtml/Confirmation/Grid/Column/Bank.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Block/Adminhtml/Confirmation/Grid/Column/Paymentmethod.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Block/Adminhtml/Confirmation/Edit.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Block/Adminhtml/Confirmation/Grid.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Block/Adminhtml/Csoconfirmation/Edit/Tab/Csoconfirmation.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Block/Adminhtml/Csoconfirmation/Edit/Form.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Block/Adminhtml/Csoconfirmation/Edit/Tabs.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Block/Adminhtml/Csoconfirmation/Grid/Column/Buyer.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Block/Adminhtml/Csoconfirmation/Edit.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Block/Adminhtml/Csoconfirmation/Grid.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Block/Adminhtml/Confirmation.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Block/Adminhtml/Csoconfirmation.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Block/Form.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Block/View.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Helper/Data.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Model/Mysql4/Confirmation/Collection.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Model/Mysql4/Confirmation.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Model/Confirmation.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/Model/Observer.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/controllers/Adminhtml/ConfirmationController.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/controllers/Adminhtml/CsoconfirmationController.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/etc/adminhtml.xml",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/etc/config.xml",
+		"/var/www/html/idmarco/var/log/system.log",
+		"/home/ali/module-multi-stock-point/stockpoint.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/etc/system.xml",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/sql/mamoku_payment_confirmation_setup/install-0.0.1.php",
+		"/var/www/html/idmarco/app/etc/local.xml",
+		"/var/www/html/idmarco/.htaccess",
+		"/var/www/html/idmarco/app/etc/config.xml",
+		"/home/ali/module-multi-stock-point/app/etc/modules/Mamoku_CustomerActivation.xml",
+		"/var/www/html/idmarco/var/log/exception.log",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/CustomerActivation/etc/config.xml",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Loginku/controllers/AccountController.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/controllers/IndexController.php",
+		"/home/ali/module-multi-stock-point/app/etc/modules/KS_PaymentConfirmation.xml",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/sql/mamoku_payment_confirmation_setup/mysql4-upgrade-0.0.1-0.0.2.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/sql/mamoku_payment_confirmation_setup/mysql4-upgrade-0.0.2-0.0.3.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/PaymentConfirmation/sql/ks_payment_confirmation_setup/install-0.0.1.php",
+		"/var/www/html/idmarco/app/etc/modules/Mamoku_Multistockpoint.xml",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Loginku/etc/config.xml",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/CustomerActivation/Model/Observer.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/CustomerActivation/etc/system.xml",
+		"/var/www/html/idmarco/app/code/local/Mamoku/Loginku/controllers/AccountController2.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Loginku/Model/Observer.php",
+		"/home/ali/module-multi-stock-point/defaddress.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/Block/Form/Register.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/Helper/Data.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/Model/System/Config/Source/Extendedregistration/Values.php",
+		"/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/profile/customer/account/edit.phtml",
+		"/home/ali/module-multi-stock-point/app/design/frontend/base/default/layout/mamoku_regaddress.xml",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/etc/config.xml",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/BankTransferAccount/sql/mamoku_bank_transfer_account_setup/install-0.0.1.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/BankTransferAccount/etc/config.xml",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/BankTransferAccount/etc/adminhtml.xml",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/BankTransferAccount/controllers/Adminhtml/BankController.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/BankTransferAccount/Model/Bank.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/BankTransferAccount/Model/Mysql4/Bank.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/BankTransferAccount/Model/Mysql4/Bank/Collection.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/BankTransferAccount/Helper/Data.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/BankTransferAccount/Block/Adminhtml/Bank.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/BankTransferAccount/Block/Adminhtml/Bank/Grid.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/BankTransferAccount/Block/Adminhtml/Bank/Edit.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/BankTransferAccount/Block/Adminhtml/Bank/Edit/Tabs.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/BankTransferAccount/Block/Adminhtml/Bank/Edit/Form.php",
+		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/BankTransferAccount/Block/Adminhtml/Bank/Edit/Tab/Bank.php",
+		"/var/www/html/idmarco/var/log/namespace_modulename.log",
+		"/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/mamoku/regaddress/register.phtml",
 		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/CHANGE.LOG",
 		"/home/ali/module-multi-stock-point/app/design/frontend/base/default/layout/profile.xml",
 		"/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/profile/customer/account/create.phtml",
 		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Profile/Block/Customer/Account/Create.php",
 		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Profile/Model/Customer/Attribute.php",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
-		"/home/ali/module-multi-stock-point/app/etc/modules/Mamoku_Multistockpoint.xml",
 		"/home/ali/module-multi-stock-point/js/mamoku.js",
-		"/home/ali/module-multi-stock-point/app/etc/modules/Mamoku_Profile.xml",
-		"/home/ali/module-multi-stock-point/app/design/frontend/rwd/default/layout/local.xml",
 		"/var/www/html/idmarco/app/etc/modules/DS_RegAddress.xml",
 		"/var/www/html/idmarco/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
-		"/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/profile/customer/account/edit.phtml",
 		"/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/profile/customer/address/edit.phtml",
 		"/var/www/html/idmarco/app/design/frontend/base/default/layout/profile.xml",
 		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Profile/Block/Adminhtml/Customer/Attribute/Edit/Tab/Main.php",
@@ -300,85 +365,7 @@
 		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Profile/controllers/Adminhtml/Customer/AttributeController.php",
 		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Profile/controllers/IndexController.php",
 		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Profile/etc/config.xml",
-		"/home/ali/module-multi-stock-point/app/etc/modules/Amar_Profile.xml",
-		"/home/ali/module-multi-stock-point/js/profile/conflictAttribute.js",
-		"/var/www/html/idmarco/js/profile/conflictAttribute.js",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/multistockpoint_setup/mysql4-install-0.1.0.php",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/alamat.txt",
-		"/var/www/html/idmarco/var/report/480796355910",
-		"/var/www/html/idmarco/var/report/793598034677",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/Customeroptionsimostatus.php",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/Customeroptionsnpwp.php",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/Customeroptionsoutletype.php",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/etc/config.xml",
-		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
-		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/sql/multistockpoint_setup/mysql4-install-0.1.0.php",
-		"/var/www/html/magento/app/etc/modules/Mamoku_Multistockpoint.xml",
-		"/var/www/html/magento/app/code/core/Mage/Sales/Model/Entity/Quote/Address/Attribute/Frontend.php",
-		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/reg-form.phtml",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Stockpoint/Edit/Tab/Form.php",
-		"/home/ali/module-multi-stock-point/app/design/frontend/rwd/default/template/persistent/customer/form/register.phtml",
-		"/home/ali/module-multi-stock-point/app/design/frontend/rwd/default/layout/multistockpoint.xml",
-		"/var/www/html/magento/app/design/frontend/rwd/default/layout/customer.xml",
-		"/var/www/html/magento/app/design/frontend/rwd/default/layout/persistent.xml",
-		"/home/ali/module-multi-stock-point/alamat.sql",
-		"/home/ali/module-multi-stock-point/stockpoint.php",
-		"/home/ali/module-multi-stock-point/app/design/adminhtml/default/default/template/multistockpoint/multistockpointbackend.phtml",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/customeroptionsnpwp.php",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/Customeroptions14451414801.php",
-		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/customeroptionsnpwp.php",
-		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/Customeroptions14451414802.php",
-		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/customeroptionsimostatus.php",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Stockpoint/Grid.php",
-		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Stockpoint/Grid.php",
-		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Stockpoint/Edit/Tab/Form.php",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Stockpoint/Edit/Form.php",
-		"/var/www/html/magento/app/design/adminhtml/default/default/layout/multistockpoint.xml",
-		"/home/ali/module-multi-stock-point/app/design/adminhtml/default/default/template/multistockpoint/catalog/product/tab.phtml",
-		"/home/ali/module-multi-stock-point/app/design/adminhtml/default/default/layout/multistockpoint.xml",
-		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Model/Stockpoint.php",
-		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Stockpoint.php",
-		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Multistockpointbackend.php",
-		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Stockpoint/Edit/Tabs.php",
-		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Stockpoint/Edit/Form.php",
-		"/var/www/html/magento/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Stockpoint/Edit.php",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Stockpoint.php",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Block/Adminhtml/Multistockpointbackend.php",
-		"/var/www/html/magento/enc-key.txt",
-		"/var/www/html/magento/var/session/sess_5ckm3ipmfd5hebr4o4bg4d8h54",
-		"/var/www/html/magento/php.ini",
-		"/var/www/html/magento/errors/report.php",
-		"/var/www/html/magento/php.ini.sample",
-		"/var/www/html/magento/app/code/core/Mage/Install/etc/config.xml",
-		"/var/www/html/magento/app/code/core/Mage/Core/etc/config.xml",
-		"/home/ali/magento/apps/magento/htdocs/app/etc/local.xml",
-		"/home/ali/magento/apps/magento/htdocs/js/mamoku.js",
-		"/home/ali/magento/apps/magento/htdocs/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
-		"/home/ali/magento/apps/magento/htdocs/app/code/local/Mamoku/Multistockpoint/sql/multistockpoint_setup/mysql4-install-0.1.0.php",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-upgrade-0.1.0-0.1.1.php",
-		"/var/www/html/go-lirik/app/Http/routes.php",
-		"/var/www/html/go-lirik/config/database.php",
-		"/var/www/html/go-lirik/config/filesystems.php",
-		"/var/www/html/go-lirik/config/app.php",
-		"/var/www/html/go-lirik/.env",
-		"/var/www/html/go-lirik/public/.htaccess",
-		"/var/www/html/go-lirik/config/session.php",
-		"/var/www/html/go-lirik/config/cache.php",
-		"/var/www/html/go-lirik/public/index.php",
-		"/home/ali/magento/apps/magento/htdocs/sandbox.php",
-		"/home/ali/module-multi-stock-point/app/design/frontend/default/default/layout/local.xml",
-		"/home/ali/module-multi-stock-point/app/design/adminhtml/default/default/layout/local.xml",
-		"/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/Model/Eav/Entity/Attribute/Source/Customeroptions14451414802.php",
-		"/home/ali/magento/apps/magento/htdocs/app/design/adminhtml/default/default/layout/local.xml",
-		"/home/ali/magento/apps/magento/htdocs/js/calendar/calendar-setup.js",
-		"/home/ali/magento/apps/magento/htdocs/app/design/adminhtml/default/default/layout/main.xml",
-		"/home/ali/magento/apps/magento/htdocs/app/design/adminhtml/default/default/layout/admin.xml",
-		"/home/ali/Downloads/pilpres.sql",
-		"/var/www/html/go-lirik/index.php",
-		"/home/ali/magento/apps/magento/htdocs/app/etc/modules/Mamoku_Multistockpoint.xml",
-		"/home/ali/Downloads/module-multi-stock-point-master/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
-		"/home/ali/Downloads/module-multi-stock-point-master/app/design/adminhtml/default/default/layout/multistockpoint.xml",
-		"/home/ali/Downloads/module-multi-stock-point-master/app/etc/modules/Mamoku_Multistockpoint.xml"
+		"/home/ali/module-multi-stock-point/app/etc/modules/Amar_Profile.xml"
 	],
 	"find":
 	{
@@ -389,6 +376,7 @@
 		"height": 93.0,
 		"where_history":
 		[
+			"/var/www/html/specs/home/specs/website",
 			"",
 			"fuuuuuck",
 			""
@@ -399,6 +387,46 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"kecamatan",
+			"kecamata",
+			"form",
+			"fax",
+			"customer_add",
+			"create",
+			"edit",
+			"create",
+			"edit",
+			"create",
+			"customer_account_ed",
+			"customer_create",
+			"countr",
+			"bank",
+			"var_dump",
+			"var_dum",
+			"print_r",
+			"var",
+			"print",
+			"banktransferaccount",
+			"bank",
+			"table",
+			"add",
+			"addt",
+			"cart",
+			"view",
+			"add",
+			"ks",
+			">g",
+			"crete",
+			"requet",
+			"api",
+			"is_conf",
+			"create",
+			"confirmation",
+			"create",
+			"inval",
+			"login",
+			"post",
+			"KS",
 			"login",
 			"country",
 			"requ",
@@ -486,40 +514,7 @@
 			"envir",
 			"aler",
 			"alert",
-			"calend",
-			"js",
-			"multi",
-			"kelurahan",
-			"kecamatan",
-			"kabupaten",
-			"Nama",
-			"kelurahan",
-			"kecamatan",
-			"kelurahan",
-			"kelura",
-			"kecama",
-			"kabupaten",
-			"kabupate",
-			"kelurahan",
-			"kecamata",
-			"kecamatan",
-			"kabupate",
-			"nama",
-			"kelurahan",
-			"kecamatan",
-			"kabupaten",
-			"kecamatan",
-			"kecama",
-			"tambelangan",
-			"tamb",
-			"kecamata",
-			"kecamatan",
-			"kecamat",
-			"kecamatan",
-			"kabupa",
-			"kecama",
-			"kabupa",
-			"kabu"
+			"calend"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -548,37 +543,37 @@
 	"groups":
 	[
 		{
-			"selected": 10,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/etc/config.xml",
+					"file": "/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/mamoku/regaddress/register.phtml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2644,
+						"buffer_size": 21115,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1604,
-								1604
+								11926,
+								11926
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/XML/XML.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 799.0,
+						"translation.y": 3796.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -587,15 +582,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 311,
+						"buffer_size": 1049,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								202,
-								202
+								964,
+								964
 							]
 						],
 						"settings":
@@ -611,225 +606,79 @@
 				},
 				{
 					"buffer": 2,
-					"file": "/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/profile/customer/account/edit.phtml",
+					"file": "/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/mamoku/regaddress/edit.phtml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1538,
+						"buffer_size": 10560,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								107,
-								107
+								1302,
+								1302
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/etc/system.xml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1781,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								47,
-								47
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 17.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/Model/System/Config/Source/Extendedregistration/Values.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1036,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								792,
-								792
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/Helper/Data.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 430,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								428,
-								428
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/home/ali/module-multi-stock-point/app/code/local/Mamoku/RegAddress/Block/Form/Register.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1462,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								619,
-								619
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 119.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 38789,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								581,
-								581
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 149.0,
+						"translation.y": 51.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "/home/ali/module-multi-stock-point/defaddress.php",
+					"buffer": 3,
+					"file": "/home/ali/module-multi-stock-point/app/design/frontend/base/default/template/mamoku/regaddress/book-edit.phtml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 581,
+						"buffer_size": 11641,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								160,
-								160
+								5747,
+								5747
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1977.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "/home/ali/module-multi-stock-point/app/code/local/Mamoku/Loginku/etc/config.xml",
+					"buffer": 4,
+					"file": "/home/ali/module-multi-stock-point/app/etc/modules/Mamoku_Profile.xml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1046,
+						"buffer_size": 194,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								584,
-								584
+								94,
+								94
 							]
 						],
 						"settings":
@@ -840,36 +689,37 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "/home/ali/module-multi-stock-point/app/code/local/Mamoku/Loginku/Model/Observer.php",
+					"buffer": 5,
+					"file": "/home/ali/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1053,
+						"buffer_size": 37837,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								853,
-								853
+								5361,
+								5361
 							]
 						],
 						"settings":
 						{
-							"auto_name": "<?php",
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2920.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -960,7 +810,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 372.0,
+	"side_bar_width": 479.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

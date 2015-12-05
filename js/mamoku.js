@@ -42,47 +42,39 @@ String.prototype.replaceAll = function (find, replace) {
 
 setTimeout(function(){
 foo(document).ready(function(){
-	if(window.location.href.indexOf('catalog_product/new/key')>0){	
-		foo('#product_info_tabs_my_custom_tab').parents('li').hide()
-	}else
-	if(window.location.href.indexOf('catalog_product')>0){	
-		// foo('#product_info_tabs a[title=Prices]').hide()
-		// foo('#product_info_tabs a[title=Inventory]').hide()
-		foo('#product_info_tabs').prepend(foo('#product_info_tabs_my_custom_tab').parents('li'))
-	}
-	if(window.location.href.indexOf('customer/account/edit') > 1 || window.location.href.indexOf('customer/account/create') > 0){
-	var input='<li><label for="#key" class="required"><em>*</em>#key</label><div class="input-box"><input name="#key" id="#key" value="" title="#key" class="input-text required-entry" type="text"></div></li>'
-	var select='<li><label for="#id" class="required"><em>*</em>#label</label><div class="input-box"><select name="#id" id="#id" value="" title="#label" class="required-entry" ></select></div></li>'
-	var cityField='<div class="field"><label><em>*</em></label><div class="input-box"><input id="city"></div></div>'
-	var kecamatan='<div class="field"><label for="kecamatan" class="required"><em>*</em>Kecamatan</label><div class="input-box"><input name="kecamatan" id="kecamatan" value="" title="kecamatan" class="input-text required-entry" type="text"></div></div>'
-	var kelurahan='<div class="field"><label for="kelurahan" class="required"><em>*</em>Kelurahan</label><div class="input-box"><input name="kelurahan" id="kelurahan" value="" title="kelurahan" class="input-text required-entry" type="text"></div></div>'
-	
-	var xfields=[]
-	var addElement=[]
-	xfields.forEach(function(field){
-		addElement.push(select.replaceAll('#label',field.label).replaceAll('#id',field.id))
-	})
-	//foo(addElement.join('')).insertAfter('#email_address') // ini untuk customer account create
-	//foo(addElement.join('')).insertAfter('#email') // ini untuk customer account edit
-
-	foo.getJSON('/magento/stockpoint.php',function(res){
-		res.forEach(function(option){
-			foo('#stockpoint_id').append('<option value="'+option.value+'">'+option.label+'</option>')			
+if(window.location.href.indexOf('catalog_product/new/key')>0){	
+	foo('#product_info_tabs_my_custom_tab').parents('li').hide()
+}else
+if(window.location.href.indexOf('catalog_product')>0){	
+	// foo('#product_info_tabs a[title=Prices]').hide()
+	// foo('#product_info_tabs a[title=Inventory]').hide()
+	foo('#product_info_tabs').prepend(foo('#product_info_tabs_my_custom_tab').parents('li'))
+}
+	if(window.location.href.indexOf('customer/account/create')>0){
+		var input='<li><label for="#key" class="required"><em>*</em>#key</label><div class="input-box"><input name="#key" id="#key" value="" title="#key" class="input-text required-entry" type="text"></div></li>'
+		var select='<li><label for="#id" class="required"><em>*</em>#label</label><div class="input-box"><select name="#id" id="#id" value="" title="#label" class="required-entry" ></select></div></li>'
+		// var xfields=[]
+		// var addElement=[]
+		// xfields.forEach(function(field){
+		// 	addElement.push(select.replaceAll('#label',field.label).replaceAll('#id',field.id))
+		// })
+		// foo(addElement.join('')).insertAfter('#email_address')
+		
+		// foo.getJSON('/magento/stockpoint.php',function(res){
+		// 	res.forEach(function(option){
+		// 		foo('#stockpoint_id').append('<option value="'+option.value+'">'+option.label+'</option>')			
+		// 	})
+		// })
+		var xfields=['outlet_name','address','country_id','region_id','city','kecamatan','kelurahan','postcode','outlet_type','outlet_owner','ktp_number','company_name','npwp_type','npwp_number','npwp_name','npwp_address','mobile_number','telephone','fax','email','email_cc']
+		
+		//var xfields=['kecamatan','kelurahan']
+		var addElement=[]
+		xfields.forEach(function(field){
+			addElement.push(input.replaceAll('#key',field))
 		})
-	})
-	var xfields=['email_cc','outlet_name','outlet_type','outlet_owner','ktp_number','npwp_type','npwp_number','npwp_name','npwp_address','mobile_number']
-	//var xfields=['kecamatan','kelurahan']
-	var addElement=[]
-	xfields.forEach(function(field){
-		addElement.push(input.replaceAll('#key',field))
-	})
-	foo(addElement.join('')).insertAfter('#email_address')
-	foo(addElement.join('')).insertAfter('#email')
-	//console.log(foo('#email'))
-	console.log(foo('#email_address'))
+		foo(addElement.join('')).insertAfter('#email_address')
+		console.log(foo('#email_address'))
 	}
-	//put to the right side
-	foo(kecamatan).insertAfter('.field #city')
-	foo(kelurahan).insertAfter('.field #kecamatan')
 })
+foo('form[action=#needlogin]').find('.btn-cart').attr('disabled','true')
 },500)

@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Mamoku_Profile>
-            <active>true</active>
+            <active>false</active>
             <codePool>local</codePool>
         </Mamoku_Profile>
     </modules>

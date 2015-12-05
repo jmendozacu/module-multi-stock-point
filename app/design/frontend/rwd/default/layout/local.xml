@@ -2,7 +2,7 @@
 <layout version="0.1.0">
   <default>
     <reference name="head">       
-        <!--<action method="addItem"><type>js</type><name>mamoku.js</name></action>--> 
+       <!--<action method="addItem"><type>js</type><name>mamoku.js</name></action>-->
     </reference>
   </default>
 </layout>

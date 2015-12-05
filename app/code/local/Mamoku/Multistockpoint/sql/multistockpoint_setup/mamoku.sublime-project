@@ -5,6 +5,9 @@
 			"path": "/home/ali/module-multi-stock-point"
 		},
 		{
+			"path": "/var/www/html/myspecs"
+		},
+		{
 			"path": "/var/www/html/idmarco"
 		}
 	]
