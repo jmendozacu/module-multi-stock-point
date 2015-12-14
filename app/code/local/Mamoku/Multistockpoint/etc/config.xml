@@ -37,11 +37,16 @@
 					<product_view>Mamoku_Multistockpoint_Block_Catalog_Product_View</product_view>
 				</rewrite>
 			</catalog>
-			
+			<page>
+			<rewrite>			
+				<html_head>Mamoku_Multistockpoint_Block_Html_Head</html_head>
+			</rewrite>
+			</page>
 			
 					
 				
 	</blocks>
+	
 	<models>
 
 	  <multistockpoint>
@@ -119,6 +124,17 @@
 	  </customerattribute1445141480_read>
 	</resources>
   </global>
+<frontend>
+        <routers>
+            <customer>
+                <args>
+                    <modules>
+                        <mamoku_multistockpoint before="Mage_Customer">Mamoku_Multistockpoint</mamoku_multistockpoint>
+                    </modules>
+                </args>
+            </customer>
+        </routers>
+    </frontend>  
   <admin>
 	<routers>
 	  <multistockpoint>

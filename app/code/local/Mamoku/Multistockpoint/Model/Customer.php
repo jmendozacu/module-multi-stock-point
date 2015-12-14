@@ -164,6 +164,7 @@ class Mamoku_Multistockpoint_Model_Customer extends Mage_Core_Model_Abstract
      * @return true
      *
      */
+
     public function authenticate($login, $password)
     {
         $this->loadByEmail($login);        
@@ -171,8 +172,7 @@ class Mamoku_Multistockpoint_Model_Customer extends Mage_Core_Model_Abstract
         $customer = Mage::getModel("customer/customer"); 
  		$customer->setWebsiteId(Mage::app()->getStore()->getWebsiteId());
  		$customer->loadByEmail($login);
- 		print_r($customer->getData());
- 		echo "----";
+
  		
  		if((bool)$customer->getIs_verified()){
         	$customer->setConfirmation(null);
@@ -191,6 +191,8 @@ class Mamoku_Multistockpoint_Model_Customer extends Mage_Core_Model_Abstract
             throw Mage::exception('Mage_Core', Mage::helper('customer')->__('Invalid login or password.'),
                 self::EXCEPTION_INVALID_EMAIL_OR_PASSWORD
             );
+        }else{
+          setcookie('customerid',$customer->getId());  
         }
         Mage::dispatchEvent('customer_customer_authenticated', array(
            'model'    => $this,

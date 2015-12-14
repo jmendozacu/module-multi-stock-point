@@ -6,7 +6,6 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
 require_once('app/Mage.php'); //Path to Magento
-umask(0);
 Mage::app('admin');
 $param=(object)$_GET;
 $post=(object)$_POST;
@@ -23,11 +22,27 @@ function error($msg){
 	$obj['message']=$msg;
 	echo json_encode((object)$obj);
 }
-function _get($model){
+function _get($model,$param){
 	$models = mage::getModel($model)->getCollection()->addAttributeToSelect('*');;	
-
+	if($param->filter){
+		$filter=explode(',',$param->filter);
+	}
 	foreach($models as $item){
+		$idata=$item->getData();
+		if($filter){
+			$match=true;
+			foreach ($filter as $fitem) {
+				# code...				
+				$kval=explode(':', $fitem);
+				if($idata[$kval[0]]!=$kval[1]){
+					$match=false;
+				}
+			}
+			if($match)
+			$result[]=$item->getData();
+		}else		
 		$result[]=$item->getData();
+
 	}
 	success('success',$result);
 }
