@@ -42,14 +42,21 @@ DROP TABLE IF EXISTS `villages`;
 -- Dump completed on 2015-08-17 23:25:03
 
 
-DROP TABLE IF EXISTS kelurahan,kecamatan,stockpoint,locationcoverage;
+DROP TABLE IF EXISTS kelurahan,kecamatan,stockpoint;
 
-create table locationcoverage(
-coverage_id int(12) auto_increment primary key not null,
-propinsi varchar(20) not null,
-city varchar(20) not null,
-kecamatan varchar(20) not null,
-kelurahan varchar(20) not null)
+DROP TABLE IF EXISTS `locationcoverage`;
+
+CREATE TABLE `locationcoverage` (
+  `propinsi` varchar(20) NOT NULL,
+  `city` varchar(20) NOT NULL,
+  `kecamatan` varchar(20) NOT NULL,
+  `kelurahan` varchar(20) NOT NULL,
+  `stockpoint_code` varchar(20) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
 
 CREATE TABLE IF NOT EXISTS `stockpoint` (
  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
