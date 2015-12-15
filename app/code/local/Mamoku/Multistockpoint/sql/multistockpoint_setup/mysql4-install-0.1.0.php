@@ -48,7 +48,7 @@ DROP TABLE IF EXISTS `locationcoverage`;
 
 CREATE TABLE `locationcoverage` (
   `propinsi` varchar(20) NOT NULL,
-  `city` varchar(20) NOT NULL,
+  `kota` varchar(200) NOT NULL,
   `kecamatan` varchar(20) NOT NULL,
   `kelurahan` varchar(20) NOT NULL,
   `stockpoint_code` varchar(20) DEFAULT NULL,
