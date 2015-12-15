@@ -1,5 +1,15 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
+	<multistockpoint_adminhtml_locationcoverage_index>
+	<reference name="content">
+	  <block type="multistockpoint/adminhtml_locationcoverage" name="locationcoverage" />
+	</reference>
+  </multistockpoint_adminhtml_locationcoverage_index>
+  <multistockpoint_adminhtml_pricetype_index>
+	<reference name="content">
+	  <block type="multistockpoint/adminhtml_pricetype" name="pricetype" />
+	</reference>
+  </multistockpoint_adminhtml_pricetype_index>
 	<adminhtml_catalog_product_edit>
         <reference name="product_tabs">
             <action method="addTab">
