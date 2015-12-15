@@ -76,6 +76,12 @@
 			  <stockpoint>
 				<table>stockpoint</table>
 			  </stockpoint>		  
+			  <locationcoverage>
+				<table>locationcoverage</table>
+			  </locationcoverage>		  
+			  <pricetype>
+				<table>pricetype</table>
+			  </pricetype>
         </entities>
 	  </multistockpoint_mysql4>
 			<cataloginventory>
@@ -122,6 +128,25 @@
 		  <use>core_read</use>
 		</connection>
 	  </customerattribute1445141480_read>
+<customerattribute1450173472_setup>
+		<setup>
+		  <module>Mamoku_Multistockpoint</module>
+		  <class>Mage_Customer_Model_Entity_Setup</class>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </customerattribute1450173472_setup>
+	  <customerattribute1450173472_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </customerattribute1450173472_write>
+	  <customerattribute1450173472_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </customerattribute1450173472_read>	  
 	</resources>
   </global>
 <frontend>
@@ -182,9 +207,19 @@
 		<title>Multistockpoint</title>
 		<sort_order>100</sort_order>
 		<children>		  
+<locationcoverage module="multistockpoint">
+		    <title>Manage Locationcoverage</title>
+			<sort_order>0</sort_order>
+			<action>admin_multistockpoint/adminhtml_locationcoverage</action>
+		  </locationcoverage>
+		  <pricetype module="multistockpoint">
+		    <title>Manage Pricetype</title>
+			<sort_order>1</sort_order>
+			<action>admin_multistockpoint/adminhtml_pricetype</action>
+		  </pricetype>			
 		  <stockpoint module="multistockpoint">
 		    <title>Manage Stockpoint</title>
-			<sort_order>0</sort_order>
+			<sort_order>2</sort_order>
 			<action>admin_multistockpoint/adminhtml_stockpoint</action>
 		  </stockpoint>
 
@@ -202,6 +237,14 @@
 			  <title>Multistockpoint</title>
 			  <sort_order>1000</sort_order>
 			  <children>
+			  	<locationcoverage translate="title">
+			<title>Manage Locationcoverage</title>
+			<sort_order>0</sort_order>
+		  </locationcoverage>
+		  <pricetype translate="title">
+			<title>Manage Pricetype</title>
+			<sort_order>20</sort_order>
+		  </pricetype>
 		  <multistockpointbackend translate="title">
 			<title>Multi Stock Point</title>
 		  </multistockpointbackend>
