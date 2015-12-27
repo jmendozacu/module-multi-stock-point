@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config>
-    <modules>
-        <Mamoku_Profile>
-            <active>false</active>
-            <codePool>local</codePool>
-        </Mamoku_Profile>
-    </modules>
-</config> 

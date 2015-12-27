@@ -25,17 +25,11 @@
  * @author      Team Mamoku <info@mamoku.com>
  */
  -->
-<config>
-    <tabs>
-        <bank_transfer_account>
-            <label>Bank Transfer</label>
-            <sort_order>1</sort_order>
-        </bank_transfer_account>
-    </tabs>
+<config>    
     <sections>
         <bank_transfer_account translate="label" module="banktransferaccount">
             <label>Bank Transfer Account</label>
-            <tab>bank_transfer_account</tab>
+            <tab>mamoku</tab>
             <frontend_type>text</frontend_type>
             <sort_order>20</sort_order>
             <show_in_default>1</show_in_default>

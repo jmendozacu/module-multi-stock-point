@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
-
-    <tabs>
-        <designslider translate="label">
-            <label>DESIGN:SLIDER EXTENSIONS</label>
-            <sort_order>999</sort_order>
-        </designslider>
-    </tabs>
-
     <sections>
         <regaddress translate="label">
             <label>Registration Address</label>
-            <tab>designslider</tab>
+            <tab>mamoku</tab>
             <sort_order>18</sort_order>
             <show_in_default>1</show_in_default>
             <show_in_website>1</show_in_website>

@@ -49,26 +49,28 @@
                 </div>
             </li>
             <li class="fields">
+                    <?php
+                    $model = Mage::getModel('multistockpoint/eav_entity_attribute_source_customeroptionsoutletype');
+                    $rows = $model->getAllOptions();
+                    if($rows[0]['visibility'] != 0):
+                    ?>
                     <div class="field">
                         <label for="outlet_type"><?php echo $this->__('Outlet Type') ?></label>
-                        <div class="input-box">
-                            <?php
-                            $outlet_type = Mage::getModel('multistockpoint/eav_entity_attribute_source_customeroptionsoutletype')->getAllOptions();
-                            //echo "<pre>";
-                            //print_r( $outlet_type);
-                            //echo "</pre>";
-                            ?>
+                        <div class="input-box">                                           
                             <select name="outlet_type" id="outlet_type">
-                                <option value="<?php echo $this->escapeHtml($this->getCustomer()->getOutletType()) ?>"><?php echo $outlet_type[$this->escapeHtml($this->getCustomer()->getOutletType())]['label']?></option>
+                                <option value="<?php echo $this->escapeHtml($this->getCustomer()->getOutletType()) ?>"><?php echo $this->escapeHtml($this->getCustomer()->getOutletType()) ?></option>
                                 <?php
-                                foreach($outlet_type as $type){
+                                foreach($rows as $type){
                                     ?>
-                                    <option value="<?php echo $type['value']?>"><?php echo $type['label'];?></option>
+                                    <option value="<?php echo $type['value']?>"><?php echo $type['value'];?></option>
                                     <?php
                                 }?>                                
                             </select>                            
                         </div>
                     </div>
+                    <?php
+                    endif;
+                    ?>
                     <div class="field">
                         <label for="outlet_owner"><?php echo $this->__('Outlet Owner') ?></label>
                         <div class="input-box">
@@ -81,26 +83,28 @@
                             <input type="text" name="ktp_number" id="ktp_number" value="<?php echo $this->escapeHtml($this->getCustomer()->getKtpNumber()) ?>" title="<?php echo $this->__('ID Card') ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('ktp_number') ?>" />
                         </div>
                     </div>
+                    <?php
+                    $model = Mage::getModel('multistockpoint/eav_entity_attribute_source_customeroptionsnpwp');
+                    $rows = $model->getAllOptions();
+                    if($rows[0]['visibility'] != 0):
+                    ?>
                     <div class="field">
                         <label for="npwp_type"><?php echo $this->__('NPWP Type') ?></label>
-                        <div class="input-box">
-                            <?php
-                            $npwp_type = Mage::getModel('multistockpoint/eav_entity_attribute_source_customeroptionsnpwp')->getAllOptions();
-                            //echo "<pre>";
-                            //print_r( $outlet_type);
-                            //echo "</pre>";
-                            ?>
+                        <div class="input-box">                            
                             <select name="npwp_type" id="npwp_type">
-                                <option value="<?php echo $this->escapeHtml($this->getCustomer()->getNpwpType()) ?>"><?php echo $npwp_type[$this->escapeHtml($this->getCustomer()->getNpwpType())]['label']?></option>
+                                <option value="<?php echo $this->escapeHtml($this->getCustomer()->getNpwpType()) ?>"><?php echo $this->escapeHtml($this->getCustomer()->getNpwpType()) ?></option>
                                 <?php
-                                foreach($npwp_type as $type){
+                                foreach($rows as $type){
                                     ?>
-                                    <option value="<?php echo $type['value']?>"><?php echo $type['label'];?></option>
+                                    <option value="<?php echo $type['value']?>"><?php echo $type['value'];?></option>
                                     <?php
                                 }?>
                             </select>                            
                         </div>
                     </div>
+                    <?php
+                    endif;
+                    ?>
                     <div class="field">
                         <label for="npwp_number"><?php echo $this->__('NPWP Number') ?></label>
                         <div class="input-box">

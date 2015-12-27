@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layout version="0.1.0">
     <customer_account_create>
+       <!-- <reference name="head">       
+       <action method="addItem"><type>js</type><name>ajax_kota.js</name></action>
+        </reference>-->
         <reference name="customer_form_register"> 
             <action method="setTemplate"><template>mamoku/regaddress/register.phtml</template></action> 
         </reference>

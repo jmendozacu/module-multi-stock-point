@@ -6,7 +6,46 @@
     </Mamoku_Multistockpoint>
   </modules>
   <global>
-
+<events>
+	<sales_quote_add_item>
+        <observers>
+            <Mamoku_Multistockpoint_Model_Observer>
+                <type>singleton</type>
+                <class>Mamoku_Multistockpoint_Model_Observer</class>
+                <method>updatePrice</method>
+            </Mamoku_Multistockpoint_Model_Observer>
+        </observers>
+    </sales_quote_add_item>
+    <checkout_cart_product_update_after>
+        <observers>
+            <Mamoku_Multistockpoint_Model_Observer>
+                <type>singleton</type>
+                <class>Mamoku_Multistockpoint_Model_Observer</class>
+                <method>updatePrice2</method>
+            </Mamoku_Multistockpoint_Model_Observer>
+        </observers>
+    </checkout_cart_product_update_after>
+    <checkout_cart_update_items_after>
+        <observers>
+            <Mamoku_Multistockpoint_Model_Observer>
+                <type>singleton</type>
+                <class>Mamoku_Multistockpoint_Model_Observer</class>
+                <method>updatePriceAll</method>
+            </Mamoku_Multistockpoint_Model_Observer>
+        </observers>
+    </checkout_cart_update_items_after>
+    <checkout_cart_save_after>
+        <observers>
+            <Mamoku_Multistockpoint_Model_Observer>
+                <type>singleton</type>
+                <class>Mamoku_Multistockpoint_Model_Observer</class>
+                <method>updatePriceSaveAjax</method>
+            </Mamoku_Multistockpoint_Model_Observer>
+        </observers>
+    </checkout_cart_save_after>    
+    
+    
+</events>
   <sales>
 	<order>
 	  <statuses>
@@ -37,22 +76,23 @@
 					<product_view>Mamoku_Multistockpoint_Block_Catalog_Product_View</product_view>
 				</rewrite>
 			</catalog>
-			
+			<page>
+			<rewrite>			
+				<html_head>Mamoku_Multistockpoint_Block_Html_Head</html_head>
+			</rewrite>
+			</page>
 			
 					
 				
 	</blocks>
+	
 	<models>
 
 	  <multistockpoint>
 		<class>Mamoku_Multistockpoint_Model</class>
 		<resourceModel>multistockpoint_mysql4</resourceModel>
 	  </multistockpoint>
-	  <catalog>
-                <rewrite>
-                    <product>Mamoku_Multistockpoint_Model_Product</product>
-                </rewrite>
-            </catalog>
+
 <customer>
                 <rewrite>
                     <customer>Mamoku_Multistockpoint_Model_Customer</customer>
@@ -71,6 +111,15 @@
 			  <stockpoint>
 				<table>stockpoint</table>
 			  </stockpoint>		  
+			  <locationcoverage>
+				<table>locationcoverage</table>
+			  </locationcoverage>		  
+			  <pricetype>
+				<table>pricetype</table>
+			  </pricetype>
+			  <outlet>
+				<table>outlet</table>
+			  </outlet>
         </entities>
 	  </multistockpoint_mysql4>
 			<cataloginventory>
@@ -117,8 +166,20 @@
 		  <use>core_read</use>
 		</connection>
 	  </customerattribute1445141480_read>
+  
 	</resources>
   </global>
+<frontend>
+        <routers>
+            <customer>
+                <args>
+                    <modules>
+                        <mamoku_multistockpoint before="Mage_Customer">Mamoku_Multistockpoint</mamoku_multistockpoint>
+                    </modules>
+                </args>
+            </customer>
+        </routers>
+    </frontend>  
   <admin>
 	<routers>
 	  <multistockpoint>
@@ -131,7 +192,7 @@
 	</routers>
   </admin>
   <adminhtml>
- <events>
+ <events> 	
  	<catalog_product_edit_action>
                 <observers>
                     <Mamoku_save_product_data>
@@ -163,12 +224,27 @@
         </events>  	
 	<menu>
 	  <multistockpoint module="multistockpoint">
-		<title>Multistockpoint</title>
+		<title>Magento Modul Ku</title>
 		<sort_order>100</sort_order>
-		<children>		  
-		  <stockpoint module="multistockpoint">
-		    <title>Manage Stockpoint</title>
+		<children>		
+		<outlet module="multistockpoint">
+		    <title>Manage Outlet</title>
 			<sort_order>0</sort_order>
+			<action>admin_multistockpoint/adminhtml_outlet</action>
+		  </outlet>  
+<locationcoverage module="multistockpoint">
+		    <title>Manage Locationcoverage</title>
+			<sort_order>0</sort_order>
+			<action>admin_multistockpoint/adminhtml_locationcoverage</action>
+		  </locationcoverage>
+		  <pricetype module="multistockpoint">
+		    <title>Manage Pricetype</title>
+			<sort_order>1</sort_order>
+			<action>admin_multistockpoint/adminhtml_pricetype</action>
+		  </pricetype>			
+		  <stockpoint module="multistockpoint">
+		    <title>Manage Location</title>
+			<sort_order>2</sort_order>
 			<action>admin_multistockpoint/adminhtml_stockpoint</action>
 		  </stockpoint>
 
@@ -186,6 +262,18 @@
 			  <title>Multistockpoint</title>
 			  <sort_order>1000</sort_order>
 			  <children>
+			  	<outlet translate="title">
+			<title>Manage Outlet</title>
+			<sort_order>0</sort_order>
+		  </outlet>
+			  	<locationcoverage translate="title">
+			<title>Manage Locationcoverage</title>
+			<sort_order>0</sort_order>
+		  </locationcoverage>
+		  <pricetype translate="title">
+			<title>Manage Pricetype</title>
+			<sort_order>20</sort_order>
+		  </pricetype>
 		  <multistockpointbackend translate="title">
 			<title>Multi Stock Point</title>
 		  </multistockpointbackend>

@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config>
-  <modules>
-    <Mamoku_Loginku>
-      <active>false</active>
-      <codePool>local</codePool>    
-    </Mamoku_Loginku>
-  </modules>
-</config>

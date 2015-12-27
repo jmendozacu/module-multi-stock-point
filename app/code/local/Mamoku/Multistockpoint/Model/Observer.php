@@ -49,6 +49,237 @@ class Mamoku_Multistockpoint_Model_Observer
             }
         }
     }
+    
+    public function updatePriceSaveAjax(Varien_Event_Observer $observer) {                
+        $cart=$observer->cart;
+        $id=Mage::app()->getRequest()->getParam('id');
+        if($id>0){
+            $quote_item = $cart->getQuote()->getItemById($id);
+            $qty=Mage::app()->getRequest()->getParam('qty');
+            
+            $product=Mage::getModel('catalog/product')->load($quote_item->getProduct()->getId());        
+            $prices=Mage::getModel('multistockpoint/pricetype')->getCollection()->setOrder('minqty', 'DESC');
+            foreach ($prices as $pritem) {
+                # code...
+                
+                if($qty>=$pritem->getMinqty()){
+                    $prname=$pritem->getTypename();
+                    break;
+                }
+            }
+            
+
+            $customerAddressId = Mage::getSingleton('customer/session')->getCustomer()->getDefaultShipping();
+            $address=Mage::getModel('customer/address')->load($customerAddressId);
+            $locationc=Mage::getModel('multistockpoint/locationcoverage')->getCollection();
+            $code='';
+            foreach ($locationc as $loc) {
+                # code...
+                if($loc->getPropinsi()==$address->getRegion() && $loc->getKota()==$address->getCity() && $loc->getKecamatan()==$address->getKecamatan() && $loc->getKelurahan()==$address->getKelurahan() ){
+                    $code=$loc->getStockpoint_code();
+                }
+            }
+
+
+            $location=Mage::getModel('multistockpoint/stockpoint')->getCollection();
+            $id=0;
+            foreach ($location as $l) {
+                # code...   
+                        
+                if($l->getCode()==$code){
+                    $id=$l->getData()['id'];
+                }
+            }
+            
+            $obj=json_decode(str_replace("'", '"', $product->getPrice_qty()),true);
+            
+            
+            if($code!=''){
+                
+                $new_price = $obj[$prname][$id];
+              
+                
+                if(intval($new_price)>0){
+                    $quote_item->setOriginalCustomPrice($new_price);
+                    $quote_item->save();
+                }
+            }
+
+        }
+
+    }
+    //SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS
+       //SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS   //SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS
+
+    public function updatePriceAll(Varien_Event_Observer $observer) {                
+        $data=$observer->info;
+        print_r($data);
+        echo "FFF3";
+        foreach ($data as $itemId => $itemInfo) {
+            $quote_item = $observer->cart->getQuote()->getItemById($itemId);
+            $qty=$itemInfo['qty'];
+            $product=Mage::getModel('catalog/product')->load($quote_item->getProduct()->getId());        
+            $prices=Mage::getModel('multistockpoint/pricetype')->getCollection()->setOrder('minqty', 'DESC');
+            foreach ($prices as $pritem) {
+                # code...
+                
+                if($qty>=$pritem->getMinqty()){
+                    $prname=$pritem->getTypename();
+                    break;
+                }
+            }
+            
+
+            $customerAddressId = Mage::getSingleton('customer/session')->getCustomer()->getDefaultShipping();
+            $address=Mage::getModel('customer/address')->load($customerAddressId);
+            $locationc=Mage::getModel('multistockpoint/locationcoverage')->getCollection();
+            $code='';
+            foreach ($locationc as $loc) {
+                # code...
+                if($loc->getPropinsi()==$address->getRegion() && $loc->getKota()==$address->getCity() && $loc->getKecamatan()==$address->getKecamatan() && $loc->getKelurahan()==$address->getKelurahan() ){
+                    $code=$loc->getStockpoint_code();
+                }
+            }
+
+
+            $location=Mage::getModel('multistockpoint/stockpoint')->getCollection();
+            $id=0;
+            foreach ($location as $l) {
+                # code...   
+                        
+                if($l->getCode()==$code){
+                    $id=$l->getData()['id'];
+                }
+            }
+            
+            $obj=json_decode(str_replace("'", '"', $product->getPrice_qty()),true);
+            
+            
+            if($code!=''){
+                
+                $new_price = $obj[$prname][$id];
+                
+                
+                if(intval($new_price)>0){
+                    $quote_item->setOriginalCustomPrice($new_price);
+                    $quote_item->save();
+                }
+            }
+        }
+        
+    }
+    
+    public function updatePrice2(Varien_Event_Observer $observer) {                
+        
+        $quote_item=$observer->quote_item;        
+        $qty=Mage::app()->getRequest()->getParam('qty');
+
+        if($quote_item){
+            $product=Mage::getModel('catalog/product')->load($quote_item->getProduct()->getId());        
+            $prices=Mage::getModel('multistockpoint/pricetype')->getCollection()->setOrder('minqty', 'DESC');
+            foreach ($prices as $pritem) {
+                # code...
+                
+                if($qty>=$pritem->getMinqty()){
+                    $prname=$pritem->getTypename();
+                    break;
+                }
+            }
+            
+
+            $customerAddressId = Mage::getSingleton('customer/session')->getCustomer()->getDefaultShipping();
+            $address=Mage::getModel('customer/address')->load($customerAddressId);
+            $locationc=Mage::getModel('multistockpoint/locationcoverage')->getCollection();
+            $code='';
+            foreach ($locationc as $loc) {
+                # code...
+                if($loc->getPropinsi()==$address->getRegion() && $loc->getKota()==$address->getCity() && $loc->getKecamatan()==$address->getKecamatan() && $loc->getKelurahan()==$address->getKelurahan() ){
+                    $code=$loc->getStockpoint_code();
+                }
+            }
+
+
+            $location=Mage::getModel('multistockpoint/stockpoint')->getCollection();
+            $id=0;
+            foreach ($location as $l) {
+                # code...   
+                        
+                if($l->getCode()==$code){
+                    $id=$l->getData()['id'];
+                }
+            }
+            
+            $obj=json_decode(str_replace("'", '"', $product->getPrice_qty()),true);
+            
+            
+            if($code!=''){
+                
+                $new_price = $obj[$prname][$id];
+                
+                
+                if(intval($new_price)>0){
+                    $quote_item->setOriginalCustomPrice($new_price);
+                    $quote_item->save();
+                }
+            }
+        }        
+    }    
+   
+    public function updatePrice(Varien_Event_Observer $observer) {
+        $event = $observer->getEvent();        
+        $qty=Mage::app()->getRequest()->getParam('qty');
+        $quote_item = $event->getQuoteItem();
+        
+        if($quote_item){
+            $product=Mage::getModel('catalog/product')->load($quote_item->getProduct()->getId());        
+            $prices=Mage::getModel('multistockpoint/pricetype')->getCollection()->setOrder('minqty', 'DESC');
+            foreach ($prices as $pritem) {
+                # code...
+                
+                if($qty>=$pritem->getMinqty()){
+                    $prname=$pritem->getTypename();
+                    break;
+                }
+            }
+            
+
+            $customerAddressId = Mage::getSingleton('customer/session')->getCustomer()->getDefaultShipping();
+            $address=Mage::getModel('customer/address')->load($customerAddressId);
+            $locationc=Mage::getModel('multistockpoint/locationcoverage')->getCollection();
+            $code='';
+            foreach ($locationc as $loc) {
+                # code...
+                if($loc->getPropinsi()==$address->getRegion() && $loc->getKota()==$address->getCity() && $loc->getKecamatan()==$address->getKecamatan() && $loc->getKelurahan()==$address->getKelurahan() ){
+                    $code=$loc->getStockpoint_code();
+                }
+            }
+
+
+            $location=Mage::getModel('multistockpoint/stockpoint')->getCollection();
+            $id=0;
+            foreach ($location as $l) {
+                # code...   
+                        
+                if($l->getCode()==$code){
+                    $id=$l->getData()['id'];
+                }
+            }
+            
+            $obj=json_decode(str_replace("'", '"', $product->getPrice_qty()),true);
+            
+            
+            if($code!=''){
+                
+                $new_price = $obj[$prname][$id];
+                
+                
+                if(intval($new_price)>0){
+                    $quote_item->setOriginalCustomPrice($new_price);
+                    $quote_item->save();
+                }
+            }
+        }
+    }    
     public function initProductTabData(Varien_Event_Observer $observer)
     {
 
@@ -61,7 +292,7 @@ class Mamoku_Multistockpoint_Model_Observer
     public function editProductTabData(Varien_Event_Observer $observer)
     {
 
-        $product = $observer->getEvent()->getProduct();
+        $product = $observer->getEvent()->getProduct();        
         Mage::getSingleton("adminhtml/session")->setProductPriceqty($product->getPrice_qty());
 
         
@@ -84,4 +315,6 @@ class Mamoku_Multistockpoint_Model_Observer
     {
         return Mage::app()->getRequest();
     }
+    
+
 }

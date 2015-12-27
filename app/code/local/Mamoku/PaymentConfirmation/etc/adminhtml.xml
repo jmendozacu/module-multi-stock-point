@@ -27,7 +27,7 @@
  -->
 <config>
     <menu>
-         <ksall>
+         <mamoku translate="title" module="mamoku">
             <children>
                 <payment_confirmation translate="title" module="paymentconfirmation">
                     <title>Payment Confirmation</title>
@@ -78,7 +78,7 @@
                     </children>
                 </payment_confirmation>
             </children>
-         </ksall>
+         </mamoku>
     </menu>
     <acl>
         <resources>
@@ -96,7 +96,7 @@
                             </config>
                         </children>
                     </system>
-                    <ksall>
+                    <mamoku>
                         <children>
                             <payment_confirmation translate="title">
                                 <title>Payment Confirmations</title>
@@ -142,7 +142,7 @@
                                 </children>
                             </payment_confirmation>
                         </children>
-                    </ksall>
+                    </mamoku>
                 </children>
             </admin>
         </resources>

@@ -99,6 +99,6 @@ class Mamoku_PaymentConfirmation_Block_Adminhtml_Confirmation_Edit extends Mage_
 
     protected function _isAllowedAction($action) {
         //return Mage::getSingleton('admin/session')->isAllowed("ksall/payment_confirmation/actions/".$action);
-        return;
+        return true;
     }
 }

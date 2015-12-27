@@ -175,7 +175,7 @@ class Mamoku_PaymentConfirmation_Adminhtml_ConfirmationController extends Mage_A
                 return Mage::getSingleton('admin/session')->isAllowed('admin/ksall/payment_confirmation');
                 break;
         }*/
-        true;
+        return true;
     }
 
 }
