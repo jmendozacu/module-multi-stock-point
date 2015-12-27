@@ -1,6 +1,7 @@
 <?php
 function get($param){
 	_get('customer/customer');
+	
 }
 
 

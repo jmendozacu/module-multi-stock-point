@@ -262,10 +262,7 @@
 			  <title>Multistockpoint</title>
 			  <sort_order>1000</sort_order>
 			  <children>
-			  	<outlet translate="title">
-			<title>Manage Outlet</title>
-			<sort_order>0</sort_order>
-		  </outlet>
+			  	
 			  	<locationcoverage translate="title">
 			<title>Manage Locationcoverage</title>
 			<sort_order>0</sort_order>

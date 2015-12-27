@@ -129,13 +129,15 @@ echo "newobj.".$price->getTypename().'={};';
 ?>
 newobj.qty={}
 var c={}
+c=newobj;
 for(var i in obj){
     if(JSON.stringify(obj[i])!='{}')
         c[i]=obj[i]
 }
-for(var i in newobj){    
+for(var i in newobj){        
         c[i]=newobj[i]
 }
+
 newobj=c;
 foo('#gridpriceqty').html(html)
 <?php

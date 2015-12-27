@@ -111,6 +111,13 @@ class Mamoku_Multistockpoint_Model_Observer
     //SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS
        //SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS   //SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS
 
+
+    //SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS
+       //SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS   //SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS
+       //SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS   //SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS
+       //SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS   //SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS
+       //SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS   //SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS//SSSSS
+
     public function updatePriceAll(Varien_Event_Observer $observer) {                
         $data=$observer->info;
         print_r($data);
@@ -231,17 +238,18 @@ class Mamoku_Multistockpoint_Model_Observer
         $quote_item = $event->getQuoteItem();
         
         if($quote_item){
+            //echo "id".$quote_item->getProduct()->getId();
             $product=Mage::getModel('catalog/product')->load($quote_item->getProduct()->getId());        
             $prices=Mage::getModel('multistockpoint/pricetype')->getCollection()->setOrder('minqty', 'DESC');
             foreach ($prices as $pritem) {
                 # code...
-                
+
                 if($qty>=$pritem->getMinqty()){
                     $prname=$pritem->getTypename();
                     break;
                 }
             }
-            
+            //echo "FUUU".$prname;exit();
 
             $customerAddressId = Mage::getSingleton('customer/session')->getCustomer()->getDefaultShipping();
             $address=Mage::getModel('customer/address')->load($customerAddressId);
@@ -253,13 +261,13 @@ class Mamoku_Multistockpoint_Model_Observer
                     $code=$loc->getStockpoint_code();
                 }
             }
-
+            //echo "CODE".$code;exit();
 
             $location=Mage::getModel('multistockpoint/stockpoint')->getCollection();
             $id=0;
             foreach ($location as $l) {
                 # code...   
-                        
+                
                 if($l->getCode()==$code){
                     $id=$l->getData()['id'];
                 }
@@ -267,11 +275,10 @@ class Mamoku_Multistockpoint_Model_Observer
             
             $obj=json_decode(str_replace("'", '"', $product->getPrice_qty()),true);
             
-            
             if($code!=''){
                 
                 $new_price = $obj[$prname][$id];
-                
+                //echo "SUUUUU".$new_price;exit();
                 
                 if(intval($new_price)>0){
                     $quote_item->setOriginalCustomPrice($new_price);

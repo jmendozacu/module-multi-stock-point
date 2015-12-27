@@ -51,6 +51,7 @@ function _post($ikey,$model,$post){
 	foreach ($data as $cust) {
 		# code...
 		unset($cust['id']);
+		
 
 		$customers = mage::getModel($model)->getCollection();			
 		$customers->addFieldToFilter($ikey,$cust[$ikey]);
