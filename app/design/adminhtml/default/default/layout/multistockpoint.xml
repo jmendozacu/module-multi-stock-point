@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
+  <multistockpoint_adminhtml_outlet_index>
+  <reference name="content">
+    <block type="multistockpoint/adminhtml_outlet" name="outlet" />
+  </reference>
+  </multistockpoint_adminhtml_outlet_index>
 	<multistockpoint_adminhtml_locationcoverage_index>
 	<reference name="content">
 	  <block type="multistockpoint/adminhtml_locationcoverage" name="locationcoverage" />

@@ -9,12 +9,7 @@ class Mamoku_Multistockpoint_Block_Adminhtml_Pricetype_Edit_Tab_Form extends Mag
 				$fieldset = $form->addFieldset("multistockpoint_form", array("legend"=>Mage::helper("multistockpoint")->__("Item information")));
 
 				
-						$fieldset->addField("id", "text", array(
-						"label" => Mage::helper("multistockpoint")->__("id"),					
-						"class" => "required-entry",
-						"required" => true,
-						"name" => "id",
-						));
+						
 					
 						$fieldset->addField("typename", "text", array(
 						"label" => Mage::helper("multistockpoint")->__("type name"),					
@@ -23,11 +18,11 @@ class Mamoku_Multistockpoint_Block_Adminhtml_Pricetype_Edit_Tab_Form extends Mag
 						"name" => "typename",
 						));
 					
-						$fieldset->addField("minty", "text", array(
+						$fieldset->addField("minqty", "text", array(
 						"label" => Mage::helper("multistockpoint")->__("minqty"),					
 						"class" => "required-entry",
 						"required" => true,
-						"name" => "minty",
+						"name" => "minqty",
 						));
 					
 

@@ -74,13 +74,65 @@ if(typeof address != "undefined" && selectAddress!='done'){
 			window.location=magentourl+'?=clearcart=1'
 		}
 	}
+if(window.location.href.indexOf('checkout/onepage')>0){	
 
+	foo('<p>'+foo('#billing-address-select option:selected').text()+'</p>').insertAfter(foo('#billing-address-select').parents('.wide'))
+	foo('#billing-address-select').parents('.wide').remove();
+	foo('#co-billing-form .required').remove();
+	foo('input[id*=use_for_shipping_no]').parents('li.control').remove()
+	foo('#checkout-step-billing').show();
+	var tpl='<div class="field"><label for="#key" class="required"><em>*</em>#label</label><div class="input-box"><input type="text" name="#key" value="#val" title="#label" class="input-text  required-entry" id="#key"></div></div>';
+	var fld=['billing[propinsi]','billing[kota]','billing[kecamatan]','billing[kelurahan]']
+	var val=['','','','']
+	var city=foo('#billing-new-address-form input[id*=city]').val()
+	if(city.split(',').length>=2){
+		var addr=city.split(',');
+		val[0]=foo('#billing-new-address-form input[id*=region]').val()
+		val[1]=addr[2]
+		val[2]=addr[1]
+		val[3]=addr[0]
+	}
+	var html='';
+	for(var i=0;i<fld.length;i++){
+		html=html+tpl.replaceAll('#key',fld[i]).replaceAll('#label',fld[i]).replaceAll('#val',val[i])
+	}
+	foo(html).appendTo(foo('#billing-new-address-form'))
+
+	
+}else
 if(window.location.href.indexOf('catalog_product/new/key')>0){	
+
 	foo('#product_info_tabs_my_custom_tab').parents('li').hide()
 }else
 if(window.location.href.indexOf('customer/account/login')>0){
 	localStorage.setItem('setaddress','')
 	localStorage.setItem('shipping','')
+}else
+if(window.location.href.indexOf('customer/address/new')>0 || window.location.href.indexOf('customer/address/edit')>0){	
+	foo('#region,#city').parents('.field').hide();
+	var tpl='<div class="field"><label for="#key" class="required"><em>*</em>#label</label><div class="input-box"><input type="text" name="#key" value="#val" title="#label" class="input-text  required-entry" id="#key"></div></div>';
+	var fld=['propinsi','kota','kecamatan','kelurahan']
+	var val=['','','','']
+	var city=foo('#city').val()
+	if(city.split(',').length>=2){
+		var addr=city.split(',');
+		val[0]=foo('#region').val()
+		val[1]=addr[2]
+		val[2]=addr[1]
+		val[3]=addr[0]
+	}
+	var html='';
+	for(var i=0;i<fld.length;i++){
+		html=html+tpl.replaceAll('#key',fld[i]).replaceAll('#label',fld[i]).replaceAll('#val',val[i])
+	}
+	foo(html).insertAfter(foo('#country').parents('.field'))
+	foo('#kota,#kelurahan,#kecamatan').change(function(){
+		foo('#city').val(foo('#kelurahan').val()+','+foo('#kecamatan').val()+','+foo('#kota').val())
+		
+	})
+	foo('#propinsi').change(function(){
+		foo('#region').val(foo('#propinsi').val())
+	})
 }else
 if(window.location.href.indexOf('catalog_product')>0){	
 	// foo('#product_info_tabs a[title=Prices]').hide()

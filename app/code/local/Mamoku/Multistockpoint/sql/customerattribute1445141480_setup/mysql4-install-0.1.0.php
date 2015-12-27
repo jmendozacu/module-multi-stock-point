@@ -1098,4 +1098,148 @@ $installer->addAttribute('catalog_product', 'last_synchronize_time', array(
   'unique'            => false
 ));
 
+
+$installer->addAttribute("customer_address", "propinsi",  array(
+    "type"     => "varchar",
+    "backend"  => "",
+    "label"    => "propinsi",
+    "input"    => "text",
+    "source"   => "",
+    "visible"  => true,
+    "required" => true,
+    "default" => "",
+    "frontend" => "",
+    "unique"     => false,
+    "note"       => ""
+
+    ));
+
+        $attribute   = Mage::getSingleton("eav/config")->getAttribute("customer_address", "propinsi");
+
+        
+$used_in_forms=array();
+
+$used_in_forms[]="adminhtml_customer_address";
+$used_in_forms[]="customer_register_address";
+$used_in_forms[]="customer_address_edit";
+        $attribute->setData("used_in_forms", $used_in_forms)
+        ->setData("is_used_for_customer_segment", true)
+        ->setData("is_system", 0)
+        ->setData("is_user_defined", 1)
+        ->setData("is_visible", 1)
+        ->setData("sort_order", 100)
+        ;
+        $attribute->save();
+    
+    
+    
+
+$installer->addAttribute("customer_address", "kota",  array(
+    "type"     => "varchar",
+    "backend"  => "",
+    "label"    => "kota",
+    "input"    => "text",
+    "source"   => "",
+    "visible"  => true,
+    "required" => true,
+    "default" => "",
+    "frontend" => "",
+    "unique"     => false,
+    "note"       => ""
+
+    ));
+
+        $attribute   = Mage::getSingleton("eav/config")->getAttribute("customer_address", "kota");
+
+        
+$used_in_forms=array();
+
+$used_in_forms[]="adminhtml_customer_address";
+$used_in_forms[]="customer_register_address";
+$used_in_forms[]="customer_address_edit";
+        $attribute->setData("used_in_forms", $used_in_forms)
+        ->setData("is_used_for_customer_segment", true)
+        ->setData("is_system", 0)
+        ->setData("is_user_defined", 1)
+        ->setData("is_visible", 1)
+        ->setData("sort_order", 100)
+        ;
+        $attribute->save();
+    
+    
+    
+
+$installer->addAttribute("customer_address", "kecamatan",  array(
+    "type"     => "varchar",
+    "backend"  => "",
+    "label"    => "kecamatan",
+    "input"    => "text",
+    "source"   => "",
+    "visible"  => true,
+    "required" => false,
+    "default" => "",
+    "frontend" => "",
+    "unique"     => false,
+    "note"       => ""
+
+    ));
+
+        $attribute   = Mage::getSingleton("eav/config")->getAttribute("customer_address", "kecamatan");
+
+        
+$used_in_forms=array();
+
+$used_in_forms[]="adminhtml_customer_address";
+$used_in_forms[]="customer_register_address";
+$used_in_forms[]="customer_address_edit";
+        $attribute->setData("used_in_forms", $used_in_forms)
+        ->setData("is_used_for_customer_segment", true)
+        ->setData("is_system", 0)
+        ->setData("is_user_defined", 1)
+        ->setData("is_visible", 1)
+        ->setData("sort_order", 100)
+        ;
+        $attribute->save();
+    
+    
+    
+
+$installer->addAttribute("customer_address", "kelurahan",  array(
+    "type"     => "varchar",
+    "backend"  => "",
+    "label"    => "kelurahan",
+    "input"    => "text",
+    "source"   => "",
+    "visible"  => true,
+    "required" => false,
+    "default" => "",
+    "frontend" => "",
+    "unique"     => false,
+    "note"       => ""
+
+    ));
+
+        $attribute   = Mage::getSingleton("eav/config")->getAttribute("customer_address", "kelurahan");
+
+///Users/lukluksantoso/Documents/module-multi-stock-point/app/code/local/Mamoku/Multistockpoint/sql/customerattribute1445141480_setup/mysql4-install-0.1.0.php
+        
+$used_in_forms=array();
+
+$used_in_forms[]="adminhtml_customer_address";
+$used_in_forms[]="customer_register_address";
+$used_in_forms[]="customer_address_edit";
+        $attribute->setData("used_in_forms", $used_in_forms)
+        ->setData("is_used_for_customer_segment", true)
+        ->setData("is_system", 0)
+        ->setData("is_user_defined", 1)
+        ->setData("is_visible", 1)
+        ->setData("sort_order", 100)
+        ;
+        $attribute->save();
+    
+    
+    
+    
+
+     
 $installer->endSetup();

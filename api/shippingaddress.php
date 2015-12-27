@@ -21,7 +21,7 @@ function post($param,$post){
 		}
 	}
 
-	$customerObj->save()
+	$customerObj->save();
 	
 
 }
@@ -31,12 +31,12 @@ function delete($param){
 	
 	foreach ($customerObj->getAddresses() as $address) {
 		if($address->getId()==intval($param->addressid)) {			
-			$address->delete()
+			$address->delete();
 		}
 	}
 	
 
-	$customerObj->save()
+	$customerObj->save();
 	
 
 }

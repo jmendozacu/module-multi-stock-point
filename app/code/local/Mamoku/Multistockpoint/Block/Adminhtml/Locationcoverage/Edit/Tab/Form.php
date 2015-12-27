@@ -44,13 +44,7 @@ class Mamoku_Multistockpoint_Block_Adminhtml_Locationcoverage_Edit_Tab_Form exte
 						"name" => "kelurahan",
 						));
 					
-						$fieldset->addField("id", "text", array(
-						"label" => Mage::helper("multistockpoint")->__("id"),					
-						"class" => "required-entry",
-						"required" => true,
-						"name" => "id",
-						));
-					
+						
 
 				if (Mage::getSingleton("adminhtml/session")->getLocationcoverageData())
 				{

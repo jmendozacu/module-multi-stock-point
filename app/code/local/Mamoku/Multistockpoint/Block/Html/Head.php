@@ -233,12 +233,12 @@ class Mamoku_Multistockpoint_Block_Html_Head extends Mage_Core_Block_Template
 
         if(Mage::getSingleton('customer/session')->isLoggedIn()){
             if($_GET['clearcart']==1){
-                $cart = Mage::getSingleton('checkout/cart'); 
+                $cart = Mage::getSingleton('checkout/cart');
                 $quoteItems = Mage::getSingleton('checkout/session')
                       ->getQuote()
                       ->getItemsCollection();
                 foreach( $quoteItems as $item ){
-                    $cart->removeItem( $item->getId() );    
+                    $cart->removeItem( $item->getId() );
                 }
                 $cart->save();
             }
@@ -248,15 +248,15 @@ class Mamoku_Multistockpoint_Block_Html_Head extends Mage_Core_Block_Template
                 $data[]=$address->getData();
             }
             $json=json_encode($data,true);
-            $json=str_replace('\n', " ", $json);  
+            $json=str_replace('\n', " ", $json);
             if($customerObj->getDefaultShipping()){
                 $shippingid=$customerObj->getDefaultShipping();
             }
-                        
-            $html.="<script>var shippingid='".$shippingid."';var magentourl='".Mage::helper('core/url')->getHomeUrl()."';var address=JSON.parse('".$json."');var custid='".Mage::getSingleton('customer/session')->getCustomer()->getId()."';</script>";
+
+            $html.="<script>var shippingid='".$shippingid."';var magentourl='".str_replace('index.php/','',Mage::helper('core/url')->getHomeUrl())."';var address=JSON.parse('".$json."');var custid='".Mage::getSingleton('customer/session')->getCustomer()->getId()."';</script>";
         }
-        
-        
+
+
         return $html;
     }
 

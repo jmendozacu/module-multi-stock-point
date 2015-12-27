@@ -32,9 +32,9 @@ class Mamoku_Multistockpoint_Block_Adminhtml_Pricetype_Grid extends Mage_Adminht
 				"header" => Mage::helper("multistockpoint")->__("type name"),
 				"index" => "typename",
 				));
-				$this->addColumn("minty", array(
+				$this->addColumn("minqty", array(
 				"header" => Mage::helper("multistockpoint")->__("minqty"),
-				"index" => "minty",
+				"index" => "minqty",
 				));
 			$this->addExportType('*/*/exportCsv', Mage::helper('sales')->__('CSV')); 
 			$this->addExportType('*/*/exportExcel', Mage::helper('sales')->__('Excel'));

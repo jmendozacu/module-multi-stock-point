@@ -42,16 +42,36 @@ DROP TABLE IF EXISTS `villages`;
 -- Dump completed on 2015-08-17 23:25:03
 
 
-DROP TABLE IF EXISTS kelurahan,kecamatan,stockpoint;
 
-DROP TABLE IF EXISTS `locationcoverage`;
+CREATE TABLE IF NOT EXISTS `pricetype` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `typename` varchar(200) DEFAULT NULL,
+  `minqty` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `locationcoverage` (
-  `propinsi` varchar(20) NOT NULL,
+
+
+
+CREATE TABLE IF NOT EXISTS `locationcoverage` (
+  `propinsi` varchar(200) NOT NULL,
   `kota` varchar(200) NOT NULL,
-  `kecamatan` varchar(20) NOT NULL,
-  `kelurahan` varchar(20) NOT NULL,
-  `stockpoint_code` varchar(20) DEFAULT NULL,
+  `kecamatan` varchar(200) NOT NULL,
+  `kelurahan` varchar(200) NOT NULL,
+  `stockpoint_code` varchar(200) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `outlet`;
+CREATE TABLE IF NOT EXISTS `outlet` (
+  `name` varchar(200) NOT NULL,
+  `alamat` varchar(200) NOT NULL,
+  `propinsi` varchar(200) NOT NULL,
+  `kota` varchar(200) NOT NULL,
+  `kecamatan` varchar(200) NOT NULL,
+  `kelurahan` varchar(200) NOT NULL,
+  `code` varchar(200) DEFAULT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -60,7 +80,7 @@ CREATE TABLE `locationcoverage` (
 
 CREATE TABLE IF NOT EXISTS `stockpoint` (
  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
- `code` varchar(20) NOT NULL,
+ `code` varchar(200) NOT NULL,
  `name` varchar(50) NOT NULL,
  `address` text NOT NULL,
  `email` varchar(50) NOT NULL,

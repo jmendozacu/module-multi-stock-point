@@ -13,6 +13,7 @@ if(count($i)>0){
 $stockpoints=mage::getModel('multistockpoint/stockpoint')->getCollection();
 $spoints=[];
 foreach ($stockpoints as $stockpoint){
+
             //write the collection array as a CSV.
             $spoint = (object)$stockpoint->toArray();
             $spoints[]=$spoint;
@@ -40,9 +41,18 @@ foreach ($stockpoints as $stockpoint){
 
                                             <th><span class="nobr"><a href="#" name="code" title="asc" class="not-sort"><span class="sort-title">code stockpoint</span></a></span></th>
                                             <th><span class="nobr"><a href="#" name="name" title="asc" class="not-sort"><span class="sort-title">name stockpoint</span></a></span></th>
-                                            <th><span class="nobr"><a href="#" name="pricestock" title="asc" class="not-sort"><span class="sort-title">price</span></a></span></th>
-                                            <th><span class="nobr"><a href="#" name="pricewholesalestock" title="asc" class="not-sort"><span class="sort-title">wholesale price</span></a></span></th>
-                                            <th><span class="nobr"><a href="#" name="priceretailstock" title="asc" class="not-sort"><span class="sort-title">retail price</span></a></span></th>                                            
+                                            <?php
+                                                $pricetype=Mage::getModel("multistockpoint/pricetype")->getCollection();
+                                                foreach ($pricetype as $price) {
+
+                                            ?>
+                                                    
+                                            <th><span class="nobr"><a href="#" name="<?php echo $price->getTypename(); ?>" title="asc" class="not-sort"><span class="sort-title"><?php echo $price->getTypename(); ?></span></a></span></th>
+                                            
+                                            <?php
+                                                 }
+                                            ?>
+                                  
                                             <th><span class="nobr"><a href="#" name="qtystock" title="asc" class="not-sort"><span class="sort-title">qty</span></a></span></th>
                                         </tr>
 
@@ -62,14 +72,15 @@ foreach ($stockpoints as $stockpoint){
                                                         <td class=" ">
                         {{name}}                    </td>
 
-
+                        <?php
+                        foreach ($pricetype as $price) {
+                        ?>
                                                         <td class=" ">
-                        <input class="stockprice" type="number" style="width:100%" stockid="{{id}}"/>                    </td>
-                        <td class=" ">
-                        <input class="stockpricewholesale" type="number" style="width:100%" stockid="{{id}}"/>                    </td>
-
-                        <td class=" ">
-                        <input class="stockpriceretail" type="number" style="width:100%" stockid="{{id}}"/>                    </td>
+                        <input class="stockprice <?php echo $price->getTypename(); ?>" type="number" style="width:100%" stockid="{{id}}"/>                    </td>
+                        
+                        <?php } ?>
+                        
+                        
                                                         <td class=" ">
                         <input class="stockqty" type="number" style="width:100%" stockid="{{id}}"/>                    </td>
 
@@ -93,8 +104,12 @@ var html    = template({
 	stockpoints:stockpoints
 });
 
-var data='<?php echo Mage::getSingleton("adminhtml/session")->getProductPriceqty(); ?>'
-data=data.replace("'","")
+var data="<?php echo Mage::getSingleton("adminhtml/session")->getProductPriceqty(); ?>"
+data=data.replaceAll('"',"")
+data=data.replaceAll("'",'"')
+if(data=='{'){
+    data='{}'
+}
 if (data!='' &&  /^[\],:{}\s]*$/.test(data.replace(/\\["\\\/bfnrtu]/g, '@').
 replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
 replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
@@ -107,49 +122,47 @@ var obj={}
 
 }
 var newobj={}
-newobj.price={}
-newobj.pricewholesale={}
-newobj.priceretail={}
+<?php
+foreach ($pricetype as $price) {
+echo "newobj.".$price->getTypename().'={};';
+}
+?>
 newobj.qty={}
-newobj=obj
+var c={}
+for(var i in obj){
+    if(JSON.stringify(obj[i])!='{}')
+        c[i]=obj[i]
+}
+for(var i in newobj){    
+        c[i]=newobj[i]
+}
+newobj=c;
 foo('#gridpriceqty').html(html)
-if(obj.price){
-	for(var itemstock in obj.price){
-		foo('input[stockid='+itemstock+'].stockprice').val(obj.price[itemstock])
+<?php
+foreach ($pricetype as $price) {
+?>
+if(obj.<?php echo $price->getTypename(); ?>){
+	for(var itemstock in obj.<?php echo $price->getTypename(); ?>){
+		foo('input[stockid='+itemstock+'].<?php echo  $price->getTypename(); ?>').val(obj.<?php echo $price->getTypename(); ?>[itemstock])
 	}
 }
-if(obj.pricewholesale){
-    for(var itemstock in obj.pricewholesale){
-        foo('input[stockid='+itemstock+'].stockpricewholesale').val(obj.pricewholesale[itemstock])
-    }
-}
-if(obj.priceretail){
-    for(var itemstock in obj.priceretail){
-        foo('input[stockid='+itemstock+'].stockpriceretail').val(obj.priceretail[itemstock])
-    }
-}
+<?php } ?>
 if(obj.qty){
 	for(var itemstock in obj.qty){
 		foo('input[stockid='+itemstock+'].stockqty').val(obj.qty[itemstock])
 	}
 }
-
-foo('.stockprice').blur(function(){
-	newobj.price[foo(this).attr('stockid')]=foo(this).val()
-	foo('#priceqty').val(JSON.stringify(newobj))
+<?php
+foreach ($pricetype as $price) {
+?>
+foo('.<?php echo $price->getTypename(); ?>').blur(function(){
+	newobj.<?php echo $price->getTypename(); ?>[foo(this).attr('stockid')]=foo(this).val()
+	foo('#priceqty').val(JSON.stringify(newobj).replaceAll('"',"'"))
 })
-foo('.stockpricewholesale').blur(function(){    
-    newobj.pricewholesale[foo(this).attr('stockid')]=foo(this).val()
-    foo('#priceqty').val(JSON.stringify(newobj))
-})
-foo('.stockpriceretail').blur(function(){    
-    newobj.priceretail[foo(this).attr('stockid')]=foo(this).val()
-    foo('#priceqty').val(JSON.stringify(newobj))
-})
-
+<?php } ?>
 foo('.stockqty').blur(function(){
 	newobj.qty[foo(this).attr('stockid')]=foo(this).val()
-	foo('#priceqty').val(JSON.stringify(newobj))
+	foo('#priceqty').val(JSON.stringify(newobj).replaceAll('"',"'"))
 })
 
 </script>
