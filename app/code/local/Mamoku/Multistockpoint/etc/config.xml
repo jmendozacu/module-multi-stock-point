@@ -64,6 +64,7 @@
       <multistockpoint>
         <class>Mamoku_Multistockpoint_Helper</class>
       </multistockpoint>
+      
     </helpers>
 	<blocks>
 		
@@ -92,11 +93,16 @@
 		<class>Mamoku_Multistockpoint_Model</class>
 		<resourceModel>multistockpoint_mysql4</resourceModel>
 	  </multistockpoint>
-
+<catalog>
+	<rewrite>
+                    <product>Mamoku_Multistockpoint_Model_Catalog_Product</product>
+     </rewrite>
+</catalog>
 <customer>
                 <rewrite>
                     <customer>Mamoku_Multistockpoint_Model_Customer</customer>
                 </rewrite>
+
             </customer>
             <order>
             	<rewrite>

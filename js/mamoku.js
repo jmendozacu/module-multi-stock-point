@@ -49,7 +49,14 @@ function getCookie(name) {
 
 
 foo(document).ready(function(){
-
+if((foo('.price').text()+'').replace(/\D/g,'').indexOf('56789')>-1){
+	foo('<span style="color:#f00">Your Shipping Address Outside Coverage Location</span>').insertAfter('.price');
+	foo('.btn-cart').remove();
+	foo('.price').html('-')
+}
+if((foo('.price').text()+'').replace(/\D/g,'').indexOf('12345')>-1){
+	foo('.price').html('-')
+}
 var selectAddress=localStorage.getItem('setaddress')
 if(typeof address != "undefined" && selectAddress!='done'){
 		 var template = Handlebars.compile(box);
