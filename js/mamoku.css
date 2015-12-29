@@ -1,3 +1,32 @@
+input[id*=bank_transfer_account]{
+  display: none !important;
+}
+.modal-dialog{
+  z-index: 1000 !important;
+}
+.selectaddr{
+  width: 100px !important;
+}
+.border{
+  position: relative;
+  text-align: left;
+      border: 1px solid #333;
+    padding: 10px;
+    background: #eee;
+    min-height: 220px;
+}
+.border td {
+    padding: 2px;
+}
+.selectaddr.button {
+    background: #F30101;
+    color: #fff;
+    padding: 10px;
+        position: absolute;
+    bottom: 30px;
+    left: 50%;
+    margin-left: -50px;
+}
 #checkout-step-billing{
   display: none;
 }

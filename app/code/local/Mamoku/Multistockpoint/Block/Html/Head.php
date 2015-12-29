@@ -32,7 +32,7 @@
  * @package    Mage_Page
  * @author     Magento Core Team <core@magentocommerce.com>
  */
-class Mamoku_Multistockpoint_Block_Html_Head extends Mage_Core_Block_Template
+class Mamoku_Multistockpoint_Block_Html_Head extends Mage_Page_Block_Html_Head
 {
 
     /**s
@@ -41,6 +41,7 @@ class Mamoku_Multistockpoint_Block_Html_Head extends Mage_Core_Block_Template
      */
     protected function _construct()
     {
+
         $this->setTemplate('page/html/head.phtml');
         $this->addItem('js_css','mamoku.css');
         $this->addItem('js','mamoku.js');
@@ -244,15 +245,26 @@ class Mamoku_Multistockpoint_Block_Html_Head extends Mage_Core_Block_Template
             }
             $customerObj=Mage::getSingleton('customer/session')->getCustomer();
             $data=[];
+            $models = mage::getModel('multistockpoint/locationcoverage')->getCollection();
             foreach ($customerObj->getAddresses() as $address) {
-                $data[]=$address->getData();
+                $ad=$address->getData();
+                foreach($models as $item){
+                    if($address->getCity()==$item->getKota() && 
+                        $address->getKecamatan()==$item->getKecamatan() && 
+                        $address->getKelurahan()==$item->getKelurahan() ){
+                        $ad['stockpointcode']=$item->getData()['stockpoint_code'];
+                    }
+                }
+                $data[]=$ad;
             }
             $json=json_encode($data,true);
             $json=str_replace('\n', " ", $json);
             if($customerObj->getDefaultShipping()){
                 $shippingid=$customerObj->getDefaultShipping();
             }
+           
 
+            
             $html.="<script>var shippingid='".$shippingid."';var magentourl='".str_replace('index.php/','',Mage::helper('core/url')->getHomeUrl())."';var address=JSON.parse('".$json."');var custid='".Mage::getSingleton('customer/session')->getCustomer()->getId()."';</script>";
         }
 

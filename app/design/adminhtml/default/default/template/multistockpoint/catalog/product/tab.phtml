@@ -97,6 +97,8 @@ foreach ($stockpoints as $stockpoint){
 </div>
 </script>
 <script>
+foo('a[title=Prices]').parents('li').remove()
+//foo('a[title=Prices]').parents('li').remove()
 var stockpoints=JSON.parse('<?php echo json_encode($spoints); ?>');
 var source   = foo("#entry-template").html();
 var template = Handlebars.compile(source);

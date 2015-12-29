@@ -6,6 +6,7 @@
       <codePool>local</codePool>            
 	        <depends>
                 <Mage_Api />
+                <Smartwave_Porto/>
             </depends>
       <version>0.1.0</version>
     </Mamoku_Multistockpoint>

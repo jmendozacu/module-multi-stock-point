@@ -183,7 +183,7 @@ class Mamoku_Multistockpoint_Model_Customer extends Mage_Core_Model_Abstract
 
     	}
         if ($this->getConfirmation() && $this->isConfirmationRequired()) {
-            throw Mage::exception('Mage_Core', Mage::helper('customer')->__('This account is not confirmed.'),
+            throw Mage::exception('Mage_Core', Mage::helper('customer')->__('Maaf saat ini akun anda blm terverifikasi, silahkan hubungi layanan pelanggan untuk informasi lebih lanjut.'),
                 self::EXCEPTION_EMAIL_NOT_CONFIRMED
             );
         }

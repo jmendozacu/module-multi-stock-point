@@ -160,7 +160,7 @@ class Mamoku_Multistockpoint_AccountController extends Mage_Core_Controller_Fron
                     switch ($e->getCode()) {
                         case Mage_Customer_Model_Customer::EXCEPTION_EMAIL_NOT_CONFIRMED:
                             $value = $this->_getHelper('customer')->getEmailConfirmationUrl($login['username']);
-                            $message = $this->_getHelper('customer')->__('This account is not confirmed. ', $value);
+                            $message = $this->_getHelper('customer')->__('Maaf saat ini akun anda blm terverifikasi, silahkan hubungi layanan pelanggan untuk informasi lebih lanjut. ', $value);
                             break;
                         case Mage_Customer_Model_Customer::EXCEPTION_INVALID_EMAIL_OR_PASSWORD:
                             $message = $e->getMessage();
@@ -335,8 +335,13 @@ class Mamoku_Multistockpoint_AccountController extends Mage_Core_Controller_Fron
                 $store->getId()
             );
             $customerHelper = $this->_getHelper('customer');
-            $session->addSuccess($this->__('Account confirmation is required. Please, check your email for the confirmation link.',
+            $session->addSuccess($this->__('Terima kasih sudah mendaftar di IDmarco.com. Selanjutnya anda akan dihubungi oleh admin kami untuk proses verifikasi.',
                 $customerHelper->getEmailConfirmationUrl($customer->getEmail())));
+             $customer->sendNewAccountEmail(
+            'registered',
+            '',
+            Mage::app()->getStore()->getId()
+        );
             $url = $this->_getUrl('*/*/index', array('_secure' => true));
         } else {
             $session->setCustomerAsLoggedIn($customer);

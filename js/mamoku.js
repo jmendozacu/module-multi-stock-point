@@ -39,7 +39,7 @@ String.prototype.replaceAll = function (find, replace) {
     return str.replace(new RegExp(find, 'g'), replace);
 };
 
-var box='<div class="modal" id="modal-one" aria-hidden="true"> <div class="modal-dialog"> <div class="modal-header"> <h2>Select Default Shipping Address</h2> <a href="#close" class="close btn-close" aria-hidden="true">×</a> <!--CHANGED TO "#close"--> </div> <div class="modal-body"> <p> {{#each address}} <div class="border"> <table style="border:0"> <tr> <td style="width:50%">First Name</td> <td style="width:50%">{{firstname}}</td> </tr> <tr> <td style="width:50%">Mid Name</td> <td style="width:50%">{{middlename}}</td> </tr> <tr> <td style="width:50%">Last Name</td> <td style="width:50%">{{lastname}}</td> </tr> <tr> <td style="width:50%">Company</td> <td style="width:50%">{{company}}</td> </tr> <tr> <td style="width:50%">City</td> <td style="width:50%">{{city}}</td> </tr> <tr> <td style="width:50%">Company</td> <td style="width:50%">{{company}}</td> </tr> <tr> <td style="width:50%">Region</td> <td style="width:50%">{{region}}</td> </tr> <tr> <td style="width:50%">Postcode</td> <td style="width:50%">{{postcode}}</td> </tr> <tr> <td style="width:50%">Telephone</td> <td style="width:50%">{{telephone}}</td> </tr> <tr> <td style="width:50%">Fax</td> <td style="width:50%">{{fax}}</td> </tr> <tr> <td style="width:50%">Region ID</td> <td style="width:50%">{{region_id}}</td> </tr> <tr> <td style="width:50%">Street</td> <td style="width:50%">{{street}}</td> </tr> </table><br/> <button class="selectaddr button" data-val="{{entity_id}}">Set as default</button></div> {{/each}} </p> </div> </div> </div> </div> <!-- /Modal --> ';
+var box='<div class="modal" id="modal-one" aria-hidden="true"> <div class="modal-dialog"> <div class="modal-header"> <h2>Pilih Alamat Pengiriman</h2> <a href="#close" class="close btn-close" aria-hidden="true">×</a> <!--CHANGED TO "#close"--> </div> <div class="modal-body"> <p> {{#each address}} <div class="border addr{{entity_id}}"> {{firstname}} {{middlename}} {{lastname}}<br/>{{#if telephone}}{{telephone}}<br/>{{/if}}{{#if fax}}{{fax}}<br/>{{/if}}<br/>{{street}}<br/>{{kelurahan}}, {{kecamatan}} <br/>{{city}}, {{region}}, {{postcode}}<br/>{{stockpointcode}}<br/><br/><center> <button class="selectaddr button" data-val="{{entity_id}}">Pilih</button></center></div> {{/each}} </p> </div> </div> </div> </div> <!-- /Modal --> ';
 function getCookie(name) {
   var value = "; " + document.cookie;
   var parts = value.split("; " + name + "=");
@@ -56,6 +56,10 @@ if((foo('.price').text()+'').replace(/\D/g,'').indexOf('56789')>-1){
 }
 if((foo('.price').text()+'').replace(/\D/g,'').indexOf('12345')>-1){
 	foo('.price').html('-')
+	foo('.availability').html('<span style="color:#f00">Availability: tidak tersedia</span>')
+	foo('.add-to-cart #qty').attr('disabled','disabled')
+	foo('.add-to-cart .btn-cart').attr('disabled','disabled')
+	foo('.add-to-cart .btn-cart').addClass('disabled')
 }
 var selectAddress=localStorage.getItem('setaddress')
 if(typeof address != "undefined" && selectAddress!='done'){
@@ -63,6 +67,7 @@ if(typeof address != "undefined" && selectAddress!='done'){
 		 var html=template({address:address});
 		 localStorage.setItem('setaddress','done')
 		 foo('body').append(html)
+		 foo('.addr'+shippingid).append('<center><span style="color:#f00">Default Address</span><center>');
 		 foo('.close').bind('click',function(){
 		 	foo('#modal-one').remove();
 		 })
