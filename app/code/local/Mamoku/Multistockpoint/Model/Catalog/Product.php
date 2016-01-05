@@ -2,7 +2,7 @@
 
 class Mamoku_Multistockpoint_Model_Catalog_Product extends Mage_Catalog_Model_Product
 {
-   
+
 
     /**
      * Get product price throught type instance
@@ -24,6 +24,9 @@ class Mamoku_Multistockpoint_Model_Catalog_Product extends Mage_Catalog_Model_Pr
                     break;
                 }
             }
+            if(!isset($prname)){
+              return 12345;
+            }
             //echo "FUUU".$prname;exit();
 
             $customerAddressId = Mage::getSingleton('customer/session')->getCustomer()->getDefaultShipping();
@@ -41,23 +44,23 @@ class Mamoku_Multistockpoint_Model_Catalog_Product extends Mage_Catalog_Model_Pr
             $location=Mage::getModel('multistockpoint/stockpoint')->getCollection();
             $id=0;
             foreach ($location as $l) {
-                # code...   
-                
+                # code...
+
                 if($l->getCode()==$code){
                     $id=$l->getData()['id'];
                 }
             }
-            
+
             $obj=json_decode(str_replace("'", '"', $product->getPrice_qty()),true);
-            
+
             if($code!=''){
-                
+
                 $new_price = $obj[$prname][$id];
                 //echo "SUUUUU".$new_price;exit();
-                
+
                 if(intval($new_price)>0){
                     return $new_price;
-                    
+
                 }
             }else{
                 return 12345;
@@ -67,5 +70,5 @@ class Mamoku_Multistockpoint_Model_Catalog_Product extends Mage_Catalog_Model_Pr
         }
     }
 
-    
+
 }
