@@ -1,6 +1,6 @@
 <?php
 function get($param){
-	
+
 	$models = mage::getModel('multistockpoint/locationcoverage')->getCollection();
 
 	foreach($models as $item){
@@ -10,10 +10,10 @@ function get($param){
 }
 
 
-function post($param,$post){			
-	_post('code','multistockpoint/locationcoverage',$post);
+function post($param,$post){
+	_post('id','multistockpoint/locationcoverage',$post);
 }
 
-function delete($param){			
-	_delete('code',$param,'multistockpoint/locationcoverage')	;
+function delete($param){
+	_delete('id',$param,'multistockpoint/locationcoverage')	;
 }

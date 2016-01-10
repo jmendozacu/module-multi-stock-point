@@ -14,16 +14,19 @@ function success($msg,$data){
 	$obj['success']=true;
 	$obj['message']=$msg;
 	$obj['data']=$data;
+	header('Content-Type: application/json');
 	echo json_encode((object)$obj);
 }
 
 function error($msg){
 	$obj['error']=true;
 	$obj['message']=$msg;
+	header('Content-Type: application/json');
 	echo json_encode((object)$obj);
+	exit();
 }
 function _get($model,$param){
-	$models = mage::getModel($model)->getCollection()->addAttributeToSelect('*');;	
+	$models = mage::getModel($model)->getCollection()->addAttributeToSelect('*');;
 	if($param->filter){
 		$filter=explode(',',$param->filter);
 	}
@@ -32,7 +35,7 @@ function _get($model,$param){
 		if($filter){
 			$match=true;
 			foreach ($filter as $fitem) {
-				# code...				
+				# code...
 				$kval=explode(':', $fitem);
 				if($idata[$kval[0]]!=$kval[1]){
 					$match=false;
@@ -40,7 +43,7 @@ function _get($model,$param){
 			}
 			if($match)
 			$result[]=$item->getData();
-		}else		
+		}else
 		$result[]=$item->getData();
 
 	}
@@ -50,39 +53,40 @@ function _post($ikey,$model,$post){
 	$data=json_decode($post->data,true);
 	foreach ($data as $cust) {
 		# code...
+		if($ikey!='id')
 		unset($cust['id']);
-		
 
-		$customers = mage::getModel($model)->getCollection();			
+
+		$customers = mage::getModel($model)->getCollection();
 		$customers->addFieldToFilter($ikey,$cust[$ikey]);
 
 		if(count($customers->getData())<=0){
-			$customer = mage::getModel($model);		
-			
+			$customer = mage::getModel($model);
+
 		}else{
-			
+
 			$customer=$customers->getFirstItem();
-		}				
+		}
 			foreach ($cust as $key => $value) {
 				# code...
-				$customer->setData($key,$value);		
+				$customer->setData($key,$value);
 			}
-			
+
 		try {
 				$customer->save();
-						
+
 			} catch (Exception $e){
-			 error($e->getMessage());   
-		}		
-			
-	}		
+			 error($e->getMessage());
+		}
+
+	}
 	success('success',count($data).' updated');
 }
 function _delete($key,$param,$model){
-	$customers = mage::getModel($model)->getCollection();	
+	$customers = mage::getModel($model)->getCollection();
 		$p=(array)$param;
 		$customers->addFieldToFilter($key,$p[$key]);
 		$customer=$customers->getFirstItem();
 	$customer->delete();
-	success('success',' deleted');	
+	success('success',' deleted');
 }
