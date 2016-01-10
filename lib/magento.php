@@ -29,7 +29,7 @@ function _get($model,$param){
 	$models = mage::getModel($model)->getCollection()->addAttributeToSelect('*');;
 	if($param->filter){
 		$filter=explode(',',$param->filter);
-	}
+	}	
 	foreach($models as $item){
 		$idata=$item->getData();
 		if($filter){
