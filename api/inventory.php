@@ -35,7 +35,11 @@ function post($param,$post){
 				$obj['qty'][$param->locationid]=$param->newqty;
 
 				$prod->setPrice_qty(json_encode($obj));
-				$prod->save();
+				try{
+					$prod->save();
+				} catch (Exception $e){
+				 error($e->getMessage());
+				}
 				success("success");
 			}
 	}
@@ -50,7 +54,11 @@ function delete($param){
 			if($key==$param->locationid){
 				$obj[$key]=0;
 				$prod->setPrice_qty(json_encode($obj));
-				$prod->save();
+				try{
+					$prod->save();
+				} catch (Exception $e){
+				 error($e->getMessage());
+				}
 				success("success",$value);
 			}
 	}

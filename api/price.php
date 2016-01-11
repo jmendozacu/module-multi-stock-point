@@ -46,7 +46,11 @@ function post($param,$post){
 					$found=true;
 					$obj[$param->pricetype][$param->locationid]=$param->newprice;
 					$prod->setPrice_qty(json_encode($obj));
-					$prod->save();
+					try{
+						$prod->save();
+					} catch (Exception $e){
+					 error($e->getMessage());
+					}
 					success("success");
 				}
 

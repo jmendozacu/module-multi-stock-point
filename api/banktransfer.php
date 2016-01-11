@@ -43,7 +43,11 @@ function post($param){
 		}
 
 		$pay->setData($data);
+		try{
 		$pay->save();
+		} catch (Exception $e){
+		 error($e->getMessage());
+		}
 		success('ok');
 	}
 	}

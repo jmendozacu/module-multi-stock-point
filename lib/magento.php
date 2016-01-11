@@ -29,7 +29,7 @@ function _get($model,$param){
 	$models = mage::getModel($model)->getCollection()->addAttributeToSelect('*');;
 	if($param->filter){
 		$filter=explode(',',$param->filter);
-	}	
+	}
 	foreach($models as $item){
 		$idata=$item->getData();
 		if($filter){
@@ -73,6 +73,23 @@ function _post($ikey,$model,$post){
 			}
 
 		try {
+				if($cust['imageurl']){
+					echo "wow";
+					$image_url  = $cust['imageurl'];
+					$image_url  = str_replace("https://", "http://", $image_url); // replace https tp http
+					$image_type = substr(strrchr($image_url,"."),1); //find the image extension
+					$filename   = md5($cust['sku']).'.'.$image_type; //give a new name, you can modify as per your requirement
+					$filepath   = Mage::getBaseDir('media') . DS . 'catalog'. DS .'product'. DS . $filename; //path for temp storage folder: ./media/import/
+
+					$query=file_get_contents($image_url);
+					file_put_contents($filepath, $query); //store the image from external url to the temp storage folder file_get_contents(trim($image_url))
+					$filepath_to_image = $filepath;
+
+					if (file_exists($filepath_to_image)) {
+					    $customer->addImageToMediaGallery($filepath_to_image, array('image', 'small_image', 'thumbnail'), false, false);
+					    $customer->save();
+					}
+				}else
 				$customer->save();
 
 			} catch (Exception $e){

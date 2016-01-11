@@ -1,5 +1,5 @@
 <?php
-function post($param,$post){			
+function post($param,$post){
 
 	$customerObj=Mage::getModel('customer/customer')->load( $param->custid );
 
@@ -7,14 +7,16 @@ function post($param,$post){
 			if($address->getId()==intval($param->addressid)) {
 				$address->setIsDefaultBilling(true);
 				$address->setIsDefaultShipping(true);
-				$address->save();
-				$customerObj->save();
+
+					$address->save();
+					$customerObj->save();
+				
 				success('success2',$param);
 				break;
 
 			}
 	}
-	
+
 
 }
 

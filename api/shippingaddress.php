@@ -32,12 +32,20 @@ function post($param,$post){
 		foreach ($customerObj->getAddresses() as $address) {
 			if($address->getId()==intval($addr['entity_id'])) {
 				$address->setData($addr);
-				$address->save();
+				try{
+					$address->save();
+				} catch (Exception $e){
+				 error($e->getMessage());
+				}
 			}
 		}
 	}
 
-	$customerObj->save();
+	try{
+		$customerObj->save();
+	} catch (Exception $e){
+	 error($e->getMessage());
+	}
 
 
 }
@@ -52,7 +60,12 @@ function delete($param){
 	}
 
 
-	$customerObj->save();
+	try{
+		$customerObj->save();
+	} catch (Exception $e){
+	 error($e->getMessage());
+	}
+
 
 
 }
