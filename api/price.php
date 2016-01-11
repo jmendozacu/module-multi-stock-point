@@ -45,7 +45,7 @@ function post($param,$post){
 				if($key==$param->locationid){
 					$found=true;
 					$obj[$param->pricetype][$param->locationid]=$param->newprice;
-					$prod->setPrice_qty(json_encode($obj));
+					$prod->setPrice_qty(str_replace('"',"'",json_encode($obj)));
 					try{
 						$prod->save();
 					} catch (Exception $e){
